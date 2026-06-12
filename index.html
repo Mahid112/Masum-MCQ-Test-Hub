@@ -155,6 +155,11 @@ body::before{content:'';position:fixed;inset:0;
 .next-btn{margin-top:24px;display:none;width:100%;padding:13px 28px;font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--navy);background:linear-gradient(135deg,var(--gold-light),var(--gold));border:none;border-radius:2px;cursor:pointer;transition:all 0.2s;}
 .next-btn:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,0.3);}
 .next-btn.show{display:block;animation:fadeUp 0.3s 0.1s ease both;}
+.prev-btn{margin-top:10px;display:none;width:100%;padding:11px 28px;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid rgba(201,168,76,0.4);border-radius:2px;cursor:pointer;transition:all 0.2s;}
+.prev-btn:hover{background:rgba(201,168,76,0.08);border-color:var(--gold);}
+.prev-btn.show{display:block;animation:fadeUp 0.3s ease both;}
+body.paper-theme .prev-btn{color:var(--gold);border-color:rgba(138,96,24,0.4);}
+body.paper-theme .prev-btn:hover{background:rgba(138,96,24,0.08);}
 
 /* ========== SCORE SCREEN ========== */
 #score-screen{display:none;max-width:600px;margin:0 auto;padding:60px 24px 80px;text-align:center;position:relative;z-index:1;}
@@ -285,6 +290,7 @@ body::before{content:'';position:fixed;inset:0;
       <div class="options-list" id="options-list"></div>
       <div class="feedback" id="feedback"></div>
       <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question &#8594;</button>
+      <button class="prev-btn" id="prev-btn" onclick="prevQuestion()">&#8592; Previous Question</button>
     </div>
   </div>
 </div>
@@ -331,6 +337,7 @@ body::before{content:'';position:fixed;inset:0;
         <div class="options-list" id="eng-options-list"></div>
         <div class="feedback" id="eng-feedback"></div>
         <button class="next-btn" id="eng-next-btn" onclick="engNextQuestion()">Next Question &#8594;</button>
+        <button class="prev-btn" id="eng-prev-btn" onclick="engPrevQuestion()">&#8592; Previous Question</button>
       </div>
     </div>
   </div>
@@ -529,6 +536,9 @@ function showQuestion() {
   nb.className = 'next-btn';
   nb.textContent = current < questions.length-1 ? 'Next Question →' : 'See Results';
 
+  const pb = document.getElementById('prev-btn');
+  pb.className = current > 0 ? 'prev-btn show' : 'prev-btn';
+
   const ol = document.getElementById('options-list');
   ol.innerHTML = '';
   q.options.forEach(opt => {
@@ -543,6 +553,13 @@ function showQuestion() {
   card.style.animation = 'none';
   void card.offsetWidth;
   card.style.animation = 'fadeUp 0.4s ease both';
+}
+
+function prevQuestion() {
+  if(current <= 0) return;
+  current--;
+  showQuestion();
+  window.scrollTo(0,0);
 }
 
 function escHtml(t) {
@@ -660,6 +677,9 @@ function engShowQuestion() {
   nb.className = 'next-btn';
   nb.textContent = engCurrent < total-1 ? 'Next Question →' : 'See Results';
 
+  const pb = document.getElementById('eng-prev-btn');
+  pb.className = engCurrent > 0 ? 'prev-btn show' : 'prev-btn';
+
   const ol = document.getElementById('eng-options-list');
   ol.innerHTML = '';
   q.options.forEach(opt => {
@@ -671,6 +691,13 @@ function engShowQuestion() {
   });
   const card = document.getElementById('eng-question-card');
   card.style.animation='none'; void card.offsetWidth; card.style.animation='fadeUp 0.4s ease both';
+}
+
+function engPrevQuestion() {
+  if(engCurrent <= 0) return;
+  engCurrent--;
+  engShowQuestion();
+  window.scrollTo(0,0);
 }
 
 function engSelectAnswer(selected, correct) {
@@ -752,20 +779,10 @@ async function checkSAQ(i) {
   // 🔄 Cloudflare Worker URL (API Key সুরক্ষিত)
   const url = 'https://gemini-proxy.masumbinzafar.workers.dev';
 
-  const prompt = `
-    You are an expert English language evaluator reviewing student practice answers.
-    Question: "${item.q}"
-    Ideal Model Answer: "${item.model}"
-    Student's Answer: "${userAns}"
-    
-    Task: Compare meaning and grammar. Be flexible since students can phrase things differently.
-    Respond ONLY with a valid JSON object matching this exact schema:
-    {
-      "verdict": "CORRECT" or "PARTIAL" or "WRONG",
-      "explanation": "A short 1-2 sentence constructive feedback in simple English explaining why they got this grade."
-    }
-    Do not include any markdown formatting like \`\`\`json or \`\`\`. Just raw JSON text.
-  `;
+  const prompt = `Q: "${item.q}"
+Model: "${item.model}"
+Student: "${userAns}"
+Grade the student's answer. Reply ONLY in raw JSON: {"verdict":"CORRECT"|"PARTIAL"|"WRONG","explanation":"1-2 sentences feedback"}`;
 
   try {
     const response = await fetch(url, {
