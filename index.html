@@ -30,13 +30,8 @@ body.paper-theme::before {
     repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(160,120,40,0.04) 60px,rgba(160,120,40,0.04) 61px) !important;
 }
 body.paper-theme .topbar { background:rgba(232,216,192,0.97) !important; border-bottom:1px solid rgba(138,96,24,0.2) !important; }
-body.paper-theme .eng-tabs { background:rgba(232,216,192,0.97) !important; }
 body.paper-theme .option-btn { background:rgba(0,0,0,0.03); border:1px solid rgba(0,0,0,0.10); color:var(--text); }
 body.paper-theme .option-btn:hover:not(:disabled) { background:rgba(138,96,24,0.08); border-color:rgba(138,96,24,0.4); }
-body.paper-theme .saq-input { background:rgba(255,255,255,0.6); border:1px solid rgba(0,0,0,0.15); color:var(--text); }
-body.paper-theme .saq-result.correct-fb { background:rgba(26,122,58,0.08); color:#1a5a28; }
-body.paper-theme .saq-result.wrong-fb { background:rgba(176,32,16,0.08); color:#8a1810; }
-body.paper-theme .saq-result.partial-fb { background:rgba(138,96,24,0.08); color:#6a4808; }
 body.paper-theme .feedback.correct-fb { background:rgba(26,122,58,0.08); color:#1a5a28; }
 body.paper-theme .feedback.wrong-fb { background:rgba(176,32,16,0.08); color:#8a1810; }
 body.paper-theme .option-btn.correct { background:rgba(26,122,58,0.12); border-color:#1a7a3a; color:#0d4a1e; }
@@ -46,7 +41,6 @@ body.paper-theme .option-btn.wrong .opt-key { color:#b02010; }
 body.paper-theme .option-btn.reveal-correct { background:rgba(26,122,58,0.07); border-color:rgba(26,122,58,0.4); color:#1a5a28; }
 body.paper-theme .back-btn { color:var(--gold); border-color:rgba(138,96,24,0.35); }
 body.paper-theme .back-btn:hover { background:rgba(138,96,24,0.10); }
-body.paper-theme .saq-check-btn { color:#fff; }
 body.paper-theme .next-btn { color:#fff; }
 
 /* ===== THEME TOGGLE BUTTON ===== */
@@ -100,9 +94,6 @@ body::before{content:'';position:fixed;inset:0;
   repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(201,168,76,0.025) 60px,rgba(201,168,76,0.025) 61px);
   pointer-events:none;z-index:0;}
 
-/* Centered & non-overlapping credit positioning */
-.credit{position:absolute;top:14px;left:50%;transform:translateX(-50%);font-family:'Candal',sans-serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:2px;text-transform:uppercase;z-index:10;opacity:0.85;white-space:nowrap;}
-
 /* ========== HOME SCREEN ========== */
 #home-screen{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:60px 24px 80px;}
 .header{text-align:center;margin-bottom:65px;animation:fadeDown 0.8s ease both;}
@@ -115,13 +106,13 @@ body::before{content:'';position:fixed;inset:0;
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.3s;}
 .card:hover{transform:translateY(-5px);border-color:rgba(201,168,76,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(201,168,76,0.08);}
 .card:hover::before{opacity:1;}
-.card-icon{font-size:1.8rem;margin-bottom:14px;display:block;}
 
-/* Subject Title Font Style updated to bold Google Sans as requested */
-.card-title{font-family:'Google Sans',sans-serif;font-size:1.05rem;font-weight:bold;color:var(--gold-light);letter-spacing:1px;margin-bottom:8px;line-height:1.4;}
-
-.card-desc{font-size:0.88rem;color:var(--text-dim);line-height:1.6;margin-bottom:18px;}
+.card-title{font-family:'Google Sans',sans-serif;font-size:1.05rem;font-weight:bold;color:var(--gold-light);letter-spacing:1px;margin-bottom:14px;line-height:1.4;}
+.card-footer-info{display:flex;justify-content:space-between;align-items:center;gap:10px;}
 .card-count{display:inline-flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;border:1px solid rgba(201,168,76,0.3);padding:4px 12px;border-radius:2px;}
+.card-reset-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:1px;color:var(--red);background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);padding:4px 10px;border-radius:2px;cursor:pointer;transition:all 0.2s;}
+.card-reset-btn:hover{background:rgba(231,76,60,0.2);border-color:var(--red);}
+
 .home-footer{text-align:center;margin-top:60px;font-size:0.8rem;color:var(--text-dim);opacity:0.55;font-style:italic;animation:fadeUp 1s 0.5s ease both;}
 
 /* ========== QUIZ SCREEN ========== */
@@ -130,16 +121,21 @@ body::before{content:'';position:fixed;inset:0;
 .back-btn{display:flex;align-items:center;gap:7px;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:none;border:1px solid rgba(201,168,76,0.3);padding:6px 14px;border-radius:2px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
 .back-btn:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);}
 .topbar-title{font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold-light);letter-spacing:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
-.progress-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.progress-wrap{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.progress-details{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--text-dim);display:flex;gap:8px;align-items:center;}
+.prog-c{color:var(--green);}
+.prog-w{color:var(--red);}
 .progress-text{font-family:'Cinzel',serif;font-size:0.72rem;color:var(--text-dim);letter-spacing:1px;white-space:nowrap;}
 .progress-bar{width:90px;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold-light));border-radius:2px;transition:width 0.4s ease;}
 
 .quiz-container{max-width:740px;margin:0 auto;padding:44px 24px 80px;}
 .question-card{background:linear-gradient(145deg,var(--navy-light),var(--navy-mid));border:1px solid rgba(201,168,76,0.15);border-radius:4px;padding:36px 36px 28px;animation:fadeUp 0.4s ease both;}
-.q-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.q-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;}
 .q-num{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;}
-.q-line{flex:1;height:1px;background:rgba(201,168,76,0.15);}
+.quiz-reset-inline{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:1px;color:var(--red);background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);padding:3px 8px;border-radius:2px;cursor:pointer;transition:all 0.2s;}
+.quiz-reset-inline:hover{background:rgba(231,76,60,0.2);}
+.q-line{width:100%;height:1px;background:rgba(201,168,76,0.15);margin-bottom:20px;}
 .q-text{font-size:1.15rem;font-weight:400;line-height:1.65;color:var(--text);margin-bottom:28px;}
 .options-list{display:flex;flex-direction:column;gap:10px;}
 .option-btn{display:flex;align-items:flex-start;gap:13px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:13px 16px;cursor:pointer;transition:all 0.2s;text-align:left;color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:1.03rem;line-height:1.5;width:100%;}
@@ -162,8 +158,6 @@ body::before{content:'';position:fixed;inset:0;
 .prev-btn{margin-top:10px;display:none;width:100%;padding:11px 28px;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid rgba(201,168,76,0.4);border-radius:2px;cursor:pointer;transition:all 0.2s;}
 .prev-btn:hover{background:rgba(201,168,76,0.08);border-color:var(--gold);}
 .prev-btn.show{display:block;animation:fadeUp 0.3s ease both;}
-body.paper-theme .prev-btn{color:var(--gold);border-color:rgba(138,96,24,0.4);}
-body.paper-theme .prev-btn:hover{background:rgba(138,96,24,0.08);}
 
 /* ========== SCORE SCREEN ========== */
 #score-screen{display:none;max-width:600px;margin:0 auto;padding:60px 24px 80px;text-align:center;position:relative;z-index:1;}
@@ -197,7 +191,6 @@ body.paper-theme .prev-btn:hover{background:rgba(138,96,24,0.08);}
 </style>
 </head>
 <body>
-<div class="credit">Masum Bin Zafar</div>
 
 <!-- THEME TOGGLE -->
 <div class="theme-toggle">
@@ -214,36 +207,55 @@ body.paper-theme .prev-btn:hover{background:rgba(138,96,24,0.08);}
     <div class="header-sub">Test your knowledge &bull; Track your progress &bull; Ace the exam</div>
   </div>
   <div class="cards-grid">
+    
     <div class="card" onclick="startQuiz('muslim_personal_law_i')">
       <div class="card-title">Muslim Personal Law -I</div>
-      <div class="card-desc">Court structure, jurisdiction, writs, CrPC, CPC and the legal framework of Bangladesh.</div>
-      <span class="card-count">&#9670; 100 Questions</span>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-muslim_personal_law_i">&#9670; Coming Soon</span>
+        <button class="card-reset-btn" id="reset-muslim_personal_law_i" style="display:none;" onclick="event.stopPropagation(); manualReset('muslim_personal_law_i')">🔄 Reset</button>
+      </div>
     </div>
+
     <div class="card" onclick="startQuiz('law_of_contract')">
       <div class="card-title">Law of Contract</div>
-      <div class="card-desc">Ownership, possession, liability, custom, legal persons, punishment theories and more.</div>
-      <span class="card-count">&#9670; 122 Questions</span>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-law_of_contract">&#9670; Coming Soon</span>
+        <button class="card-reset-btn" id="reset-law_of_contract" style="display:none;" onclick="event.stopPropagation(); manualReset('law_of_contract')">🔄 Reset</button>
+      </div>
     </div>
+
     <div class="card" onclick="startQuiz('law_of_tort_consumers')">
       <div class="card-title">Law of Tort and Consumers Protection</div>
-      <div class="card-desc">Computer networks, software, hardware, protocols, cybersecurity and logic gates.</div>
-      <span class="card-count">&#9670; 100 Questions</span>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-law_of_tort_consumers">&#9670; Coming Soon</span>
+        <button class="card-reset-btn" id="reset-law_of_tort_consumers" style="display:none;" onclick="event.stopPropagation(); manualReset('law_of_tort_consumers')">🔄 Reset</button>
+      </div>
     </div>
+
     <div class="card" onclick="startQuiz('history_emergence_bd')">
       <div class="card-title">The History of Emergence of BD</div>
-      <div class="card-desc">Bar Council rules, advocate conduct, legal maxims and professional responsibilities.</div>
-      <span class="card-count">&#9670; 62 Questions</span>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-history_emergence_bd">&#9670; Questions</span>
+        <button class="card-reset-btn" id="reset-history_emergence_bd" onclick="event.stopPropagation(); manualReset('history_emergence_bd')">🔄 Reset</button>
+      </div>
     </div>
-    <div class="card" onclick="startEnglish()">
+
+    <div class="card" onclick="startQuiz('english_test')">
       <div class="card-title">Listening and Speaking English</div>
-      <div class="card-desc">Word function, WH questions, conditionals, sentence completion, correction and grammar MCQ.</div>
-      <span class="card-count">&#9670; MCQ + SAQ</span>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-english_test">&#9670; Coming Soon</span>
+        <button class="card-reset-btn" id="reset-english_test" style="display:none;" onclick="event.stopPropagation(); manualReset('english_test')">🔄 Reset</button>
+      </div>
     </div>
+
     <div class="card" onclick="startQuiz('constitutional_law_ii')">
       <div class="card-title">Constitutional Law of BD -II</div>
-      <div class="card-desc">Constitutional provisions, fundamental rights, structure of organs, and related legal framework.</div>
-      <span class="card-count">&#9670; Coming Soon</span>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-constitutional_law_ii">&#9670; Coming Soon</span>
+        <button class="card-reset-btn" id="reset-constitutional_law_ii" style="display:none;" onclick="event.stopPropagation(); manualReset('constitutional_law_ii')">🔄 Reset</button>
+      </div>
     </div>
+
   </div>
   <div class="home-footer">KYAU &mdash; LLB 25th Batch &nbsp;|&nbsp; All questions compiled by Masum Bin Zafar</div>
 </div>
@@ -254,6 +266,10 @@ body.paper-theme .prev-btn:hover{background:rgba(138,96,24,0.08);}
     <button class="back-btn" onclick="goHome()">&#8592; Back</button>
     <div class="topbar-title" id="topbar-title"></div>
     <div class="progress-wrap">
+      <div class="progress-details">
+        <span class="prog-c" id="prog-correct-count" title="Correct">✓0</span>
+        <span class="prog-w" id="prog-wrong-count" title="Wrong">✗0</span>
+      </div>
       <div class="progress-text" id="prog-text">1 / ?</div>
       <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
     </div>
@@ -262,8 +278,9 @@ body.paper-theme .prev-btn:hover{background:rgba(138,96,24,0.08);}
     <div class="question-card" id="question-card">
       <div class="q-meta">
         <span class="q-num" id="q-num">Question 1</span>
-        <div class="q-line"></div>
+        <button class="quiz-reset-inline" onclick="manualReset(currentSubject)">🔄 Reset Test</button>
       </div>
+      <div class="q-line"></div>
       <div class="q-text" id="q-text"></div>
       <div class="options-list" id="options-list"></div>
       <div class="feedback" id="feedback"></div>
@@ -296,6 +313,7 @@ const DB = {
   muslim_personal_law_i: [],
   law_of_contract: [],
   law_of_tort_consumers: [],
+  english_test: [],
   history_emergence_bd: [
     {"q":"Which river system is most closely associated with the major rivers Padma, Meghna and Jamuna?","options":[{"key":"A","text":"Desert system"},{"key":"B","text":"River network of Bangladesh"},{"key":"C","text":"Himalayan glacier system"},{"key":"D","text":"Coastal lagoon system"},{"key":"E","text":"Karst system"}],"answer":"B"},
     {"q":"Why have the rivers of Bangladesh historically played an important role in society?","options":[{"key":"A","text":"They prevent all agricultural activities"},{"key":"B","text":"They support agriculture, transport and fishing"},{"key":"C","text":"They eliminate population concentration"},{"key":"D","text":"They prevent communication"},{"key":"E","text":"They make the country entirely industrial"}],"answer":"B"},
@@ -355,8 +373,8 @@ const DB = {
     {"q":"A ruler follows one religion but protects temples and people belonging to another religion. Which historical period of Bengal best illustrates this pattern?","options":[{"key":"A","text":"Pal period"},{"key":"B","text":"Sen period"},{"key":"C","text":"British period"},{"key":"D","text":"Pakistani period"},{"key":"E","text":"Modern period"}],"answer":"A"},
     {"q":"Which Sultan is particularly associated with maintaining Hindu-Muslim harmony and patronizing Chaitanya Dev?","options":[{"key":"A","text":"Alauddin Hossain Shah"},{"key":"B","text":"Aurangzeb"},{"key":"C","text":"Babur"},{"key":"D","text":"Humayun"},{"key":"E","text":"Akbar"}],"answer":"A"},
     {"q":"The Hossain Shahi period is significant in the history of Bengal mainly because of:","options":[{"key":"A","text":"Complete religious separation"},{"key":"B","text":"Hindu-Muslim religious harmony"},{"key":"C","text":"Elimination of Vaishnavism"},{"key":"D","text":"Introduction of Divide and Rule"},{"key":"E","text":"End of cultural interaction"}],"answer":"B"},
-    {"q":"Which Mughal ruler is particularly known for promoting religious harmony and a liberal approach?","options":[{"key":"A","text":"Babur"},{"key":"B","text":"Humayun"},{"key":"C","text":"Akbar"},{"key":"D","text":"Aurangzeb"},{"key":"E","text":"Shah Jahan"}],"answer":"C"},
     {"q":"Which Mughal ruler is mentioned as an exception to the generally tolerant approach of the Mughal period?","options":[{"key":"A","text":"Akbar"},{"key":"B","text":"Babur"},{"key":"C","text":"Aurangzeb"},{"key":"D","text":"Humayun"},{"key":"E","text":"Jahangir"}],"answer":"C"},
+    {"q":"Which Mughal ruler is particularly known for promoting religious harmony and a liberal approach?","options":[{"key":"A","text":"Babur"},{"key":"B","text":"Humayun"},{"key":"C","text":"Akbar"},{"key":"D","text":"Aurangzeb"},{"key":"E","text":"Shah Jahan"}],"answer":"C"},
     {"q":"Which sequence correctly represents examples of religious coexistence/tolerance in Bengal?","options":[{"key":"A","text":"Gupta → Pal → Hossain Shahi → Akbar"},{"key":"B","text":"Gupta → Sen → British → Aurangzeb"},{"key":"C","text":"Pal → Akbar → Sen"},{"key":"D","text":"Sen → Pal → Gupta"},{"key":"E","text":"Divide and Rule → British → Gupta"}],"answer":"A"},
     {"q":"Which combination is incorrectly matched?","options":[{"key":"A","text":"Gupta - Buddhism continued"},{"key":"B","text":"Pal - Buddhist rulers patronized Hindu religion"},{"key":"C","text":"Sen - comparatively stricter religious practices"},{"key":"D","text":"Hossain Shah - Hindu-Muslim harmony"},{"key":"E","text":"Akbar - promotion of religious intolerance"}],"answer":"E"}
   ],
@@ -364,11 +382,12 @@ const DB = {
 };
 
 const TITLES = {
-  muslim_personal_law_i: ' Muslim Personal Law -I',
-  law_of_contract: ' Law of Contract',
-  law_of_tort_consumers: ' Law of Tort and Consumers Protection',
-  history_emergence_bd: ' The History of Emergence of BD',
-  constitutional_law_ii: ' Constitutional Law of BD -II'
+  muslim_personal_law_i: '⚖️ Muslim Personal Law -I',
+  law_of_contract: '📜 Law of Contract',
+  law_of_tort_consumers: '💻 Law of Tort and Consumers Protection',
+  history_emergence_bd: '🏛️ The History of Emergence of BD',
+  english_test: '🗣️ Listening and Speaking English',
+  constitutional_law_ii: '📜 Constitutional Law of BD -II'
 };
 
 let currentSubject = null;
@@ -377,6 +396,25 @@ let current = 0;
 let score = 0;
 let wrong = 0;
 let answered = false;
+let userAnswersState = {};
+
+// Automatically update counts and visibility on page load
+function updateUIcounts() {
+  for (let key in DB) {
+    let countSpan = document.getElementById('count-' + key);
+    let resetBtn = document.getElementById('reset-' + key);
+    if (countSpan) {
+      let len = DB[key].length;
+      if (len > 0) {
+        countSpan.innerHTML = `&#9670; ${len} Questions`;
+        if (resetBtn) resetBtn.style.display = 'inline-block';
+      } else {
+        countSpan.innerHTML = `&#9670; Coming Soon`;
+        if (resetBtn) resetBtn.style.display = 'none';
+      }
+    }
+  }
+}
 
 function shuffle(arr) {
   const a = [...arr];
@@ -385,6 +423,7 @@ function shuffle(arr) {
 }
 
 function goHome() {
+  updateUIcounts();
   document.getElementById('home-screen').style.display='block';
   document.getElementById('quiz-screen').style.display='none';
   document.getElementById('score-screen').classList.remove('show');
@@ -393,12 +432,25 @@ function goHome() {
 
 function startQuiz(subject) {
   if (!DB[subject] || DB[subject].length === 0) {
-    alert("not added yet");
+    alert("This test is coming soon!");
     return;
   }
   currentSubject = subject;
-  questions = shuffle(DB[subject]);
-  current = 0; score = 0; wrong = 0;
+  
+  let savedProgress = localStorage.getItem('mcq_progress_' + subject);
+  if (savedProgress) {
+    let data = JSON.parse(savedProgress);
+    questions = data.questions;
+    current = data.current;
+    score = data.score;
+    wrong = data.wrong;
+    userAnswersState = data.userAnswersState || {};
+  } else {
+    questions = shuffle(DB[subject]);
+    current = 0; score = 0; wrong = 0;
+    userAnswersState = {};
+  }
+
   document.getElementById('home-screen').style.display='none';
   document.getElementById('score-screen').classList.remove('show');
   document.getElementById('quiz-screen').style.display='block';
@@ -407,23 +459,61 @@ function startQuiz(subject) {
   window.scrollTo(0,0);
 }
 
+function manualReset(subject) {
+  if(!subject) return;
+  if(confirm("Are you sure you want to reset all progress for this test?")) {
+    localStorage.removeItem('mcq_progress_' + subject);
+    if(currentSubject === subject) {
+      startQuiz(subject);
+    } else {
+      updateUIcounts();
+      alert("Progress has been reset successfully!");
+    }
+  }
+}
+
+function saveCurrentProgress() {
+  if(!currentSubject) return;
+  let data = {
+    questions: questions,
+    current: current,
+    score: score,
+    wrong: wrong,
+    userAnswersState: userAnswersState
+  };
+  localStorage.setItem('mcq_progress_' + currentSubject, JSON.stringify(data));
+}
+
 function showQuestion() {
-  answered = false;
   const q = questions[current];
   const total = questions.length;
+  
+  answered = userAnswersState[current] !== undefined;
+  const savedSelection = userAnswersState[current];
 
   document.getElementById('q-num').textContent = 'Question ' + (current+1);
   document.getElementById('q-text').textContent = q.q;
   document.getElementById('prog-text').textContent = (current+1) + ' / ' + total;
   document.getElementById('prog-fill').style.width = ((current+1)/total*100) + '%';
 
-  const fb = document.getElementById('feedback');
-  fb.className = 'feedback';
-  fb.textContent = '';
+  document.getElementById('prog-correct-count').textContent = '✓' + score;
+  document.getElementById('prog-wrong-count').textContent = '✗' + wrong;
 
-  const nb = document.getElementById('next-btn');
-  nb.className = 'next-btn';
-  nb.textContent = current < questions.length-1 ? 'Next Question →' : 'See Results';
+  const fb = document.getElementById('feedback');
+  if(answered) {
+    if(savedSelection === q.answer) {
+      fb.className = 'feedback correct-fb show';
+      fb.textContent = '✓ Correct!';
+    } else {
+      fb.className = 'feedback wrong-fb show';
+      fb.textContent = '✗ Wrong. Correct answer: ' + q.answer;
+    }
+    document.getElementById('next-btn').classList.add('show');
+  } else {
+    fb.className = 'feedback';
+    fb.textContent = '';
+    document.getElementById('next-btn').className = 'next-btn';
+  }
 
   const pb = document.getElementById('prev-btn');
   pb.className = current > 0 ? 'prev-btn show' : 'prev-btn';
@@ -434,9 +524,25 @@ function showQuestion() {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
     btn.innerHTML = '<span class="opt-key">'+opt.key+'</span><span class="opt-text">'+escHtml(opt.text)+'</span><span class="opt-badge"></span>';
-    btn.onclick = () => selectAnswer(opt.key, q.answer);
+    
+    if(answered) {
+      btn.disabled = true;
+      const badge = btn.querySelector('.opt-badge');
+      if(opt.key === q.answer && opt.key === savedSelection) {
+        btn.classList.add('correct'); badge.textContent = '✓';
+      } else if(opt.key === savedSelection && opt.key !== q.answer) {
+        btn.classList.add('wrong'); badge.textContent = '✗';
+      } else if(opt.key === q.answer) {
+        btn.classList.add('reveal-correct'); badge.textContent = '✓';
+      }
+    } else {
+      btn.onclick = () => selectAnswer(opt.key, q.answer);
+    }
     ol.appendChild(btn);
   });
+
+  const nb = document.getElementById('next-btn');
+  nb.textContent = current < questions.length-1 ? 'Next Question →' : 'See Results';
 
   const card = document.getElementById('question-card');
   card.style.animation = 'none';
@@ -447,6 +553,7 @@ function showQuestion() {
 function prevQuestion() {
   if(current <= 0) return;
   current--;
+  saveCurrentProgress();
   showQuestion();
   window.scrollTo(0,0);
 }
@@ -458,40 +565,27 @@ function escHtml(t) {
 function selectAnswer(selected, correct) {
   if(answered) return;
   answered = true;
-  const ol = document.getElementById('options-list');
-  const btns = ol.querySelectorAll('.option-btn');
-  const fb = document.getElementById('feedback');
-
-  btns.forEach((btn, idx) => {
-    btn.disabled = true;
-    const key = questions[current].options[idx].key;
-    const badge = btn.querySelector('.opt-badge');
-    if(key === correct && key === selected) {
-      btn.classList.add('correct'); badge.textContent = '✓';
-    } else if(key === selected && key !== correct) {
-      btn.classList.add('wrong'); badge.textContent = '✗';
-    } else if(key === correct) {
-      btn.classList.add('reveal-correct'); badge.textContent = '✓';
-    }
-  });
+  userAnswersState[current] = selected;
 
   if(selected === correct) {
     score++;
-    fb.className = 'feedback correct-fb show';
-    fb.textContent = '✓ Correct!';
   } else {
     wrong++;
-    fb.className = 'feedback wrong-fb show';
-    fb.textContent = '✗ Wrong. Correct answer: ' + correct;
   }
-  document.getElementById('next-btn').classList.add('show');
+  
+  saveCurrentProgress();
+  showQuestion();
 }
 
 function nextQuestion() {
   current++;
   if(current >= questions.length) {
+    if(currentSubject) {
+      localStorage.removeItem('mcq_progress_' + currentSubject);
+    }
     showScore();
   } else {
+    saveCurrentProgress();
     showQuestion();
     window.scrollTo(0,0);
   }
@@ -502,7 +596,7 @@ function showScore() {
   const sc = document.getElementById('score-screen');
   sc.classList.add('show');
   const total = questions.length;
-  const pct = Math.round(score/total*100);
+  const pct = total > 0 ? Math.round(score/total*100) : 0;
   document.getElementById('score-pct').textContent = pct+'%';
   document.getElementById('score-detail').textContent = 'You answered '+score+' out of '+total+' correctly.';
   document.getElementById('stat-correct').textContent = score;
@@ -514,11 +608,10 @@ function showScore() {
 }
 
 function retestQuiz() {
+  if(currentSubject) {
+    localStorage.removeItem('mcq_progress_' + currentSubject);
+  }
   startQuiz(currentSubject);
-}
-
-function startEnglish() {
-  alert("not added yet");
 }
 
 // ===== THEME TOGGLE =====
@@ -535,7 +628,11 @@ function setTheme(mode) {
     localStorage.setItem('theme','dark');
   }
 }
-(function(){ if(localStorage.getItem('theme')==='paper') setTheme('paper'); })();
+
+(function(){ 
+  if(localStorage.getItem('theme')==='paper') setTheme('paper'); 
+  updateUIcounts();
+})();
 </script>
 </body>
 </html>
