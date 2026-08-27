@@ -310,10 +310,667 @@ body::before{content:'';position:fixed;inset:0;
 
 <script>
 const DB = {
-  muslim_personal_law_i: [],
-  law_of_contract: [],
-  law_of_tort_consumers: [],
-  english_test: [],
+  muslim_personal_law_i: [
+    {"q":"Which one is the primary source of Muslim law?","options":[{"key":"A","text":"Quran"},{"key":"B","text":"Sunna"},{"key":"C","text":"Ijma"},{"key":"D","text":"Istihsan"},{"key":"E","text":"Qiyas"}],"answer":"A"},
+    {"q":"How many conditions are to be fulfilled in order to be a Muslim?","options":[{"key":"A","text":"2"},{"key":"B","text":"3"},{"key":"C","text":"4"},{"key":"D","text":"5"},{"key":"E","text":"6"}],"answer":"B"},
+    {"q":"Which Surah is the last to reveal?","options":[{"key":"A","text":"Al-Alaq"},{"key":"B","text":"Al-Mayidah"},{"key":"C","text":"Al-Baqarah"},{"key":"D","text":"An-Nisa"},{"key":"E","text":"Al-Mulk"}],"answer":"B"},
+    {"q":"Polygamy in Islam is-","options":[{"key":"A","text":"Prohibited"},{"key":"B","text":"Neglected"},{"key":"C","text":"Void"},{"key":"D","text":"Permitted"},{"key":"E","text":"Permitted in restricted manner"}],"answer":"E"},
+    {"q":"Which one is a Batil marriage?","options":[{"key":"A","text":"Marriage without witness"},{"key":"B","text":"Marriage without consent of guardians"},{"key":"C","text":"Marriage with dumb person"},{"key":"D","text":"Muslim male's marriage with Christian female"},{"key":"E","text":"Muslim female's marriage with Christian male"}],"answer":"E"},
+    {"q":"In case of irregular (Fasid) marriage, if the marriage is not consummated then the wife will get-","options":[{"key":"A","text":"Specified dower"},{"key":"B","text":"Prompt dower"},{"key":"C","text":"No dower"},{"key":"D","text":"Three sets of customary dress"},{"key":"E","text":"Proper or specified dower whichever is less"}],"answer":"C"},
+    {"q":"Which one is NOT the characteristic of Islamic Law?","options":[{"key":"A","text":"Allah is the legislator"},{"key":"B","text":"Complete and comprehensive code of human life"},{"key":"C","text":"Consistent with human nature"},{"key":"D","text":"Cover only earth life"},{"key":"E","text":"Consistent with morality"}],"answer":"D"},
+    {"q":"What is the primary purpose of Ijma in Islamic law?","options":[{"key":"A","text":"To provide an interpretation of the Qur'an"},{"key":"B","text":"To establish new rules and principles in Islamic law"},{"key":"C","text":"To agree upon a legal decision based on consensus"},{"key":"D","text":"To maintain the political power of the Caliph"},{"key":"E","text":"To address matters not directly covered in the Qur'an and Hadith"}],"answer":"C"},
+    {"q":"What is the punishment for contravening the provisions of polygamy?","options":[{"key":"A","text":"One month rigorous imprisonment or one thousand taka fine or both"},{"key":"B","text":"One month simple imprisonment or one thousand taka fine or both"},{"key":"C","text":"Two months rigorous imprisonment or one thousand taka fine or both"},{"key":"D","text":"One year imprisonment or ten thousand taka fine or both"},{"key":"E","text":"One year simple imprisonment or ten thousand taka fine or both"}],"answer":"E"},
+    {"q":"What is the objective of observing Iddat?","options":[{"key":"A","text":"Determination of dower"},{"key":"B","text":"Ascertainment of maintenance"},{"key":"C","text":"Determination of succession"},{"key":"D","text":"Determination of paternity"},{"key":"E","text":"Determination of guardianship"}],"answer":"D"},
+    {"q":"What is the meaning of Islam?","options":[{"key":"A","text":"Recite"},{"key":"B","text":"Read"},{"key":"C","text":"Peace"},{"key":"D","text":"Hardship"},{"key":"E","text":"War"}],"answer":"C"},
+    {"q":"How many conditions are to be fulfilled in order to be a Muslim according to court?","options":[{"key":"A","text":"2"},{"key":"B","text":"3"},{"key":"C","text":"4"},{"key":"D","text":"5"},{"key":"E","text":"6"}],"answer":"B"},
+    {"q":"Which Surah mainly deals with rights of Muslim?","options":[{"key":"A","text":"Al-Alaq"},{"key":"B","text":"Al-Mayidah"},{"key":"C","text":"Al-Baqarah"},{"key":"D","text":"An-Nisa"},{"key":"E","text":"Al-Mulk"}],"answer":"D"},
+    {"q":"How many categories of women are prohibited to marriage?","options":[{"key":"A","text":"2"},{"key":"B","text":"4"},{"key":"C","text":"6"},{"key":"D","text":"8"},{"key":"E","text":"14"}],"answer":"E"},
+    {"q":"Which one is a Batil marriage?","options":[{"key":"A","text":"Marriage without witness"},{"key":"B","text":"Marriage without consent of guardians when needed"},{"key":"C","text":"Marriage with dumb person"},{"key":"D","text":"Muslim male's marriage with Christian female"},{"key":"E","text":"Muslim female's marriage with Christian male"}],"answer":"E"},
+    {"q":"In case of irregular (Fasid) marriage, if the marriage is consummated then the wife will get-","options":[{"key":"A","text":"Specified dower"},{"key":"B","text":"Prompt dower"},{"key":"C","text":"No dower"},{"key":"D","text":"Three sets of customary dress"},{"key":"E","text":"Proper or specified dower whichever is less"}],"answer":"E"},
+    {"q":"What is the lowest amount of dower according to Hanafi school?","options":[{"key":"A","text":"3 dirhams"},{"key":"B","text":"5 dirhams"},{"key":"C","text":"10 dirhams"},{"key":"D","text":"15 dirhams"},{"key":"E","text":"No limit"}],"answer":"C"},
+    {"q":"Which one is NOT the characteristic of Islamic Law?","options":[{"key":"A","text":"Allah is the legislator"},{"key":"B","text":"Complete and comprehensive code of human life"},{"key":"C","text":"Consistent with human nature"},{"key":"D","text":"Cover only earth life"},{"key":"E","text":"Consistent with morality"}],"answer":"D"},
+    {"q":"What is the punishment for polygamy without permission of Arbitration Council under the Muslim Family Laws Ordinance, 1961?","options":[{"key":"A","text":"One month rigorous imprisonment or one thousand taka fine or both"},{"key":"B","text":"One month simple imprisonment or one thousand taka fine or both"},{"key":"C","text":"Two months rigorous imprisonment or one thousand taka fine or both"},{"key":"D","text":"Two months simple imprisonment or one thousand taka fine or both"},{"key":"E","text":"One year simple imprisonment or ten thousand taka fine or both"}],"answer":"E"},
+    {"q":"What is the objective of observing Iddat?","options":[{"key":"A","text":"Determination of dower"},{"key":"B","text":"Ascertainment of maintenance"},{"key":"C","text":"Determination of succession"},{"key":"D","text":"Determination of paternity"},{"key":"E","text":"Determination of guardianship"}],"answer":"D"},
+    {"q":"According to the theologians, which of the following is NOT one of the three basic conditions of being a Muslim?","options":[{"key":"A","text":"Belief in Oneness of Allah"},{"key":"B","text":"Belief in Prophethood of Muhammad (PBUH)"},{"key":"C","text":"Acceptance of Islamic classification of human actions"},{"key":"D","text":"Belief in all four Sunni schools"},{"key":"E","text":"None of the above"}],"answer":"D"},
+    {"q":"According to the courts, a person is considered a Muslim if he believes in-","options":[{"key":"A","text":"Only Quran"},{"key":"B","text":"Oneness of Allah and Prophethood of Muhammad (PBUH)"},{"key":"C","text":"Ijma and Qiyas"},{"key":"D","text":"All Sunni schools"},{"key":"E","text":"Islamic customs"}],"answer":"B"},
+    {"q":"Who is the Supreme Legislator of Islamic Law?","options":[{"key":"A","text":"Parliament"},{"key":"B","text":"Caliph"},{"key":"C","text":"Mujtahid"},{"key":"D","text":"Allah"},{"key":"E","text":"Judge"}],"answer":"D"},
+    {"q":"Islamic Law is consistent with-","options":[{"key":"A","text":"Human nature"},{"key":"B","text":"Political interest"},{"key":"C","text":"State policy"},{"key":"D","text":"Judicial precedent"},{"key":"E","text":"Local custom only"}],"answer":"A"},
+    {"q":"Islamic Law applies to-","options":[{"key":"A","text":"Only family matters"},{"key":"B","text":"Only criminal matters"},{"key":"C","text":"Only this world"},{"key":"D","text":"This world and the Hereafter"},{"key":"E","text":"Only religious rituals"}],"answer":"D"},
+    {"q":"Which one is a divine source of Islamic Law?","options":[{"key":"A","text":"Ijma"},{"key":"B","text":"Qiyas"},{"key":"C","text":"Quran"},{"key":"D","text":"Ijtihad"},{"key":"E","text":"Urf"}],"answer":"C"},
+    {"q":"The Quran is the ... source of Islamic Law.","options":[{"key":"A","text":"First and main"},{"key":"B","text":"Second"},{"key":"C","text":"Third"},{"key":"D","text":"Fourth"},{"key":"E","text":"Modern"}],"answer":"A"},
+    {"q":"The Quran was revealed over a period of-","options":[{"key":"A","text":"10 years"},{"key":"B","text":"15 years"},{"key":"C","text":"20 years"},{"key":"D","text":"23 years"},{"key":"E","text":"30 years"}],"answer":"D"},
+    {"q":"How many Surahs are there in the Quran according to the class notes?","options":[{"key":"A","text":"110"},{"key":"B","text":"112"},{"key":"C","text":"114"},{"key":"D","text":"116"},{"key":"E","text":"120"}],"answer":"C"},
+    {"q":"Which one is the second source of Islamic Law?","options":[{"key":"A","text":"Ijma"},{"key":"B","text":"Sunnah/Hadith"},{"key":"C","text":"Qiyas"},{"key":"D","text":"Ijtihad"},{"key":"E","text":"Istihsan"}],"answer":"B"},
+    {"q":"Hadith is described in the notes as the ... of Sunnah.","options":[{"key":"A","text":"Source"},{"key":"B","text":"Opposite"},{"key":"C","text":"Vehicle/carrier"},{"key":"D","text":"Amendment"},{"key":"E","text":"Interpretation"}],"answer":"C"},
+    {"q":"Which one is NOT among the six authentic Sunni books of Hadith mentioned in the notes?","options":[{"key":"A","text":"Sahih al-Bukhari"},{"key":"B","text":"Sahih Muslim"},{"key":"C","text":"Jamiya Tirmidhi"},{"key":"D","text":"Sunan Abu Daud"},{"key":"E","text":"Musnad Ahmad"}],"answer":"E"},
+    {"q":"Ijma is the ... source of Islamic Law.","options":[{"key":"A","text":"First"},{"key":"B","text":"Second"},{"key":"C","text":"Third"},{"key":"D","text":"Fourth"},{"key":"E","text":"Fifth"}],"answer":"C"},
+    {"q":"Ijma means-","options":[{"key":"A","text":"Analogy"},{"key":"B","text":"Consensus/agreement"},{"key":"C","text":"Custom"},{"key":"D","text":"Independent reasoning"},{"key":"E","text":"Interpretation"}],"answer":"B"},
+    {"q":"Who can participate in Ijma?","options":[{"key":"A","text":"Every Muslim"},{"key":"B","text":"Political leaders"},{"key":"C","text":"Qualified Mujtahids"},{"key":"D","text":"Judges only"},{"key":"E","text":"Witnesses"}],"answer":"C"},
+    {"q":"Ijma must be made-","options":[{"key":"A","text":"During the lifetime of the Prophet (PBUH)"},{"key":"B","text":"Before revelation"},{"key":"C","text":"After the death of Prophet Muhammad (PBUH)"},{"key":"D","text":"Before Hijrah"},{"key":"E","text":"Only by Caliphs"}],"answer":"C"},
+    {"q":"Which is an essential condition of Ijma?","options":[{"key":"A","text":"Majority agreement"},{"key":"B","text":"Unanimous agreement"},{"key":"C","text":"Political approval"},{"key":"D","text":"Court approval"},{"key":"E","text":"Public voting"}],"answer":"B"},
+    {"q":"Ijma must NOT contradict-","options":[{"key":"A","text":"Custom"},{"key":"B","text":"State law"},{"key":"C","text":"Quran and Sunnah"},{"key":"D","text":"Judicial precedent"},{"key":"E","text":"Political policy"}],"answer":"C"},
+    {"q":"When all jurists openly express the same opinion, it is called-","options":[{"key":"A","text":"Ijma Sukuti"},{"key":"B","text":"Ijma Sareeh"},{"key":"C","text":"Qiyas"},{"key":"D","text":"Istihsan"},{"key":"E","text":"Istislah"}],"answer":"B"},
+    {"q":"When some jurists express an opinion while others remain silent without objection, it is-","options":[{"key":"A","text":"Ijma Sareeh"},{"key":"B","text":"Ijma Sukuti"},{"key":"C","text":"Qiyas"},{"key":"D","text":"Ijtihad"},{"key":"E","text":"Istihsan"}],"answer":"B"},
+    {"q":"Who founded the Hanafi School?","options":[{"key":"A","text":"Imam Malik"},{"key":"B","text":"Imam Shafei"},{"key":"C","text":"Imam Ahmad Ibn Hanbal"},{"key":"D","text":"Imam Abu Hanifa"},{"key":"E","text":"Imam Jafar Sadiq"}],"answer":"D"},
+    {"q":"Which school is known for strong use of Qiyas and Rai?","options":[{"key":"A","text":"Hanafi"},{"key":"B","text":"Maliki"},{"key":"C","text":"Shafei"},{"key":"D","text":"Hanbali"},{"key":"E","text":"Shia"}],"answer":"A"},
+    {"q":"Which doctrine is particularly associated with the Hanafi School?","options":[{"key":"A","text":"Istislah"},{"key":"B","text":"Istihsan"},{"key":"C","text":"Maslahah only"},{"key":"D","text":"Taqlid"},{"key":"E","text":"Musnad"}],"answer":"B"},
+    {"q":"Who founded the Maliki School?","options":[{"key":"A","text":"Abu Hanifa"},{"key":"B","text":"Malik Ibn Anas"},{"key":"C","text":"Muhammad Ibn Idris Ash-Shafei"},{"key":"D","text":"Ahmad Ibn Hanbal"},{"key":"E","text":"Abu Yusuf"}],"answer":"B"},
+    {"q":"Which school introduced Istislah as a doctrine of public interest?","options":[{"key":"A","text":"Hanafi"},{"key":"B","text":"Maliki"},{"key":"C","text":"Shafei"},{"key":"D","text":"Hanbali"},{"key":"E","text":"Shia"}],"answer":"B"},
+    {"q":"Imam Shafei placed extreme emphasis on-","options":[{"key":"A","text":"Istihsan"},{"key":"B","text":"Ijma"},{"key":"C","text":"Urf"},{"key":"D","text":"Istislah"},{"key":"E","text":"Political authority"}],"answer":"B"},
+    {"q":"Which school gave the highest importance to Hadith and Sunnah?","options":[{"key":"A","text":"Hanafi"},{"key":"B","text":"Maliki"},{"key":"C","text":"Shafei"},{"key":"D","text":"Hanbali"},{"key":"E","text":"Shia"}],"answer":"D"},
+    {"q":"Muslim marriage (Nikah) is considered a-","options":[{"key":"A","text":"Sacrament"},{"key":"B","text":"Civil contract"},{"key":"C","text":"Criminal contract"},{"key":"D","text":"Political agreement"},{"key":"E","text":"Gift"}],"answer":"B"},
+    {"q":"Ijab means-","options":[{"key":"A","text":"Acceptance"},{"key":"B","text":"Proposal"},{"key":"C","text":"Dower"},{"key":"D","text":"Witness"},{"key":"E","text":"Divorce"}],"answer":"B"},
+    {"q":"Qabul means-","options":[{"key":"A","text":"Proposal"},{"key":"B","text":"Acceptance"},{"key":"C","text":"Dower"},{"key":"D","text":"Maintenance"},{"key":"E","text":"Divorce"}],"answer":"B"},
+    {"q":"Ijab and Qabul must take place-","options":[{"key":"A","text":"On different days"},{"key":"B","text":"In different places"},{"key":"C","text":"In the same Majlis"},{"key":"D","text":"After consummation"},{"key":"E","text":"Before the court only"}],"answer":"C"},
+    {"q":"If acceptance differs from the proposal, the marriage is-","options":[{"key":"A","text":"Valid"},{"key":"B","text":"Automatically valid after consummation"},{"key":"C","text":"Not valid"},{"key":"D","text":"Always Fasid"},{"key":"E","text":"Always Muta"}],"answer":"C"},
+    {"q":"The consent of parties to a Muslim marriage must be-","options":[{"key":"A","text":"Forced"},{"key":"B","text":"Voluntary and free"},{"key":"C","text":"Given only by guardian"},{"key":"D","text":"Presumed in every case"},{"key":"E","text":"Given after marriage"}],"answer":"B"},
+    {"q":"According to the class notes, the silence of an adult virgin may be treated as-","options":[{"key":"A","text":"Rejection"},{"key":"B","text":"Divorce"},{"key":"C","text":"Consent"},{"key":"D","text":"Ijab"},{"key":"E","text":"Qabul"}],"answer":"C"},
+    {"q":"A widow or divorced woman must give-","options":[{"key":"A","text":"Mere silence"},{"key":"B","text":"Express consent"},{"key":"C","text":"Guardian's consent only"},{"key":"D","text":"No consent"},{"key":"E","text":"Consent after consummation"}],"answer":"B"}
+  ],
+  law_of_contract: [
+    {
+      "q": "Who among the following is competent to contract under the Contract Act, 1872?",
+      "options": [
+        {"key": "A", "text": "Minor"},
+        {"key": "B", "text": "Person of unsound mind"},
+        {"key": "C", "text": "Bankrupt person"},
+        {"key": "D", "text": "Idiotic person"},
+        {"key": "E", "text": "70 years old person"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "Which of the following is NOT an essential element for a valid contract?",
+      "options": [
+        {"key": "A", "text": "Offer and Acceptance"},
+        {"key": "B", "text": "Consideration"},
+        {"key": "C", "text": "Written Agreement"},
+        {"key": "D", "text": "Legal Capacity of Parties"},
+        {"key": "E", "text": "Physical strength of the parties"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "What is the consequence of a contract for sale of a house not registered?",
+      "options": [
+        {"key": "A", "text": "Valid"},
+        {"key": "B", "text": "Void"},
+        {"key": "C", "text": "Voidable"},
+        {"key": "D", "text": "Executed"},
+        {"key": "E", "text": "Unenforceable"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "An agreement not enforceable by law is defined as:",
+      "options": [
+        {"key": "A", "text": "Voidable Contract"},
+        {"key": "B", "text": "Void Agreement"},
+        {"key": "C", "text": "Unenforceable Contract"},
+        {"key": "D", "text": "Valid Contract"},
+        {"key": "E", "text": "Quasi Contract"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "A and B have made a contract on the happening of an accident of B's car. This is:",
+      "options": [
+        {"key": "A", "text": "Quasi Contract"},
+        {"key": "B", "text": "Contingent Contract"},
+        {"key": "C", "text": "Contract of Indemnity"},
+        {"key": "D", "text": "Executed Contract"},
+        {"key": "E", "text": "Void Contract"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "An agreement by way of wager is ... in accordance with Section 30.",
+      "options": [
+        {"key": "A", "text": "Partly unlawful"},
+        {"key": "B", "text": "Illegal"},
+        {"key": "C", "text": "Void"},
+        {"key": "D", "text": "Opposed to morality"},
+        {"key": "E", "text": "Valid"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Which of the following can be an offer?",
+      "options": [
+        {"key": "A", "text": "Publishing of price list"},
+        {"key": "B", "text": "Auction sale"},
+        {"key": "C", "text": "Quotation or tender"},
+        {"key": "D", "text": "Proposal to sell a car at Tk. 2 lac"},
+        {"key": "E", "text": "Sale of share"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "Which cannot be a way of executing a consideration of an agreement?",
+      "options": [
+        {"key": "A", "text": "By performing an act"},
+        {"key": "B", "text": "By abstinence"},
+        {"key": "C", "text": "By promise of an action"},
+        {"key": "D", "text": "By declaring void"},
+        {"key": "E", "text": "Promise of abstinence"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "Which cannot be a characteristic of an offer?",
+      "options": [
+        {"key": "A", "text": "Clear and express intention"},
+        {"key": "B", "text": "Willingness to do or abstain"},
+        {"key": "C", "text": "Obtaining the assent"},
+        {"key": "D", "text": "Accepted by promisee"},
+        {"key": "E", "text": "Intention to make a contractual relation"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "In which case was the view 'additional statement may be offer' established?",
+      "options": [
+        {"key": "A", "text": "Jaye Babu v. Regional Manager, APSRTC"},
+        {"key": "B", "text": "Harris v. Nickerson"},
+        {"key": "C", "text": "Carlill v. Carbolic Smoke Ball Co."},
+        {"key": "D", "text": "Richardson v. Rowntree"},
+        {"key": "E", "text": "Lalman Shukla v. Gauri Dutta"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Who among the following is competent to contract under the Contract Act, 1872? (Spring 2026)",
+      "options": [
+        {"key": "A", "text": "Minor"},
+        {"key": "B", "text": "Person of unsound mind"},
+        {"key": "C", "text": "Bankrupt person"},
+        {"key": "D", "text": "Idiotic person"},
+        {"key": "E", "text": "70 years old person"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "Which of the following is NOT an essential element for a valid contract? (Spring 2026)",
+      "options": [
+        {"key": "A", "text": "Offer and Acceptance"},
+        {"key": "B", "text": "Consideration"},
+        {"key": "C", "text": "Written Agreement"},
+        {"key": "D", "text": "Legal Capacity of Parties"},
+        {"key": "E", "text": "Physical strength of the parties"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "What is the consequence of a contract for sale of a house not registered? (Spring 2026)",
+      "options": [
+        {"key": "A", "text": "Valid"},
+        {"key": "B", "text": "Void"},
+        {"key": "C", "text": "Voidable"},
+        {"key": "D", "text": "Executed"},
+        {"key": "E", "text": "Unenforceable"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "An agreement not enforceable by law is defined as: (Spring 2026)",
+      "options": [
+        {"key": "A", "text": "Voidable Contract"},
+        {"key": "B", "text": "Void Agreement"},
+        {"key": "C", "text": "Unenforceable Contract"},
+        {"key": "D", "text": "Valid Contract"},
+        {"key": "E", "text": "Quasi Contract"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "A and B have made a contract on the happening of an accident of B's car. This is: (Spring 2026)",
+      "options": [
+        {"key": "A", "text": "Quasi Contract"},
+        {"key": "B", "text": "Contingent Contract"},
+        {"key": "C", "text": "Contract of Indemnity"},
+        {"key": "D", "text": "Executed Contract"},
+        {"key": "E", "text": "Void Contract"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "A contract is voidable at the option of the aggrieved party if consent was caused by:",
+      "options": [
+        {"key": "A", "text": "Mistake of law"},
+        {"key": "B", "text": "Unsoundness of mind"},
+        {"key": "C", "text": "Coercion, undue influence, or fraud"},
+        {"key": "D", "text": "Lapse of time"},
+        {"key": "E", "text": "Contract with minor"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Which can be an offer? (Spring 2026)",
+      "options": [
+        {"key": "A", "text": "Publishing of price list"},
+        {"key": "B", "text": "Auction sale"},
+        {"key": "C", "text": "Quotation or tender"},
+        {"key": "D", "text": "Proposal to sell a car at Tk. 2 lac"},
+        {"key": "E", "text": "Sale of share"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "Agreement of a minor is generally:",
+      "options": [
+        {"key": "A", "text": "Voidable"},
+        {"key": "B", "text": "Void"},
+        {"key": "C", "text": "Illegal"},
+        {"key": "D", "text": "Unenforceable"},
+        {"key": "E", "text": "Valid"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Which cannot be a characteristic of offer? (Spring 2026)",
+      "options": [
+        {"key": "A", "text": "Clear and express intention"},
+        {"key": "B", "text": "Willingness to do or abstain"},
+        {"key": "C", "text": "Obtaining the assent"},
+        {"key": "D", "text": "Accepted by promisee"},
+        {"key": "E", "text": "Intention to make a contractual relation"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "Considerations & objects are unlawful in the following cases except:",
+      "options": [
+        {"key": "A", "text": "Forbidden by law"},
+        {"key": "B", "text": "Fraudulent"},
+        {"key": "C", "text": "Immoral"},
+        {"key": "D", "text": "Permitted by law"},
+        {"key": "E", "text": "Against public policy"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "According to Section 2(h), a contract is:",
+      "options": [
+        {"key": "A", "text": "Every promise"},
+        {"key": "B", "text": "Every agreement"},
+        {"key": "C", "text": "An agreement enforceable by law"},
+        {"key": "D", "text": "Every offer"},
+        {"key": "E", "text": "Every consideration"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "According to Section 2(e), an agreement consists of:",
+      "options": [
+        {"key": "A", "text": "Offer only"},
+        {"key": "B", "text": "Promise and consideration"},
+        {"key": "C", "text": "Acceptance only"},
+        {"key": "D", "text": "Object only"},
+        {"key": "E", "text": "Consideration only"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "A proposal when accepted becomes a:",
+      "options": [
+        {"key": "A", "text": "Contract"},
+        {"key": "B", "text": "Consideration"},
+        {"key": "C", "text": "Promise"},
+        {"key": "D", "text": "Quasi contract"},
+        {"key": "E", "text": "Void agreement"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "The person making the proposal is called the:",
+      "options": [
+        {"key": "A", "text": "Promisee"},
+        {"key": "B", "text": "Promisor"},
+        {"key": "C", "text": "Acceptor"},
+        {"key": "D", "text": "Agent"},
+        {"key": "E", "text": "Principal"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "The person accepting the proposal is called the:",
+      "options": [
+        {"key": "A", "text": "Promisor"},
+        {"key": "B", "text": "Offeror"},
+        {"key": "C", "text": "Promisee"},
+        {"key": "D", "text": "Principal"},
+        {"key": "E", "text": "Agent"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Under Section 10, an agreement becomes a contract when it is made by:",
+      "options": [
+        {"key": "A", "text": "Minors"},
+        {"key": "B", "text": "Free consent of competent parties"},
+        {"key": "C", "text": "Persons of unsound mind"},
+        {"key": "D", "text": "Force"},
+        {"key": "E", "text": "Fraud"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Which section deals with competency to contract?",
+      "options": [
+        {"key": "A", "text": "Section 10"},
+        {"key": "B", "text": "Section 11"},
+        {"key": "C", "text": "Section 14"},
+        {"key": "D", "text": "Section 23"},
+        {"key": "E", "text": "Section 30"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Which of the following is NOT a requirement of a competent person?",
+      "options": [
+        {"key": "A", "text": "Attainment of majority"},
+        {"key": "B", "text": "Sound mind"},
+        {"key": "C", "text": "Not disqualified by law"},
+        {"key": "D", "text": "Physical strength"},
+        {"key": "E", "text": "All of the above except D"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "Free Consent is dealt with under:",
+      "options": [
+        {"key": "A", "text": "Section 11"},
+        {"key": "B", "text": "Section 12"},
+        {"key": "C", "text": "Section 14"},
+        {"key": "D", "text": "Section 17"},
+        {"key": "E", "text": "Section 23"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Which of the following is NOT a factor affecting free consent?",
+      "options": [
+        {"key": "A", "text": "Coercion"},
+        {"key": "B", "text": "Undue Influence"},
+        {"key": "C", "text": "Fraud"},
+        {"key": "D", "text": "Misrepresentation"},
+        {"key": "E", "text": "Consideration"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "Coercion is defined under:",
+      "options": [
+        {"key": "A", "text": "Section 14"},
+        {"key": "B", "text": "Section 15"},
+        {"key": "C", "text": "Section 16"},
+        {"key": "D", "text": "Section 17"},
+        {"key": "E", "text": "Section 18"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Undue Influence is defined under:",
+      "options": [
+        {"key": "A", "text": "Section 15"},
+        {"key": "B", "text": "Section 16"},
+        {"key": "C", "text": "Section 17"},
+        {"key": "D", "text": "Section 18"},
+        {"key": "E", "text": "Section 23"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Fraud is defined under:",
+      "options": [
+        {"key": "A", "text": "Section 15"},
+        {"key": "B", "text": "Section 16"},
+        {"key": "C", "text": "Section 17"},
+        {"key": "D", "text": "Section 18"},
+        {"key": "E", "text": "Section 20"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Misrepresentation is defined under:",
+      "options": [
+        {"key": "A", "text": "Section 14"},
+        {"key": "B", "text": "Section 15"},
+        {"key": "C", "text": "Section 17"},
+        {"key": "D", "text": "Section 18"},
+        {"key": "E", "text": "Section 23"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "A false statement made without intention to deceive is generally:",
+      "options": [
+        {"key": "A", "text": "Fraud"},
+        {"key": "B", "text": "Coercion"},
+        {"key": "C", "text": "Misrepresentation"},
+        {"key": "D", "text": "Undue influence"},
+        {"key": "E", "text": "Wager"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Under Section 23, consideration or object is unlawful when it is:",
+      "options": [
+        {"key": "A", "text": "Permitted by law"},
+        {"key": "B", "text": "Forbidden by law"},
+        {"key": "C", "text": "Lawful"},
+        {"key": "D", "text": "Certain"},
+        {"key": "E", "text": "Voluntary"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Which one is NOT a ground of unlawfulness under Section 23?",
+      "options": [
+        {"key": "A", "text": "Fraudulent"},
+        {"key": "B", "text": "Immoral"},
+        {"key": "C", "text": "Opposed to public policy"},
+        {"key": "D", "text": "Injury to person or property"},
+        {"key": "E", "text": "Permitted by law"}
+      ],
+      "answer": "E"
+    },
+    {
+      "q": "An agreement in restraint of marriage is governed by:",
+      "options": [
+        {"key": "A", "text": "Section 23"},
+        {"key": "B", "text": "Section 26"},
+        {"key": "C", "text": "Section 27"},
+        {"key": "D", "text": "Section 28"},
+        {"key": "E", "text": "Section 30"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "An agreement in restraint of trade is governed by:",
+      "options": [
+        {"key": "A", "text": "Section 26"},
+        {"key": "B", "text": "Section 27"},
+        {"key": "C", "text": "Section 28"},
+        {"key": "D", "text": "Section 29"},
+        {"key": "E", "text": "Section 30"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "An agreement in restraint of legal proceedings is governed by:",
+      "options": [
+        {"key": "A", "text": "Section 26"},
+        {"key": "B", "text": "Section 27"},
+        {"key": "C", "text": "Section 28"},
+        {"key": "D", "text": "Section 29"},
+        {"key": "E", "text": "Section 30"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Agreement by way of wager is dealt with under:",
+      "options": [
+        {"key": "A", "text": "Section 26"},
+        {"key": "B", "text": "Section 27"},
+        {"key": "C", "text": "Section 28"},
+        {"key": "D", "text": "Section 30"},
+        {"key": "E", "text": "Section 32"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "Which of the following is generally void?",
+      "options": [
+        {"key": "A", "text": "Agreement with a competent adult"},
+        {"key": "B", "text": "Agreement by a minor"},
+        {"key": "C", "text": "Valid contract"},
+        {"key": "D", "text": "Executed contract"},
+        {"key": "E", "text": "Express contract"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Which contract remains valid until it is rescinded by the aggrieved party?",
+      "options": [
+        {"key": "A", "text": "Void contract"},
+        {"key": "B", "text": "Illegal contract"},
+        {"key": "C", "text": "Voidable contract"},
+        {"key": "D", "text": "Unenforceable contract"},
+        {"key": "E", "text": "Quasi contract"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "Which contract is void ab initio?",
+      "options": [
+        {"key": "A", "text": "Voidable contract"},
+        {"key": "B", "text": "Illegal contract"},
+        {"key": "C", "text": "Valid contract"},
+        {"key": "D", "text": "Executed contract"},
+        {"key": "E", "text": "Express contract"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "A contract which is valid but cannot be enforced due to procedural defect is:",
+      "options": [
+        {"key": "A", "text": "Void"},
+        {"key": "B", "text": "Voidable"},
+        {"key": "C", "text": "Illegal"},
+        {"key": "D", "text": "Unenforceable"},
+        {"key": "E", "text": "Quasi"}
+      ],
+      "answer": "D"
+    },
+    {
+      "q": "A contract created by the conduct of the parties is called:",
+      "options": [
+        {"key": "A", "text": "Express Contract"},
+        {"key": "B", "text": "Implied Contract"},
+        {"key": "C", "text": "Executed Contract"},
+        {"key": "D", "text": "Void Contract"},
+        {"key": "E", "text": "Illegal Contract"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "A contract in which both parties have completely performed their obligations is:",
+      "options": [
+        {"key": "A", "text": "Executory Contract"},
+        {"key": "B", "text": "Executed Contract"},
+        {"key": "C", "text": "Contingent Contract"},
+        {"key": "D", "text": "Quasi Contract"},
+        {"key": "E", "text": "Voidable Contract"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "A contract in which performance remains to be done in future is:",
+      "options": [
+        {"key": "A", "text": "Executed Contract"},
+        {"key": "B", "text": "Executory Contract"},
+        {"key": "C", "text": "Implied Contract"},
+        {"key": "D", "text": "Void Contract"},
+        {"key": "E", "text": "Illegal Contract"}
+      ],
+      "answer": "B"
+    },
+    {
+      "q": "Which case established that merely stating the lowest price does not amount to an offer?",
+      "options": [
+        {"key": "A", "text": "Carlill v. Carbolic Smoke Ball Co."},
+        {"key": "B", "text": "Lalman Shukla v. Gauri Dutt"},
+        {"key": "C", "text": "Harvey v. Facey"},
+        {"key": "D", "text": "Harris v. Nickerson"},
+        {"key": "E", "text": "Richardson v. Rowntree"}
+      ],
+      "answer": "C"
+    },
+    {
+      "q": "A person who performs an act without knowing about the offer cannot claim the reward according to:",
+      "options": [
+        {"key": "A", "text": "Harvey v. Facey"},
+        {"key": "B", "text": "Carlill v. Carbolic Smoke Ball Co."},
+        {"key": "C", "text": "Lalman Shukla v. Gauri Dutt"},
+        {"key": "D", "text": "Harris v. Nickerson"},
+        {"key": "E", "text": "Richardson v. Rowntree"}
+      ],
+      "answer": "C"
+    }
+  ],
+  law_of_tort_consumers: [
+    {"q":"Which of the following is not a valid defence in tort?","options":[{"key":"A","text":"Volenti non fit injuria"},{"key":"B","text":"Act of God"},{"key":"C","text":"Consent"},{"key":"D","text":"Ignorance of law"},{"key":"E","text":"Necessity"}],"answer":"D"},
+    {"q":"Which of the following is a remedy in tort law?","options":[{"key":"A","text":"Imprisonment"},{"key":"B","text":"Fine"},{"key":"C","text":"Damages"},{"key":"D","text":"Suspension"},{"key":"E","text":"Confiscation"}],"answer":"C"},
+    {"q":"What is an example of a felonious tort?","options":[{"key":"A","text":"Negligence"},{"key":"B","text":"Mixture of tort and crime"},{"key":"C","text":"Malicious prosecution"},{"key":"D","text":"Liable"},{"key":"E","text":"Slander"}],"answer":"B"},
+    {"q":"Which element is essential to constitute a tort?","options":[{"key":"A","text":"Agreement between parties"},{"key":"B","text":"Duty fixed by law"},{"key":"C","text":"Public prosecution"},{"key":"D","text":"Intention to harm"},{"key":"E","text":"Government approval"}],"answer":"B"},
+    {"q":"Which of the following is common in both tort and breach of contract?","options":[{"key":"A","text":"Remedy is always imprisonment"},{"key":"B","text":"Involve violation of duties fixed by law"},{"key":"C","text":"Result in damage as a remedy"},{"key":"D","text":"Criminal offences"},{"key":"E","text":"Require government prosecution"}],"answer":"C"},
+    {"q":"The main aim of tort law is to:","options":[{"key":"A","text":"Punish the wrongdoer"},{"key":"B","text":"Compensate the victim"},{"key":"C","text":"Rehabilitate the offender"},{"key":"D","text":"Enforce criminal law"},{"key":"E","text":"Deter all criminal acts"}],"answer":"B"},
+    {"q":"Which of the following is an example of tort?","options":[{"key":"A","text":"Breach of employment agreement"},{"key":"B","text":"Trespass to person"},{"key":"C","text":"Breach of marriage promise"},{"key":"D","text":"Violation of constitutional provision"},{"key":"E","text":"Passing a law"}],"answer":"B"},
+    {"q":"What is it called when there is a legal duty to act, but one fails to do so?","options":[{"key":"A","text":"Malfeasance"},{"key":"B","text":"Nonfeasance"},{"key":"C","text":"Misfeasance"},{"key":"D","text":"Unlawful omission"},{"key":"E","text":"Professional negligence"}],"answer":"B"},
+    {"q":"Who among the following persons introduced the pigeon-hole theory of tort?","options":[{"key":"A","text":"Salmond"},{"key":"B","text":"Frederick Pollock"},{"key":"C","text":"Sir Winfield"},{"key":"D","text":"Skinner"},{"key":"E","text":"Burdick"}],"answer":"C"},
+    {"q":"Which of the following is a valid defence in tort?","options":[{"key":"A","text":"Ignorance of law"},{"key":"B","text":"Volenti non fit injuria"},{"key":"C","text":"Mere mistake of law"},{"key":"D","text":"Revenge"},{"key":"E","text":"Bad motive"}],"answer":"B"},
+    {"q":"What do you mean by Volenti non fit injuria?","options":[{"key":"A","text":"No injury can occur without damage"},{"key":"B","text":"Let the buyer beware"},{"key":"C","text":"No wrong is done to a willing person"},{"key":"D","text":"Every injury must be punished"},{"key":"E","text":"One who seeks equity must do equity"}],"answer":"C"},
+    {"q":"Which element is essential to constitute a tort?","options":[{"key":"A","text":"Agreement between parties"},{"key":"B","text":"Duty fixed by law"},{"key":"C","text":"Public prosecution"},{"key":"D","text":"Intention to harm"},{"key":"E","text":"Government approval"}],"answer":"B"},
+    {"q":"Which of the following is common in both tort and breach of contract?","options":[{"key":"A","text":"Remedy is always imprisonment"},{"key":"B","text":"Involve violation of duties fixed by law"},{"key":"C","text":"Result in damage as a remedy"},{"key":"D","text":"Criminal offences"},{"key":"E","text":"Require government prosecution"}],"answer":"C"},
+    {"q":"Injunction means:","options":[{"key":"A","text":"Monetary compensation"},{"key":"B","text":"Order to do an act"},{"key":"C","text":"Order to refrain from doing an act"},{"key":"D","text":"Transfer of property"},{"key":"E","text":"Criminal punishment"}],"answer":"C"},
+    {"q":"Nominal damages are awarded when:","options":[{"key":"A","text":"Serious loss is proved"},{"key":"B","text":"No legal injury occurs"},{"key":"C","text":"Only legal right is violated"},{"key":"D","text":"Defendant admits guilt"},{"key":"E","text":"Plaintiff suffers mental shock"}],"answer":"C"},
+    {"q":"What is it called when there is a legal duty to act, but one fails to do so?","options":[{"key":"A","text":"Malfeasance"},{"key":"B","text":"Nonfeasance"},{"key":"C","text":"Misfeasance"},{"key":"D","text":"Unlawful omission"},{"key":"E","text":"Professional negligence"}],"answer":"B"},
+    {"q":"Which of the following best defines malfeasance?","options":[{"key":"A","text":"Failure to perform a duty"},{"key":"B","text":"Performing an illegal act"},{"key":"C","text":"Performing a lawful act in a wrongful manner"},{"key":"D","text":"Neglecting an obligation"},{"key":"E","text":"Avoiding legal responsibility"}],"answer":"B"},
+    {"q":"When a public officer grants a business license without doing required inspection, the act is:","options":[{"key":"A","text":"Malfeasance"},{"key":"B","text":"Nonfeasance"},{"key":"C","text":"Misfeasance"},{"key":"D","text":"Unlawful omission"},{"key":"E","text":"Professional negligence"}],"answer":"C"},
+    {"q":"Which of the following is a remedy in tort law?","options":[{"key":"A","text":"Imprisonment"},{"key":"B","text":"Fine"},{"key":"C","text":"Damages"},{"key":"D","text":"Death penalty"},{"key":"E","text":"Criminal prosecution"}],"answer":"C"},
+    {"q":"Which principle is associated with Ashby v White?","options":[{"key":"A","text":"Damnum sine injuria"},{"key":"B","text":"Injuria sine damno"},{"key":"C","text":"Volenti non fit injuria"},{"key":"D","text":"Act of God"},{"key":"E","text":"Necessity"}],"answer":"B"},
+    {"q":"Professor Salmond defines tort as:","options":[{"key":"A","text":"A criminal wrong punishable by imprisonment"},{"key":"B","text":"A civil wrong independent of contract remedied by monetary compensation"},{"key":"C","text":"A breach of agreement between parties"},{"key":"D","text":"A wrong against the State only"},{"key":"E","text":"A constitutional wrong"}],"answer":"B"},
+    {"q":"The duty breached in tort is generally:","options":[{"key":"A","text":"Created by agreement"},{"key":"B","text":"Fixed by law"},{"key":"C","text":"Created by promise"},{"key":"D","text":"Created by contract"},{"key":"E","text":"Created by consent"}],"answer":"B"},
+    {"q":"The damages in tort are generally:","options":[{"key":"A","text":"Liquidated"},{"key":"B","text":"Predetermined"},{"key":"C","text":"Unliquidated"},{"key":"D","text":"Criminal"},{"key":"E","text":"Statutory fine"}],"answer":"C"},
+    {"q":"A right available against the whole world is called:","options":[{"key":"A","text":"Right in personam"},{"key":"B","text":"Right in rem"},{"key":"C","text":"Contractual right"},{"key":"D","text":"Personal right"},{"key":"E","text":"Equitable right"}],"answer":"B"},
+    {"q":"A right enforceable against a particular person is called:","options":[{"key":"A","text":"Right in rem"},{"key":"B","text":"Right in personam"},{"key":"C","text":"Public right"},{"key":"D","text":"Criminal right"},{"key":"E","text":"Natural right"}],"answer":"B"},
+    {"q":"Which of the following is NOT generally necessary for a tort?","options":[{"key":"A","text":"Wrongful act or omission"},{"key":"B","text":"Legal damage"},{"key":"C","text":"Legal remedy"},{"key":"D","text":"Prior agreement between parties"},{"key":"E","text":"Violation of a legal right"}],"answer":"D"},
+    {"q":"Damnum sine injuria means:","options":[{"key":"A","text":"Legal injury without actual damage"},{"key":"B","text":"Actual damage without legal injury"},{"key":"C","text":"Damage with legal remedy"},{"key":"D","text":"No damage and no injury"},{"key":"E","text":"Criminal injury without damage"}],"answer":"B"},
+    {"q":"Which case is associated with Damnum sine injuria?","options":[{"key":"A","text":"Ashby v White"},{"key":"B","text":"Gloucester Grammar School Case"},{"key":"C","text":"Donoghue v Stevenson"},{"key":"D","text":"Rylands v Fletcher"},{"key":"E","text":"Salmond's Case"}],"answer":"B"},
+    {"q":"In Gloucester Grammar School Case, the plaintiff suffered:","options":[{"key":"A","text":"Physical injury"},{"key":"B","text":"Loss of property through trespass"},{"key":"C","text":"Financial loss due to lawful competition"},{"key":"D","text":"False imprisonment"},{"key":"E","text":"Assault"}],"answer":"C"},
+    {"q":"Injuria sine damno means:","options":[{"key":"A","text":"Actual damage without legal injury"},{"key":"B","text":"Legal injury without actual damage"},{"key":"C","text":"Damage without remedy"},{"key":"D","text":"Criminal damage"},{"key":"E","text":"No legal injury"}],"answer":"B"},
+    {"q":"In Ashby v White, the plaintiff was wrongfully prevented from:","options":[{"key":"A","text":"Entering his land"},{"key":"B","text":"Conducting business"},{"key":"C","text":"Exercising his right to vote"},{"key":"D","text":"Publishing a newspaper"},{"key":"E","text":"Defending himself"}],"answer":"C"},
+    {"q":"Which of the following is actionable per se?","options":[{"key":"A","text":"Every case of negligence"},{"key":"B","text":"False imprisonment"},{"key":"C","text":"Every case of slander"},{"key":"D","text":"Mere financial loss"},{"key":"E","text":"Lawful competition"}],"answer":"B"},
+    {"q":"Which of the following generally requires proof of actual damage?","options":[{"key":"A","text":"Assault"},{"key":"B","text":"Battery"},{"key":"C","text":"False imprisonment"},{"key":"D","text":"Negligence"},{"key":"E","text":"Trespass to land"}],"answer":"D"},
+    {"q":"\"Where there is a right, there is a remedy\" refers to:","options":[{"key":"A","text":"Actus non facit reum"},{"key":"B","text":"Ex turpi causa"},{"key":"C","text":"Ubi jus ibi remedium"},{"key":"D","text":"Volenti non fit injuria"},{"key":"E","text":"Damnum sine injuria"}],"answer":"C"},
+    {"q":"Ex turpi causa non oritur actio means:","options":[{"key":"A","text":"Where there is a right, there is a remedy"},{"key":"B","text":"No action arises from an illegal or immoral cause"},{"key":"C","text":"No injury is done to a willing person"},{"key":"D","text":"Actual damage without legal injury"},{"key":"E","text":"Legal injury without actual damage"}],"answer":"B"},
+    {"q":"Which one correctly matches the terms?","options":[{"key":"A","text":"Malfeasance - lawful act done improperly"},{"key":"B","text":"Misfeasance - failure to act"},{"key":"C","text":"Nonfeasance - unlawful act"},{"key":"D","text":"Malfeasance - doing an unlawful act"},{"key":"E","text":"Nonfeasance - lawful act done improperly"}],"answer":"D"},
+    {"q":"A contractor legally authorized to repair a road performs the work negligently and injures a pedestrian. This is:","options":[{"key":"A","text":"Malfeasance"},{"key":"B","text":"Misfeasance"},{"key":"C","text":"Nonfeasance"},{"key":"D","text":"Act of God"},{"key":"E","text":"Necessity"}],"answer":"B"},
+    {"q":"A person who has a legal duty to maintain a dangerous structure but fails to do so commits:","options":[{"key":"A","text":"Malfeasance"},{"key":"B","text":"Misfeasance"},{"key":"C","text":"Nonfeasance"},{"key":"D","text":"Assault"},{"key":"E","text":"Battery"}],"answer":"C"},
+    {"q":"Which of the following is a similarity between tort and breach of contract?","options":[{"key":"A","text":"Both require a prior agreement"},{"key":"B","text":"Both are civil wrongs"},{"key":"C","text":"Both are criminal wrongs"},{"key":"D","text":"Both are prosecuted by the State"},{"key":"E","text":"Both always result in imprisonment"}],"answer":"B"},
+    {"q":"In tort, the right is generally:","options":[{"key":"A","text":"Right in personam"},{"key":"B","text":"Right in rem"},{"key":"C","text":"Contractual right only"},{"key":"D","text":"Criminal right"},{"key":"E","text":"Statutory privilege only"}],"answer":"B"},
+    {"q":"The main purpose of tort law is:","options":[{"key":"A","text":"Punishment"},{"key":"B","text":"Compensation"},{"key":"C","text":"Imprisonment"},{"key":"D","text":"Criminal prosecution"},{"key":"E","text":"Confiscation"}],"answer":"B"},
+    {"q":"Which one is a form of trespass to person?","options":[{"key":"A","text":"Nuisance"},{"key":"B","text":"Defamation"},{"key":"C","text":"Assault"},{"key":"D","text":"Breach of contract"},{"key":"E","text":"Negligence only"}],"answer":"C"},
+    {"q":"Assault primarily involves:","options":[{"key":"A","text":"Actual physical contact"},{"key":"B","text":"Reasonable apprehension of immediate unlawful force"},{"key":"C","text":"Financial loss"},{"key":"D","text":"Damage to property"},{"key":"E","text":"Breach of contract"}],"answer":"B"},
+    {"q":"Battery primarily requires:","options":[{"key":"A","text":"Mere intention"},{"key":"B","text":"Reasonable fear only"},{"key":"C","text":"Actual unlawful physical contact"},{"key":"D","text":"Financial loss"},{"key":"E","text":"Written publication"}],"answer":"C"},
+    {"q":"Which is NOT one of the five essential elements of assault mentioned in the class note?","options":[{"key":"A","text":"Immediate"},{"key":"B","text":"Intention"},{"key":"C","text":"Instant Ability"},{"key":"D","text":"Gesture"},{"key":"E","text":"Financial Damage"}],"answer":"E"},
+    {"q":"A locks B inside a room without lawful authority and prevents B from leaving. This is:","options":[{"key":"A","text":"Assault"},{"key":"B","text":"Battery"},{"key":"C","text":"False imprisonment"},{"key":"D","text":"Nuisance"},{"key":"E","text":"Defamation"}],"answer":"C"},
+    {"q":"Which defence is based on voluntary assumption of risk?","options":[{"key":"A","text":"Necessity"},{"key":"B","text":"Act of God"},{"key":"C","text":"Volenti non fit injuria"},{"key":"D","text":"Judicial Act"},{"key":"E","text":"Statutory Authority"}],"answer":"C"},
+    {"q":"Which of the following is an essential condition of Volenti non fit injuria?","options":[{"key":"A","text":"Forced consent"},{"key":"B","text":"Knowledge and free voluntary consent to the risk"},{"key":"C","text":"Absence of consent"},{"key":"D","text":"Criminal intention"},{"key":"E","text":"Government permission"}],"answer":"B"},
+    {"q":"An extraordinary natural event occurring without human intervention and which could not reasonably have been prevented is:","options":[{"key":"A","text":"Necessity"},{"key":"B","text":"Act of State"},{"key":"C","text":"Act of God"},{"key":"D","text":"Misfeasance"},{"key":"E","text":"Nonfeasance"}],"answer":"C"},
+    {"q":"A person breaks part of a building to prevent a rapidly spreading fire from causing much greater damage. This may be justified by:","options":[{"key":"A","text":"Volenti non fit injuria"},{"key":"B","text":"Necessity"},{"key":"C","text":"Malfeasance"},{"key":"D","text":"Nonfeasance"},{"key":"E","text":"Act of State"}],"answer":"B"}
+  ],
   history_emergence_bd: [
     {"q":"Which river system is most closely associated with the major rivers Padma, Meghna and Jamuna?","options":[{"key":"A","text":"Desert system"},{"key":"B","text":"River network of Bangladesh"},{"key":"C","text":"Himalayan glacier system"},{"key":"D","text":"Coastal lagoon system"},{"key":"E","text":"Karst system"}],"answer":"B"},
     {"q":"Why have the rivers of Bangladesh historically played an important role in society?","options":[{"key":"A","text":"They prevent all agricultural activities"},{"key":"B","text":"They support agriculture, transport and fishing"},{"key":"C","text":"They eliminate population concentration"},{"key":"D","text":"They prevent communication"},{"key":"E","text":"They make the country entirely industrial"}],"answer":"B"},
