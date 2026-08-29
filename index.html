@@ -159,7 +159,7 @@ body::before{content:'';position:fixed;inset:0;
 .prev-btn:hover{background:rgba(201,168,76,0.08);border-color:var(--gold);}
 .prev-btn.show{display:block;animation:fadeUp 0.3s ease both;}
 
-/* ========== SCORE SCREEN ========== */
+/* ========== SCORE SCREEN & WRONG REVIEWS ========== */
 #score-screen{display:none;max-width:600px;margin:0 auto;padding:60px 24px 80px;text-align:center;position:relative;z-index:1;}
 #score-screen.show{display:block;animation:fadeUp 0.5s ease both;}
 .score-icon{font-size:4rem;margin-bottom:20px;}
@@ -169,6 +169,8 @@ body::before{content:'';position:fixed;inset:0;
 .score-line{width:140px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 30px;}
 .score-stats{display:flex;justify-content:center;gap:24px;margin-bottom:36px;flex-wrap:wrap;}
 .stat-box{background:var(--navy-light);border:1px solid rgba(201,168,76,0.15);border-radius:3px;padding:16px 24px;text-align:center;}
+.stat-box.clickable{cursor:pointer;transition:all 0.2s;}
+.stat-box.clickable:hover{border-color:var(--red);background:rgba(231,76,60,0.05);transform:translateY(-3px);}
 .stat-val{font-family:'Cinzel',serif;font-size:1.7rem;font-weight:700;}
 .stat-val.g{color:var(--green);} .stat-val.r{color:var(--red);} .stat-val.go{color:var(--gold);}
 .stat-label{font-size:0.78rem;color:var(--text-dim);margin-top:3px;letter-spacing:1px;text-transform:uppercase;font-family:'Cinzel',serif;}
@@ -177,6 +179,46 @@ body::before{content:'';position:fixed;inset:0;
 .retest-btn:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.3);}
 .home-btn2{padding:12px 28px;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid rgba(201,168,76,0.4);border-radius:2px;cursor:pointer;transition:all 0.2s;}
 .home-btn2:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);}
+
+/* REVIEW CONTAINER FOR WRONG ANSWERS */
+.wrong-review-container {
+  margin-top: 35px;
+  text-align: left;
+  display: none;
+  animation: fadeUp 0.4s ease both;
+}
+.wrong-review-container.show { display: block; }
+.wrong-review-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  color: var(--red);
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(231,76,60,0.3);
+  padding-bottom: 8px;
+}
+.wrong-review-item {
+  background: rgba(231,76,60,0.05);
+  border: 1px solid rgba(231,76,60,0.2);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.wrong-review-q {
+  font-size: 1.02rem;
+  color: var(--text);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.wrong-ans-text {
+  color: var(--red);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+.correct-ans-text {
+  color: var(--green);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
 
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
@@ -305,12 +347,18 @@ body::before{content:'';position:fixed;inset:0;
   <div class="score-line"></div>
   <div class="score-stats">
     <div class="stat-box"><div class="stat-val g" id="stat-correct">0</div><div class="stat-label">Correct</div></div>
-    <div class="stat-box"><div class="stat-val r" id="stat-wrong">0</div><div class="stat-label">Wrong</div></div>
+    <div class="stat-box clickable" onclick="toggleWrongReview()" title="Click to view incorrect questions"><div class="stat-val r" id="stat-wrong">0</div><div class="stat-label">Wrong 🔍</div></div>
     <div class="stat-box"><div class="stat-val go" id="stat-total">0</div><div class="stat-label">Total</div></div>
   </div>
   <div class="action-btns">
     <button class="retest-btn" onclick="retestQuiz()">&#8635; Retest</button>
     <button class="home-btn2" onclick="goHome()">&#8962; Home</button>
+  </div>
+  
+  <!-- Dynamic Wrong Answers Review List -->
+  <div class="wrong-review-container" id="wrong-review-container">
+    <div class="wrong-review-title">⚠️ Review Incorrect Answers</div>
+    <div id="wrong-review-list"></div>
   </div>
 </div>
 
@@ -1626,6 +1674,7 @@ function goHome() {
   document.getElementById('home-screen').style.display='block';
   document.getElementById('quiz-screen').style.display='none';
   document.getElementById('score-screen').classList.remove('show');
+  document.getElementById('wrong-review-container').classList.remove('show');
   window.scrollTo(0,0);
 }
 
@@ -1803,7 +1852,48 @@ function showScore() {
   document.getElementById('stat-total').textContent = total;
   const icon = document.getElementById('score-icon');
   icon.textContent = pct>=80?'🏆':pct>=60?'📘':pct>=40?'📝':'💪';
+  
+  // Hide wrong review by default on score screen load
+  document.getElementById('wrong-review-container').classList.remove('show');
+  
   window.scrollTo(0,0);
+}
+
+function toggleWrongReview() {
+  const container = document.getElementById('wrong-review-container');
+  const list = document.getElementById('wrong-review-list');
+  
+  // Toggle visibility if already showing
+  if (container.classList.contains('show')) {
+    container.classList.remove('show');
+    return;
+  }
+
+  if (wrong === 0) {
+    alert("🎉 Great job! You have no wrong answers to review.");
+    return;
+  }
+
+  list.innerHTML = '';
+  questions.forEach((q, idx) => {
+    const userChoice = userAnswersState[idx];
+    if (userChoice && userChoice !== q.answer) {
+      const userOptText = q.options.find(o => o.key === userChoice)?.text || '';
+      const correctOptText = q.options.find(o => o.key === q.answer)?.text || '';
+      
+      const item = document.createElement('div');
+      item.className = 'wrong-review-item';
+      item.innerHTML = `
+        <div class="wrong-review-q">Q${idx + 1}. ${escHtml(q.q)}</div>
+        <div class="wrong-ans-text">❌ Your Answer: (${userChoice}) ${escHtml(userOptText)}</div>
+        <div class="correct-ans-text">✓ Correct Answer: (${q.answer}) ${escHtml(correctOptText)}</div>
+      `;
+      list.appendChild(item);
+    }
+  });
+
+  container.classList.add('show');
+  container.scrollIntoView({ behavior: 'smooth' });
 }
 
 function retestQuiz() {
