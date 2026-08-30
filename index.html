@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Masum MCQ Test Hub</title>
+<title>Masum Test Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Candal&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.google.com/specimen/Google+Sans" rel="stylesheet">
 <style>
@@ -42,50 +42,27 @@ body.paper-theme .option-btn.reveal-correct { background:rgba(26,122,58,0.07); b
 body.paper-theme .back-btn { color:var(--gold); border-color:rgba(138,96,24,0.35); }
 body.paper-theme .back-btn:hover { background:rgba(138,96,24,0.10); }
 body.paper-theme .next-btn { color:#fff; }
+body.paper-theme .saq-item { background:var(--navy-light); border-color:rgba(138,96,24,0.2); }
 
 /* ===== THEME TOGGLE BUTTON ===== */
 .theme-toggle {
-  position:fixed;
-  bottom:24px;
-  right:20px;
-  z-index:500;
-  display:flex;
-  align-items:center;
-  gap:0;
-  background:var(--navy-light);
-  border:1px solid rgba(201,168,76,0.35);
-  border-radius:30px;
-  padding:4px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.25);
+  position:fixed; bottom:24px; right:20px; z-index:500;
+  display:flex; align-items:center; gap:0;
+  background:var(--navy-light); border:1px solid rgba(201,168,76,0.35);
+  border-radius:30px; padding:4px; box-shadow:0 4px 20px rgba(0,0,0,0.25);
 }
 .theme-toggle-btn {
-  font-family:'Cinzel',serif;
-  font-size:0.62rem;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  padding:7px 14px;
-  border:none;
-  border-radius:24px;
-  cursor:pointer;
-  transition:all 0.25s;
-  color:var(--text-dim);
-  background:transparent;
-  white-space:nowrap;
+  font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase;
+  padding:7px 14px; border:none; border-radius:24px; cursor:pointer; transition:all 0.25s;
+  color:var(--text-dim); background:transparent; white-space:nowrap;
 }
 .theme-toggle-btn.active {
-  background:linear-gradient(135deg,var(--gold-light),var(--gold));
-  color:#1a1208;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold)); color:#1a1208;
   box-shadow:0 2px 8px rgba(201,168,76,0.3);
 }
-body.paper-theme .theme-toggle {
-  background:var(--navy-light);
-  border-color:rgba(138,96,24,0.35);
-  box-shadow:0 4px 20px rgba(0,0,0,0.12);
-}
-body.paper-theme .theme-toggle-btn.active {
-  background:linear-gradient(135deg,#c8920a,#a07828);
-  color:#fff;
-}
+body.paper-theme .theme-toggle { background:var(--navy-light); border-color:rgba(138,96,24,0.35); box-shadow:0 4px 20px rgba(0,0,0,0.12); }
+body.paper-theme .theme-toggle-btn.active { background:linear-gradient(135deg,#c8920a,#a07828); color:#fff; }
+
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--navy);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;
@@ -94,26 +71,30 @@ body::before{content:'';position:fixed;inset:0;
   repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(201,168,76,0.025) 60px,rgba(201,168,76,0.025) 61px);
   pointer-events:none;z-index:0;}
 
-/* ========== HOME SCREEN ========== */
-#home-screen{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:60px 24px 80px;}
-.header{text-align:center;margin-bottom:65px;animation:fadeDown 0.8s ease both;}
+/* ========== COMMON CONTAINER & HEADERS ========== */
+.container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:60px 24px 80px;}
+.header{text-align:center;margin-bottom:40px;animation:fadeDown 0.8s ease both;}
 .header-ornament{color:var(--gold);font-size:1.1rem;letter-spacing:6px;text-transform:uppercase;font-family:'Cinzel',serif;opacity:0.7;margin-bottom:14px;}
-.header h1{font-family:'Candal',sans-serif;font-weight:900;font-size:clamp(1.8rem,5vw,3rem);background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 40%,var(--gold-dim) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;letter-spacing:2px;margin-bottom:16px;}
+.header h1{font-family:'Candal',sans-serif;font-weight:900;font-size:clamp(1.8rem,5vw,2.8rem);background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 40%,var(--gold-dim) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;letter-spacing:2px;margin-bottom:16px;}
 .header-line{width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 14px;}
 .header-sub{color:var(--text-dim);font-size:1rem;font-style:italic;}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;animation:fadeUp 0.9s 0.2s ease both;}
+
+/* GRID & CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;animation:fadeUp 0.6s ease both;}
 .card{background:linear-gradient(145deg,var(--navy-light),var(--navy-mid));border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:32px 28px;cursor:pointer;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.3s;}
 .card:hover{transform:translateY(-5px);border-color:rgba(201,168,76,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(201,168,76,0.08);}
 .card:hover::before{opacity:1;}
 
-.card-title{font-family:'Google Sans',sans-serif;font-size:1.05rem;font-weight:bold;color:var(--gold-light);letter-spacing:1px;margin-bottom:14px;line-height:1.4;}
+.card-title{font-family:'Google Sans',sans-serif;font-size:1.1rem;font-weight:bold;color:var(--gold-light);letter-spacing:1px;margin-bottom:14px;line-height:1.4;}
+.card-sub-info{font-size:0.9rem;color:var(--text-dim);margin-bottom:16px;}
 .card-footer-info{display:flex;justify-content:space-between;align-items:center;gap:10px;}
 .card-count{display:inline-flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;border:1px solid rgba(201,168,76,0.3);padding:4px 12px;border-radius:2px;}
 .card-reset-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:1px;color:var(--red);background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);padding:4px 10px;border-radius:2px;cursor:pointer;transition:all 0.2s;}
 .card-reset-btn:hover{background:rgba(231,76,60,0.2);border-color:var(--red);}
 
-.home-footer{text-align:center;margin-top:60px;font-size:0.8rem;color:var(--text-dim);opacity:0.55;font-style:italic;animation:fadeUp 1s 0.5s ease both;}
+/* NAV CONTROL */
+.nav-bar-top{display:flex;align-items:center;margin-bottom:20px;gap:12px;}
 
 /* ========== QUIZ SCREEN ========== */
 #quiz-screen{display:none;position:relative;z-index:1;}
@@ -181,44 +162,22 @@ body::before{content:'';position:fixed;inset:0;
 .home-btn2:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);}
 
 /* REVIEW CONTAINER FOR WRONG ANSWERS */
-.wrong-review-container {
-  margin-top: 35px;
-  text-align: left;
-  display: none;
-  animation: fadeUp 0.4s ease both;
-}
+.wrong-review-container { margin-top: 35px; text-align: left; display: none; animation: fadeUp 0.4s ease both; }
 .wrong-review-container.show { display: block; }
-.wrong-review-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.05rem;
-  color: var(--red);
-  margin-bottom: 16px;
-  border-bottom: 1px solid rgba(231,76,60,0.3);
-  padding-bottom: 8px;
-}
-.wrong-review-item {
-  background: rgba(231,76,60,0.05);
-  border: 1px solid rgba(231,76,60,0.2);
-  border-radius: 4px;
-  padding: 16px;
-  margin-bottom: 14px;
-}
-.wrong-review-q {
-  font-size: 1.02rem;
-  color: var(--text);
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-.wrong-ans-text {
-  color: var(--red);
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-}
-.correct-ans-text {
-  color: var(--green);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
+.wrong-review-title { font-family: 'Cinzel', serif; font-size: 1.05rem; color: var(--red); margin-bottom: 16px; border-bottom: 1px solid rgba(231,76,60,0.3); padding-bottom: 8px; }
+.wrong-review-item { background: rgba(231,76,60,0.05); border: 1px solid rgba(231,76,60,0.2); border-radius: 4px; padding: 16px; margin-bottom: 14px; }
+.wrong-review-q { font-size: 1.02rem; color: var(--text); font-weight: bold; margin-bottom: 10px; }
+.wrong-ans-text { color: var(--red); font-size: 0.95rem; margin-bottom: 4px; }
+.correct-ans-text { color: var(--green); font-size: 0.95rem; font-weight: 600; }
+
+/* ========== SAQ VIEWER SCREEN ========== */
+.saq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+.saq-item { background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.2); border-radius: 4px; padding: 20px; }
+.saq-q { font-size: 1.1rem; color: var(--gold-light); font-weight: bold; margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.saq-a { font-size: 1rem; color: var(--text); line-height: 1.6; border-top: 1px dashed rgba(201,168,76,0.2); padding-top: 10px; display: none; white-space: pre-line; }
+.saq-item.open .saq-a { display: block; }
+
+.home-footer{text-align:center;margin-top:60px;font-size:0.8rem;color:var(--text-dim);opacity:0.55;font-style:italic;animation:fadeUp 1s 0.5s ease both;}
 
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
@@ -240,72 +199,121 @@ body::before{content:'';position:fixed;inset:0;
   <button class="theme-toggle-btn" id="btn-paper" onclick="setTheme('paper')">📄 Paper</button>
 </div>
 
-<!-- ===== HOME SCREEN ===== -->
-<div id="home-screen">
+<!-- ===== STEP 1: HOME SCREEN (SUBJECT SELECTION) ===== -->
+<div id="home-screen" class="container">
   <div class="header">
     <div class="header-ornament">&#9670; LLB Exam Preparation &#9670;</div>
-    <h1>Masum MCQ Test Hub</h1>
+    <h1>Masum Test Hub</h1>
     <div class="header-line"></div>
-    <div class="header-sub">Test your knowledge &bull; Track your progress &bull; Ace the exam</div>
+    <div class="header-sub">Select a subject to practice MCQs and Written SAQs</div>
   </div>
   <div class="cards-grid">
-    
-    <div class="card" onclick="startQuiz('muslim_personal_law_i')">
+    <div class="card" onclick="openSubjectModules('muslim_personal_law_i')">
       <div class="card-title">Muslim Personal Law -I</div>
-      <div class="card-footer-info">
-        <span class="card-count" id="count-muslim_personal_law_i">&#9670; Coming Soon</span>
-        <button class="card-reset-btn" id="reset-muslim_personal_law_i" style="display:none;" onclick="event.stopPropagation(); manualReset('muslim_personal_law_i')">🔄 Reset</button>
-      </div>
+      <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
     </div>
-
-    <div class="card" onclick="startQuiz('law_of_contract')">
+    <div class="card" onclick="openSubjectModules('law_of_contract')">
       <div class="card-title">Law of Contract</div>
-      <div class="card-footer-info">
-        <span class="card-count" id="count-law_of_contract">&#9670; Coming Soon</span>
-        <button class="card-reset-btn" id="reset-law_of_contract" style="display:none;" onclick="event.stopPropagation(); manualReset('law_of_contract')">🔄 Reset</button>
-      </div>
+      <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
     </div>
-
-    <div class="card" onclick="startQuiz('law_of_tort_consumers')">
+    <div class="card" onclick="openSubjectModules('law_of_tort_consumers')">
       <div class="card-title">Law of Tort and Consumers Protection</div>
-      <div class="card-footer-info">
-        <span class="card-count" id="count-law_of_tort_consumers">&#9670; Questions</span>
-        <button class="card-reset-btn" id="reset-law_of_tort_consumers" onclick="event.stopPropagation(); manualReset('law_of_tort_consumers')">🔄 Reset</button>
-      </div>
+      <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
     </div>
-
-    <div class="card" onclick="startQuiz('history_emergence_bd')">
+    <div class="card" onclick="openSubjectModules('history_emergence_bd')">
       <div class="card-title">The History of Emergence of BD</div>
-      <div class="card-footer-info">
-        <span class="card-count" id="count-history_emergence_bd">&#9670; Questions</span>
-        <button class="card-reset-btn" id="reset-history_emergence_bd" onclick="event.stopPropagation(); manualReset('history_emergence_bd')">🔄 Reset</button>
-      </div>
+      <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
     </div>
-
-    <div class="card" onclick="startQuiz('english_test')">
+    <div class="card" onclick="openSubjectModules('english_test')">
       <div class="card-title">Listening and Speaking English</div>
-      <div class="card-footer-info">
-        <span class="card-count" id="count-english_test">&#9670; Coming Soon</span>
-        <button class="card-reset-btn" id="reset-english_test" style="display:none;" onclick="event.stopPropagation(); manualReset('english_test')">🔄 Reset</button>
-      </div>
+      <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
     </div>
-
-    <div class="card" onclick="startQuiz('constitutional_law_ii')">
+    <div class="card" onclick="openSubjectModules('constitutional_law_ii')">
       <div class="card-title">Constitutional Law of BD -II</div>
-      <div class="card-footer-info">
-        <span class="card-count" id="count-constitutional_law_ii">&#9670; Coming Soon</span>
-        <button class="card-reset-btn" id="reset-constitutional_law_ii" style="display:none;" onclick="event.stopPropagation(); manualReset('constitutional_law_ii')">🔄 Reset</button>
-      </div>
+      <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
     </div>
-
   </div>
   <div class="home-footer">KYAU &mdash; LLB 25th Batch &nbsp;|&nbsp; All questions compiled by Masum Bin Zafar</div>
 </div>
 
-<!-- ===== QUIZ SCREEN ===== -->
+<!-- ===== STEP 2: MODULE SELECTION (MCQ vs SAQ) ===== -->
+<div id="module-screen" class="container" style="display:none;">
+  <div class="nav-bar-top">
+    <button class="back-btn" onclick="goHome()">&#8592; Back to Subjects</button>
+  </div>
+  <div class="header">
+    <h1 id="module-subject-title">Subject Name</h1>
+    <div class="header-line"></div>
+    <div class="header-sub">Choose your preparation mode</div>
+  </div>
+  <div class="cards-grid">
+    <!-- MCQ Card -->
+    <div class="card" onclick="startMCQFromModule()">
+      <div class="card-title">📝 MCQ Test</div>
+      <div class="card-sub-info">Interactive Multiple Choice Questions with instant grading.</div>
+      <div class="card-footer-info">
+        <span class="card-count" id="module-mcq-count">&#9670; Questions</span>
+        <button class="card-reset-btn" id="module-mcq-reset" onclick="event.stopPropagation(); resetCurrentMCQ()">🔄 Reset</button>
+      </div>
+    </div>
+    <!-- SAQ Card -->
+    <div class="card" onclick="openSaqTypeSelection()">
+      <div class="card-title">📖 SAQ & Broad Questions</div>
+      <div class="card-sub-info">Written exam preparation including 2 marks and Broad questions.</div>
+      <div class="card-footer-info">
+        <span class="card-count" id="module-saq-count">&#9670; Written Mode</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STEP 3: SAQ TYPE SELECTION (Broad vs 2 Marks) ===== -->
+<div id="saq-type-screen" class="container" style="display:none;">
+  <div class="nav-bar-top">
+    <button class="back-btn" onclick="backToModules()">&#8592; Back to Modules</button>
+  </div>
+  <div class="header">
+    <h1 id="saq-subject-title">Subject Name</h1>
+    <div class="header-line"></div>
+    <div class="header-sub">Select question pattern</div>
+  </div>
+  <div class="cards-grid">
+    <div class="card" onclick="openSaqViewer('2marks')">
+      <div class="card-title">📌 Short Questions (2 Marks)</div>
+      <div class="card-sub-info">Short definitions, maxims, and quick answers.</div>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-2marks">&#9670; View Questions</span>
+      </div>
+    </div>
+    <div class="card" onclick="openSaqViewer('broad')">
+      <div class="card-title">📑 Broad Questions</div>
+      <div class="card-sub-info">Detailed answers, case law references, and structured analysis.</div>
+      <div class="card-footer-info">
+        <span class="card-count" id="count-broad">&#9670; View Questions</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STEP 4: SAQ VIEWER SCREEN ===== -->
+<div id="saq-viewer-screen" class="container" style="display:none;">
+  <div class="nav-bar-top">
+    <button class="back-btn" onclick="backToSaqType()">&#8592; Back to Written Types</button>
+  </div>
+  <div class="header">
+    <h1 id="saq-view-title">Questions List</h1>
+    <div class="header-line"></div>
+    <div class="header-sub">Click on any question to expand or hide the answer</div>
+  </div>
+  <div class="saq-list" id="saq-list-container">
+    <!-- SAQ items inserted via JavaScript -->
+  </div>
+</div>
+
+<!-- ===== QUIZ SCREEN (MCQ) ===== -->
 <div id="quiz-screen">
   <div class="topbar">
-    <button class="back-btn" onclick="goHome()">&#8592; Back</button>
+    <button class="back-btn" onclick="backToModules()">&#8592; Back</button>
     <div class="topbar-title" id="topbar-title"></div>
     <div class="progress-wrap">
       <div class="progress-details">
@@ -346,10 +354,9 @@ body::before{content:'';position:fixed;inset:0;
   </div>
   <div class="action-btns">
     <button class="retest-btn" onclick="retestQuiz()">&#8635; Retest</button>
-    <button class="home-btn2" onclick="goHome()">&#8962; Home</button>
+    <button class="home-btn2" onclick="backToModules()">&#8962; Subject Home</button>
   </div>
   
-  <!-- Dynamic Wrong Answers Review List -->
   <div class="wrong-review-container" id="wrong-review-container">
     <div class="wrong-review-title">⚠️ Review Incorrect Answers</div>
     <div id="wrong-review-list"></div>
@@ -357,6 +364,7 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 
 <script>
+// FULL MCQ DATABASE
 const DB = {
   muslim_personal_law_i: [
     {"q":"Which one is the primary source of Muslim law?","options":[{"key":"A","text":"Quran"},{"key":"B","text":"Sunna"},{"key":"C","text":"Ijma"},{"key":"D","text":"Istihsan"},{"key":"E","text":"Qiyas"}],"answer":"A"},
@@ -416,556 +424,56 @@ const DB = {
     {"q":"A widow or divorced woman must give-","options":[{"key":"A","text":"Mere silence"},{"key":"B","text":"Express consent"},{"key":"C","text":"Guardian's consent only"},{"key":"D","text":"No consent"},{"key":"E","text":"Consent after consummation"}],"answer":"B"}
   ],
   law_of_contract: [
-    {
-      "q": "Who among the following is competent to contract under the Contract Act, 1872?",
-      "options": [
-        {"key": "A", "text": "Minor"},
-        {"key": "B", "text": "Person of unsound mind"},
-        {"key": "C", "text": "Bankrupt person"},
-        {"key": "D", "text": "Idiotic person"},
-        {"key": "E", "text": "70 years old person"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Which of the following is NOT an essential element for a valid contract?",
-      "options": [
-        {"key": "A", "text": "Offer and Acceptance"},
-        {"key": "B", "text": "Consideration"},
-        {"key": "C", "text": "Written Agreement"},
-        {"key": "D", "text": "Legal Capacity of Parties"},
-        {"key": "E", "text": "Physical strength of the parties"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "What is the consequence of a contract for sale of a house not registered?",
-      "options": [
-        {"key": "A", "text": "Valid"},
-        {"key": "B", "text": "Void"},
-        {"key": "C", "text": "Voidable"},
-        {"key": "D", "text": "Executed"},
-        {"key": "E", "text": "Unenforceable"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "An agreement not enforceable by law is defined as:",
-      "options": [
-        {"key": "A", "text": "Voidable Contract"},
-        {"key": "B", "text": "Void Agreement"},
-        {"key": "C", "text": "Unenforceable Contract"},
-        {"key": "D", "text": "Valid Contract"},
-        {"key": "E", "text": "Quasi Contract"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "A and B have made a contract on the happening of an accident of B's car. This is:",
-      "options": [
-        {"key": "A", "text": "Quasi Contract"},
-        {"key": "B", "text": "Contingent Contract"},
-        {"key": "C", "text": "Contract of Indemnity"},
-        {"key": "D", "text": "Executed Contract"},
-        {"key": "E", "text": "Void Contract"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "An agreement by way of wager is ... in accordance with Section 30.",
-      "options": [
-        {"key": "A", "text": "Partly unlawful"},
-        {"key": "B", "text": "Illegal"},
-        {"key": "C", "text": "Void"},
-        {"key": "D", "text": "Opposed to morality"},
-        {"key": "E", "text": "Valid"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which of the following can be an offer?",
-      "options": [
-        {"key": "A", "text": "Publishing of price list"},
-        {"key": "B", "text": "Auction sale"},
-        {"key": "C", "text": "Quotation or tender"},
-        {"key": "D", "text": "Proposal to sell a car at Tk. 2 lac"},
-        {"key": "E", "text": "Sale of share"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Which cannot be a way of executing a consideration of an agreement?",
-      "options": [
-        {"key": "A", "text": "By performing an act"},
-        {"key": "B", "text": "By abstinence"},
-        {"key": "C", "text": "By promise of an action"},
-        {"key": "D", "text": "By declaring void"},
-        {"key": "E", "text": "Promise of abstinence"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Which cannot be a characteristic of an offer?",
-      "options": [
-        {"key": "A", "text": "Clear and express intention"},
-        {"key": "B", "text": "Willingness to do or abstain"},
-        {"key": "C", "text": "Obtaining the assent"},
-        {"key": "D", "text": "Accepted by promisee"},
-        {"key": "E", "text": "Intention to make a contractual relation"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "In which case was the view 'additional statement may be offer' established?",
-      "options": [
-        {"key": "A", "text": "Jaye Babu v. Regional Manager, APSRTC"},
-        {"key": "B", "text": "Harris v. Nickerson"},
-        {"key": "C", "text": "Carlill v. Carbolic Smoke Ball Co."},
-        {"key": "D", "text": "Richardson v. Rowntree"},
-        {"key": "E", "text": "Lalman Shukla v. Gauri Dutta"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Who among the following is competent to contract under the Contract Act, 1872? (Spring 2026)",
-      "options": [
-        {"key": "A", "text": "Minor"},
-        {"key": "B", "text": "Person of unsound mind"},
-        {"key": "C", "text": "Bankrupt person"},
-        {"key": "D", "text": "Idiotic person"},
-        {"key": "E", "text": "70 years old person"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Which of the following is NOT an essential element for a valid contract? (Spring 2026)",
-      "options": [
-        {"key": "A", "text": "Offer and Acceptance"},
-        {"key": "B", "text": "Consideration"},
-        {"key": "C", "text": "Written Agreement"},
-        {"key": "D", "text": "Legal Capacity of Parties"},
-        {"key": "E", "text": "Physical strength of the parties"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "What is the consequence of a contract for sale of a house not registered? (Spring 2026)",
-      "options": [
-        {"key": "A", "text": "Valid"},
-        {"key": "B", "text": "Void"},
-        {"key": "C", "text": "Voidable"},
-        {"key": "D", "text": "Executed"},
-        {"key": "E", "text": "Unenforceable"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "An agreement not enforceable by law is defined as: (Spring 2026)",
-      "options": [
-        {"key": "A", "text": "Voidable Contract"},
-        {"key": "B", "text": "Void Agreement"},
-        {"key": "C", "text": "Unenforceable Contract"},
-        {"key": "D", "text": "Valid Contract"},
-        {"key": "E", "text": "Quasi Contract"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "A and B have made a contract on the happening of an accident of B's car. This is: (Spring 2026)",
-      "options": [
-        {"key": "A", "text": "Quasi Contract"},
-        {"key": "B", "text": "Contingent Contract"},
-        {"key": "C", "text": "Contract of Indemnity"},
-        {"key": "D", "text": "Executed Contract"},
-        {"key": "E", "text": "Void Contract"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "A contract is voidable at the option of the aggrieved party if consent was caused by:",
-      "options": [
-        {"key": "A", "text": "Mistake of law"},
-        {"key": "B", "text": "Unsoundness of mind"},
-        {"key": "C", "text": "Coercion, undue influence, or fraud"},
-        {"key": "D", "text": "Lapse of time"},
-        {"key": "E", "text": "Contract with minor"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which can be an offer? (Spring 2026)",
-      "options": [
-        {"key": "A", "text": "Publishing of price list"},
-        {"key": "B", "text": "Auction sale"},
-        {"key": "C", "text": "Quotation or tender"},
-        {"key": "D", "text": "Proposal to sell a car at Tk. 2 lac"},
-        {"key": "E", "text": "Sale of share"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Agreement of a minor is generally:",
-      "options": [
-        {"key": "A", "text": "Voidable"},
-        {"key": "B", "text": "Void"},
-        {"key": "C", "text": "Illegal"},
-        {"key": "D", "text": "Unenforceable"},
-        {"key": "E", "text": "Valid"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which cannot be a characteristic of offer? (Spring 2026)",
-      "options": [
-        {"key": "A", "text": "Clear and express intention"},
-        {"key": "B", "text": "Willingness to do or abstain"},
-        {"key": "C", "text": "Obtaining the assent"},
-        {"key": "D", "text": "Accepted by promisee"},
-        {"key": "E", "text": "Intention to make a contractual relation"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Considerations & objects are unlawful in the following cases except:",
-      "options": [
-        {"key": "A", "text": "Forbidden by law"},
-        {"key": "B", "text": "Fraudulent"},
-        {"key": "C", "text": "Immoral"},
-        {"key": "D", "text": "Permitted by law"},
-        {"key": "E", "text": "Against public policy"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "According to Section 2(h), a contract is:",
-      "options": [
-        {"key": "A", "text": "Every promise"},
-        {"key": "B", "text": "Every agreement"},
-        {"key": "C", "text": "An agreement enforceable by law"},
-        {"key": "D", "text": "Every offer"},
-        {"key": "E", "text": "Every consideration"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "According to Section 2(e), an agreement consists of:",
-      "options": [
-        {"key": "A", "text": "Offer only"},
-        {"key": "B", "text": "Promise and consideration"},
-        {"key": "C", "text": "Acceptance only"},
-        {"key": "D", "text": "Object only"},
-        {"key": "E", "text": "Consideration only"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "A proposal when accepted becomes a:",
-      "options": [
-        {"key": "A", "text": "Contract"},
-        {"key": "B", "text": "Consideration"},
-        {"key": "C", "text": "Promise"},
-        {"key": "D", "text": "Quasi contract"},
-        {"key": "E", "text": "Void agreement"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "The person making the proposal is called the:",
-      "options": [
-        {"key": "A", "text": "Promisee"},
-        {"key": "B", "text": "Promisor"},
-        {"key": "C", "text": "Acceptor"},
-        {"key": "D", "text": "Agent"},
-        {"key": "E", "text": "Principal"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "The person accepting the proposal is called the:",
-      "options": [
-        {"key": "A", "text": "Promisor"},
-        {"key": "B", "text": "Offeror"},
-        {"key": "C", "text": "Promisee"},
-        {"key": "D", "text": "Principal"},
-        {"key": "E", "text": "Agent"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Under Section 10, an agreement becomes a contract when it is made by:",
-      "options": [
-        {"key": "A", "text": "Minors"},
-        {"key": "B", "text": "Free consent of competent parties"},
-        {"key": "C", "text": "Persons of unsound mind"},
-        {"key": "D", "text": "Force"},
-        {"key": "E", "text": "Fraud"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which section deals with competency to contract?",
-      "options": [
-        {"key": "A", "text": "Section 10"},
-        {"key": "B", "text": "Section 11"},
-        {"key": "C", "text": "Section 14"},
-        {"key": "D", "text": "Section 23"},
-        {"key": "E", "text": "Section 30"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which of the following is NOT a requirement of a competent person?",
-      "options": [
-        {"key": "A", "text": "Attainment of majority"},
-        {"key": "B", "text": "Sound mind"},
-        {"key": "C", "text": "Not disqualified by law"},
-        {"key": "D", "text": "Physical strength"},
-        {"key": "E", "text": "All of the above except D"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Free Consent is dealt with under:",
-      "options": [
-        {"key": "A", "text": "Section 11"},
-        {"key": "B", "text": "Section 12"},
-        {"key": "C", "text": "Section 14"},
-        {"key": "D", "text": "Section 17"},
-        {"key": "E", "text": "Section 23"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which of the following is NOT a factor affecting free consent?",
-      "options": [
-        {"key": "A", "text": "Coercion"},
-        {"key": "B", "text": "Undue Influence"},
-        {"key": "C", "text": "Fraud"},
-        {"key": "D", "text": "Misrepresentation"},
-        {"key": "E", "text": "Consideration"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Coercion is defined under:",
-      "options": [
-        {"key": "A", "text": "Section 14"},
-        {"key": "B", "text": "Section 15"},
-        {"key": "C", "text": "Section 16"},
-        {"key": "D", "text": "Section 17"},
-        {"key": "E", "text": "Section 18"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Undue Influence is defined under:",
-      "options": [
-        {"key": "A", "text": "Section 15"},
-        {"key": "B", "text": "Section 16"},
-        {"key": "C", "text": "Section 17"},
-        {"key": "D", "text": "Section 18"},
-        {"key": "E", "text": "Section 23"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Fraud is defined under:",
-      "options": [
-        {"key": "A", "text": "Section 15"},
-        {"key": "B", "text": "Section 16"},
-        {"key": "C", "text": "Section 17"},
-        {"key": "D", "text": "Section 18"},
-        {"key": "E", "text": "Section 20"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Misrepresentation is defined under:",
-      "options": [
-        {"key": "A", "text": "Section 14"},
-        {"key": "B", "text": "Section 15"},
-        {"key": "C", "text": "Section 17"},
-        {"key": "D", "text": "Section 18"},
-        {"key": "E", "text": "Section 23"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "A false statement made without intention to deceive is generally:",
-      "options": [
-        {"key": "A", "text": "Fraud"},
-        {"key": "B", "text": "Coercion"},
-        {"key": "C", "text": "Misrepresentation"},
-        {"key": "D", "text": "Undue influence"},
-        {"key": "E", "text": "Wager"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Under Section 23, consideration or object is unlawful when it is:",
-      "options": [
-        {"key": "A", "text": "Permitted by law"},
-        {"key": "B", "text": "Forbidden by law"},
-        {"key": "C", "text": "Lawful"},
-        {"key": "D", "text": "Certain"},
-        {"key": "E", "text": "Voluntary"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which one is NOT a ground of unlawfulness under Section 23?",
-      "options": [
-        {"key": "A", "text": "Fraudulent"},
-        {"key": "B", "text": "Immoral"},
-        {"key": "C", "text": "Opposed to public policy"},
-        {"key": "D", "text": "Injury to person or property"},
-        {"key": "E", "text": "Permitted by law"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "An agreement in restraint of marriage is governed by:",
-      "options": [
-        {"key": "A", "text": "Section 23"},
-        {"key": "B", "text": "Section 26"},
-        {"key": "C", "text": "Section 27"},
-        {"key": "D", "text": "Section 28"},
-        {"key": "E", "text": "Section 30"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "An agreement in restraint of trade is governed by:",
-      "options": [
-        {"key": "A", "text": "Section 26"},
-        {"key": "B", "text": "Section 27"},
-        {"key": "C", "text": "Section 28"},
-        {"key": "D", "text": "Section 29"},
-        {"key": "E", "text": "Section 30"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "An agreement in restraint of legal proceedings is governed by:",
-      "options": [
-        {"key": "A", "text": "Section 26"},
-        {"key": "B", "text": "Section 27"},
-        {"key": "C", "text": "Section 28"},
-        {"key": "D", "text": "Section 29"},
-        {"key": "E", "text": "Section 30"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Agreement by way of wager is dealt with under:",
-      "options": [
-        {"key": "A", "text": "Section 26"},
-        {"key": "B", "text": "Section 27"},
-        {"key": "C", "text": "Section 28"},
-        {"key": "D", "text": "Section 30"},
-        {"key": "E", "text": "Section 32"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Which of the following is generally void?",
-      "options": [
-        {"key": "A", "text": "Agreement with a competent adult"},
-        {"key": "B", "text": "Agreement by a minor"},
-        {"key": "C", "text": "Valid contract"},
-        {"key": "D", "text": "Executed contract"},
-        {"key": "E", "text": "Express contract"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which contract remains valid until it is rescinded by the aggrieved party?",
-      "options": [
-        {"key": "A", "text": "Void contract"},
-        {"key": "B", "text": "Illegal contract"},
-        {"key": "C", "text": "Voidable contract"},
-        {"key": "D", "text": "Unenforceable contract"},
-        {"key": "E", "text": "Quasi contract"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which contract is void ab initio?",
-      "options": [
-        {"key": "A", "text": "Voidable contract"},
-        {"key": "B", "text": "Illegal contract"},
-        {"key": "C", "text": "Valid contract"},
-        {"key": "D", "text": "Executed contract"},
-        {"key": "E", "text": "Express contract"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "A contract which is valid but cannot be enforced due to procedural defect is:",
-      "options": [
-        {"key": "A", "text": "Void"},
-        {"key": "B", "text": "Voidable"},
-        {"key": "C", "text": "Illegal"},
-        {"key": "D", "text": "Unenforceable"},
-        {"key": "E", "text": "Quasi"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "A contract created by the conduct of the parties is called:",
-      "options": [
-        {"key": "A", "text": "Express Contract"},
-        {"key": "B", "text": "Implied Contract"},
-        {"key": "C", "text": "Executed Contract"},
-        {"key": "D", "text": "Void Contract"},
-        {"key": "E", "text": "Illegal Contract"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "A contract in which both parties have completely performed their obligations is:",
-      "options": [
-        {"key": "A", "text": "Executory Contract"},
-        {"key": "B", "text": "Executed Contract"},
-        {"key": "C", "text": "Contingent Contract"},
-        {"key": "D", "text": "Quasi Contract"},
-        {"key": "E", "text": "Voidable Contract"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "A contract in which performance remains to be done in future is:",
-      "options": [
-        {"key": "A", "text": "Executed Contract"},
-        {"key": "B", "text": "Executory Contract"},
-        {"key": "C", "text": "Implied Contract"},
-        {"key": "D", "text": "Void Contract"},
-        {"key": "E", "text": "Illegal Contract"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which case established that merely stating the lowest price does not amount to an offer?",
-      "options": [
-        {"key": "A", "text": "Carlill v. Carbolic Smoke Ball Co."},
-        {"key": "B", "text": "Lalman Shukla v. Gauri Dutt"},
-        {"key": "C", "text": "Harvey v. Facey"},
-        {"key": "D", "text": "Harris v. Nickerson"},
-        {"key": "E", "text": "Richardson v. Rowntree"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "A person who performs an act without knowing about the offer cannot claim the reward according to:",
-      "options": [
-        {"key": "A", "text": "Harvey v. Facey"},
-        {"key": "B", "text": "Carlill v. Carbolic Smoke Ball Co."},
-        {"key": "C", "text": "Lalman Shukla v. Gauri Dutt"},
-        {"key": "D", "text": "Harris v. Nickerson"},
-        {"key": "E", "text": "Richardson v. Rowntree"}
-      ],
-      "answer": "C"
-    }
+    {"q":"Who among the following is competent to contract under the Contract Act, 1872?","options":[{"key":"A","text":"Minor"},{"key":"B","text":"Person of unsound mind"},{"key":"C","text":"Bankrupt person"},{"key":"D","text":"Idiotic person"},{"key":"E","text":"70 years old person"}],"answer":"E"},
+    {"q":"Which of the following is NOT an essential element for a valid contract?","options":[{"key":"A","text":"Offer and Acceptance"},{"key":"B","text":"Consideration"},{"key":"C","text":"Written Agreement"},{"key":"D","text":"Legal Capacity of Parties"},{"key":"E","text":"Physical strength of the parties"}],"answer":"E"},
+    {"q":"What is the consequence of a contract for sale of a house not registered?","options":[{"key":"A","text":"Valid"},{"key":"B","text":"Void"},{"key":"C","text":"Voidable"},{"key":"D","text":"Executed"},{"key":"E","text":"Unenforceable"}],"answer":"E"},
+    {"q":"An agreement not enforceable by law is defined as:","options":[{"key":"A","text":"Voidable Contract"},{"key":"B","text":"Void Agreement"},{"key":"C","text":"Unenforceable Contract"},{"key":"D","text":"Valid Contract"},{"key":"E","text":"Quasi Contract"}],"answer":"C"},
+    {"q":"A and B have made a contract on the happening of an accident of B's car. This is:","options":[{"key":"A","text":"Quasi Contract"},{"key":"B","text":"Contingent Contract"},{"key":"C","text":"Contract of Indemnity"},{"key":"D","text":"Executed Contract"},{"key":"E","text":"Void Contract"}],"answer":"B"},
+    {"q":"An agreement by way of wager is ... in accordance with Section 30.","options":[{"key":"A","text":"Partly unlawful"},{"key":"B","text":"Illegal"},{"key":"C","text":"Void"},{"key":"D","text":"Opposed to morality"},{"key":"E","text":"Valid"}],"answer":"C"},
+    {"q":"Which of the following can be an offer?","options":[{"key":"A","text":"Publishing of price list"},{"key":"B","text":"Auction sale"},{"key":"C","text":"Quotation or tender"},{"key":"D","text":"Proposal to sell a car at Tk. 2 lac"},{"key":"E","text":"Sale of share"}],"answer":"D"},
+    {"q":"Which cannot be a way of executing a consideration of an agreement?","options":[{"key":"A","text":"By performing an act"},{"key":"B","text":"By abstinence"},{"key":"C","text":"By promise of an action"},{"key":"D","text":"By declaring void"},{"key":"E","text":"Promise of abstinence"}],"answer":"D"},
+    {"q":"Which cannot be a characteristic of an offer?","options":[{"key":"A","text":"Clear and express intention"},{"key":"B","text":"Willingness to do or abstain"},{"key":"C","text":"Obtaining the assent"},{"key":"D","text":"Accepted by promisee"},{"key":"E","text":"Intention to make a contractual relation"}],"answer":"D"},
+    {"q":"In which case was the view 'additional statement may be offer' established?","options":[{"key":"A","text":"Jaye Babu v. Regional Manager, APSRTC"},{"key":"B","text":"Harris v. Nickerson"},{"key":"C","text":"Carlill v. Carbolic Smoke Ball Co."},{"key":"D","text":"Richardson v. Rowntree"},{"key":"E","text":"Lalman Shukla v. Gauri Dutta"}],"answer":"C"},
+    {"q":"Who among the following is competent to contract under the Contract Act, 1872? (Spring 2026)","options":[{"key":"A","text":"Minor"},{"key":"B","text":"Person of unsound mind"},{"key":"C","text":"Bankrupt person"},{"key":"D","text":"Idiotic person"},{"key":"E","text":"70 years old person"}],"answer":"E"},
+    {"q":"Which of the following is NOT an essential element for a valid contract? (Spring 2026)","options":[{"key":"A","text":"Offer and Acceptance"},{"key":"B","text":"Consideration"},{"key":"C","text":"Written Agreement"},{"key":"D","text":"Legal Capacity of Parties"},{"key":"E","text":"Physical strength of the parties"}],"answer":"E"},
+    {"q":"What is the consequence of a contract for sale of a house not registered? (Spring 2026)","options":[{"key":"A","text":"Valid"},{"key":"B","text":"Void"},{"key":"C","text":"Voidable"},{"key":"D","text":"Executed"},{"key":"E","text":"Unenforceable"}],"answer":"E"},
+    {"q":"An agreement not enforceable by law is defined as: (Spring 2026)","options":[{"key":"A","text":"Voidable Contract"},{"key":"B","text":"Void Agreement"},{"key":"C","text":"Unenforceable Contract"},{"key":"D","text":"Valid Contract"},{"key":"E","text":"Quasi Contract"}],"answer":"C"},
+    {"q":"A and B have made a contract on the happening of an accident of B's car. This is: (Spring 2026)","options":[{"key":"A","text":"Quasi Contract"},{"key":"B","text":"Contingent Contract"},{"key":"C","text":"Contract of Indemnity"},{"key":"D","text":"Executed Contract"},{"key":"E","text":"Void Contract"}],"answer":"B"},
+    {"q":"A contract is voidable at the option of the aggrieved party if consent was caused by:","options":[{"key":"A","text":"Mistake of law"},{"key":"B","text":"Unsoundness of mind"},{"key":"C","text":"Coercion, undue influence, or fraud"},{"key":"D","text":"Lapse of time"},{"key":"E","text":"Contract with minor"}],"answer":"C"},
+    {"q":"Which can be an offer? (Spring 2026)","options":[{"key":"A","text":"Publishing of price list"},{"key":"B","text":"Auction sale"},{"key":"C","text":"Quotation or tender"},{"key":"D","text":"Proposal to sell a car at Tk. 2 lac"},{"key":"E","text":"Sale of share"}],"answer":"D"},
+    {"q":"Agreement of a minor is generally:","options":[{"key":"A","text":"Voidable"},{"key":"B","text":"Void"},{"key":"C","text":"Illegal"},{"key":"D","text":"Unenforceable"},{"key":"E","text":"Valid"}],"answer":"B"},
+    {"q":"Which cannot be a characteristic of offer? (Spring 2026)","options":[{"key":"A","text":"Clear and express intention"},{"key":"B","text":"Willingness to do or abstain"},{"key":"C","text":"Obtaining the assent"},{"key":"D","text":"Accepted by promisee"},{"key":"E","text":"Intention to make a contractual relation"}],"answer":"D"},
+    {"q":"Considerations & objects are unlawful in the following cases except:","options":[{"key":"A","text":"Forbidden by law"},{"key":"B","text":"Fraudulent"},{"key":"C","text":"Immoral"},{"key":"D","text":"Permitted by law"},{"key":"E","text":"Against public policy"}],"answer":"D"},
+    {"q":"According to Section 2(h), a contract is:","options":[{"key":"A","text":"Every promise"},{"key":"B","text":"Every agreement"},{"key":"C","text":"An agreement enforceable by law"},{"key":"D","text":"Every offer"},{"key":"E","text":"Every consideration"}],"answer":"C"},
+    {"q":"According to Section 2(e), an agreement consists of:","options":[{"key":"A","text":"Offer only"},{"key":"B","text":"Promise and consideration"},{"key":"C","text":"Acceptance only"},{"key":"D","text":"Object only"},{"key":"E","text":"Consideration only"}],"answer":"B"},
+    {"q":"A proposal when accepted becomes a:","options":[{"key":"A","text":"Contract"},{"key":"B","text":"Consideration"},{"key":"C","text":"Promise"},{"key":"D","text":"Quasi contract"},{"key":"E","text":"Void agreement"}],"answer":"C"},
+    {"q":"The person making the proposal is called the:","options":[{"key":"A","text":"Promisee"},{"key":"B","text":"Promisor"},{"key":"C","text":"Acceptor"},{"key":"D","text":"Agent"},{"key":"E","text":"Principal"}],"answer":"B"},
+    {"q":"The person accepting the proposal is called the:","options":[{"key":"A","text":"Promisor"},{"key":"B","text":"Offeror"},{"key":"C","text":"Promisee"},{"key":"D","text":"Principal"},{"key":"E","text":"Agent"}],"answer":"C"},
+    {"q":"Under Section 10, an agreement becomes a contract when it is made by:","options":[{"key":"A","text":"Minors"},{"key":"B","text":"Free consent of competent parties"},{"key":"C","text":"Persons of unsound mind"},{"key":"D","text":"Force"},{"key":"E","text":"Fraud"}],"answer":"B"},
+    {"q":"Which section deals with competency to contract?","options":[{"key":"A","text":"Section 10"},{"key":"B","text":"Section 11"},{"key":"C","text":"Section 14"},{"key":"D","text":"Section 23"},{"key":"E","text":"Section 30"}],"answer":"B"},
+    {"q":"Which of the following is NOT a requirement of a competent person?","options":[{"key":"A","text":"Attainment of majority"},{"key":"B","text":"Sound mind"},{"key":"C","text":"Not disqualified by law"},{"key":"D","text":"Physical strength"},{"key":"E","text":"All of the above except D"}],"answer":"D"},
+    {"q":"Free Consent is dealt with under:","options":[{"key":"A","text":"Section 11"},{"key":"B","text":"Section 12"},{"key":"C","text":"Section 14"},{"key":"D","text":"Section 17"},{"key":"E","text":"Section 23"}],"answer":"C"},
+    {"q":"Which of the following is NOT a factor affecting free consent?","options":[{"key":"A","text":"Coercion"},{"key":"B","text":"Undue Influence"},{"key":"C","text":"Fraud"},{"key":"D","text":"Misrepresentation"},{"key":"E","text":"Consideration"}],"answer":"E"},
+    {"q":"Coercion is defined under:","options":[{"key":"A","text":"Section 14"},{"key":"B","text":"Section 15"},{"key":"C","text":"Section 16"},{"key":"D","text":"Section 17"},{"key":"E","text":"Section 18"}],"answer":"B"},
+    {"q":"Undue Influence is defined under:","options":[{"key":"A","text":"Section 15"},{"key":"B","text":"Section 16"},{"key":"C","text":"Section 17"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 23"}],"answer":"B"},
+    {"q":"Fraud is defined under:","options":[{"key":"A","text":"Section 15"},{"key":"B","text":"Section 16"},{"key":"C","text":"Section 17"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 20"}],"answer":"C"},
+    {"q":"Misrepresentation is defined under:","options":[{"key":"A","text":"Section 14"},{"key":"B","text":"Section 15"},{"key":"C","text":"Section 17"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 23"}],"answer":"D"},
+    {"q":"A false statement made without intention to deceive is generally:","options":[{"key":"A","text":"Fraud"},{"key":"B","text":"Coercion"},{"key":"C","text":"Misrepresentation"},{"key":"D","text":"Undue influence"},{"key":"E","text":"Wager"}],"answer":"C"},
+    {"q":"Under Section 23, consideration or object is unlawful when it is:","options":[{"key":"A","text":"Permitted by law"},{"key":"B","text":"Forbidden by law"},{"key":"C","text":"Lawful"},{"key":"D","text":"Certain"},{"key":"E","text":"Voluntary"}],"answer":"B"},
+    {"q":"Which one is NOT a ground of unlawfulness under Section 23?","options":[{"key":"A","text":"Fraudulent"},{"key":"B","text":"Immoral"},{"key":"C","text":"Opposed to public policy"},{"key":"D","text":"Injury to person or property"},{"key":"E","text":"Permitted by law"}],"answer":"E"},
+    {"q":"An agreement in restraint of marriage is governed by:","options":[{"key":"A","text":"Section 23"},{"key":"B","text":"Section 26"},{"key":"C","text":"Section 27"},{"key":"D","text":"Section 28"},{"key":"E","text":"Section 30"}],"answer":"B"},
+    {"q":"An agreement in restraint of trade is governed by:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"B"},
+    {"q":"An agreement in restraint of legal proceedings is governed by:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"C"},
+    {"q":"Agreement by way of wager is dealt with under:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 30"},{"key":"E","text":"Section 32"}],"answer":"D"},
+    {"q":"Which of the following is generally void?","options":[{"key":"A","text":"Agreement with a competent adult"},{"key":"B","text":"Agreement by a minor"},{"key":"C","text":"Valid contract"},{"key":"D","text":"Executed contract"},{"key":"E","text":"Express contract"}],"answer":"B"},
+    {"q":"Which contract remains valid until it is rescinded by the aggrieved party?","options":[{"key":"A","text":"Void contract"},{"key":"B","text":"Illegal contract"},{"key":"C","text":"Voidable contract"},{"key":"D","text":"Unenforceable contract"},{"key":"E","text":"Quasi contract"}],"answer":"C"},
+    {"q":"Which contract is void ab initio?","options":[{"key":"A","text":"Voidable contract"},{"key":"B","text":"Illegal contract"},{"key":"C","text":"Valid contract"},{"key":"D","text":"Executed contract"},{"key":"E","text":"Express contract"}],"answer":"B"},
+    {"q":"A contract which is valid but cannot be enforced due to procedural defect is:","options":[{"key":"A","text":"Void"},{"key":"B","text":"Voidable"},{"key":"C","text":"Illegal"},{"key":"D","text":"Unenforceable"},{"key":"E","text":"Quasi"}],"answer":"D"},
+    {"q":"A contract created by the conduct of the parties is called:","options":[{"key":"A","text":"Express Contract"},{"key":"B","text":"Implied Contract"},{"key":"C","text":"Executed Contract"},{"key":"D","text":"Void Contract"},{"key":"E","text":"Illegal Contract"}],"answer":"B"},
+    {"q":"A contract in which both parties have completely performed their obligations is:","options":[{"key":"A","text":"Executory Contract"},{"key":"B","text":"Executed Contract"},{"key":"C","text":"Contingent Contract"},{"key":"D","text":"Quasi Contract"},{"key":"E","text":"Voidable Contract"}],"answer":"B"},
+    {"q":"A contract in which performance remains to be done in future is:","options":[{"key":"A","text":"Executed Contract"},{"key":"B","text":"Executory Contract"},{"key":"C","text":"Implied Contract"},{"key":"D","text":"Void Contract"},{"key":"E","text":"Illegal Contract"}],"answer":"B"},
+    {"q":"Which case established that merely stating the lowest price does not amount to an offer?","options":[{"key":"A","text":"Carlill v. Carbolic Smoke Ball Co."},{"key":"B","text":"Lalman Shukla v. Gauri Dutt"},{"key":"C","text":"Harvey v. Facey"},{"key":"D","text":"Harris v. Nickerson"},{"key":"E","text":"Richardson v. Rowntree"}],"answer":"C"},
+    {"q":"A person who performs an act without knowing about the offer cannot claim the reward according to:","options":[{"key":"A","text":"Harvey v. Facey"},{"key":"B","text":"Carlill v. Carbolic Smoke Ball Co."},{"key":"C","text":"Lalman Shukla v. Gauri Dutt"},{"key":"D","text":"Harris v. Nickerson"},{"key":"E","text":"Richardson v. Rowntree"}],"answer":"C"}
   ],
   law_of_tort_consumers: [
     {"q":"Which of the following is NOT a valid defence in tort?","options":[{"key":"A","text":"Volenti non fit injuria"},{"key":"B","text":"Act of God"},{"key":"C","text":"Consent"},{"key":"D","text":"Ignorance of law"},{"key":"E","text":"Necessity"}],"answer":"D"},
@@ -1118,570 +626,132 @@ const DB = {
     {"q":"Which areas were awarded to East Bengal (Pakistan) under the Radcliffe Boundary Awards?","options":[{"key":"A","text":"Kolkata, Murshidabad, Nadia"},{"key":"B","text":"Nawabganj, Shibganj, Nachol, Gomostapur, Bholahat (Maldah), Khulna (49.36%), CHT (as compensation), and Sylhet (via Referendum)"},{"key":"C","text":"Bongaon, Kolkata, Sylhet"},{"key":"D","text":"Maldah city, Murshidabad, Nadia"}],"answer":"B"},
     {"q":"On 14th August 1947, which districts initially hoisted the Pakistan flag before realizing they were awarded to India?","options":[{"key":"A","text":"Khulna, Sylhet, Chittagong"},{"key":"B","text":"Murshidabad, Maldah, and Nadia"},{"key":"C","text":"Nawabganj, Shibganj, Bholahat"},{"key":"D","text":"Kolkata, Bongaon, Dinajpur"}],"answer":"B"}
   ],
+  english_test: [],
   constitutional_law_ii: [
-    {
-      "q": "Which kind of writ is used to ensure personal liberty of people?",
-      "options": [
-        {"key": "A", "text": "Writ of Mandamus"},
-        {"key": "B", "text": "Writ of Prohibition"},
-        {"key": "C", "text": "Writ of Habeas Corpus"},
-        {"key": "D", "text": "Writ of Quo Warranto"},
-        {"key": "E", "text": "Writ of Certiorari"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "There shall be a Supreme Court for Bangladesh comprising the Appellate Division and the High Court Division",
-      "options": [
-        {"key": "A", "text": "Appellate Court, Appellate Division, High Court Division"},
-        {"key": "B", "text": "Supreme Court, Appellate Court, High Court"},
-        {"key": "C", "text": "Supreme Court, Appellate Division, High Court Division"},
-        {"key": "D", "text": "Apex Court, Supreme Court, Sub-ordinate Court"},
-        {"key": "E", "text": "Supreme Court, Higher Court, Lower Court"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which court is regarded as the 'Court of Record'?",
-      "options": [
-        {"key": "A", "text": "Appellate Division"},
-        {"key": "B", "text": "High Court Division"},
-        {"key": "C", "text": "Court of Sessions"},
-        {"key": "D", "text": "District Judge Court"},
-        {"key": "E", "text": "Supreme Court of Bangladesh"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Which of the following writs is issued to prevent a lower court or authority from acting beyond its jurisdiction?",
-      "options": [
-        {"key": "A", "text": "Habeas Corpus"},
-        {"key": "B", "text": "Mandamus"},
-        {"key": "C", "text": "Certiorari"},
-        {"key": "D", "text": "Prohibition"},
-        {"key": "E", "text": "Quo Warranto"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "What power does Article 104 of the Bangladesh Constitution grant to the Appellate Division?",
-      "options": [
-        {"key": "A", "text": "To make laws"},
-        {"key": "B", "text": "To issue writs"},
-        {"key": "C", "text": "To amend the Constitution"},
-        {"key": "D", "text": "To issue necessary orders for complete justice"},
-        {"key": "E", "text": "To appoint judges"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Which of the following best describes the principle established by Article 111?",
-      "options": [
-        {"key": "A", "text": "Stare decisis (binding precedent)"},
-        {"key": "B", "text": "Parliamentary supremacy"},
-        {"key": "C", "text": "Judicial activism"},
-        {"key": "D", "text": "Separation of powers"},
-        {"key": "E", "text": "Judicial review"}
-      ],
-      "answer": "A"
-    },
-    {
-      "q": "What was the issue in the case of Anwar Hossain Chowdhury vs Bangladesh [41 DLR (AD) 165]?",
-      "options": [
-        {"key": "A", "text": "Citizenship"},
-        {"key": "B", "text": "Nationality"},
-        {"key": "C", "text": "Seat of Supreme Court"},
-        {"key": "D", "text": "Judicial Review"},
-        {"key": "E", "text": "Rule of Law"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "What does it mean for the Appellate Division to be a \"court of record\" under Article 108?",
-      "options": [
-        {"key": "A", "text": "It maintains permanent records of its proceedings and judgments"},
-        {"key": "B", "text": "It can dissolve Parliament if necessary"},
-        {"key": "C", "text": "It supervises financial audits of the judiciary"},
-        {"key": "D", "text": "It has the power to appoint judges for lower courts"},
-        {"key": "E", "text": "It can create new laws without parliamentary approval"}
-      ],
-      "answer": "A"
-    },
-    {
-      "q": "What does Article 94(4) of the Bangladesh Constitution ensure?",
-      "options": [
-        {"key": "A", "text": "The power of Parliament to appoint judges"},
-        {"key": "B", "text": "The independence of the judiciary"},
-        {"key": "C", "text": "The role of the President in judicial decisions"},
-        {"key": "D", "text": "The financial control of the judiciary by the government"},
-        {"key": "E", "text": "The ability of the judiciary to pass laws"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "According to Article 117, which body has the power to establish Administrative Tribunals?",
-      "options": [
-        {"key": "A", "text": "Supreme Court"},
-        {"key": "B", "text": "President"},
-        {"key": "C", "text": "Attorney General"},
-        {"key": "D", "text": "Prime Minister"},
-        {"key": "E", "text": "Parliament"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Minimum years of experience in advocacy required for appointment as a Judge of the Supreme Court is:",
-      "options": [
-        {"key": "A", "text": "7"},
-        {"key": "B", "text": "8"},
-        {"key": "C", "text": "10"},
-        {"key": "D", "text": "12"},
-        {"key": "E", "text": "15"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "If the Chief Justice's office is vacant, his functions are performed by:",
-      "options": [
-        {"key": "A", "text": "President directly"},
-        {"key": "B", "text": "Senior-most Judge of HCD"},
-        {"key": "C", "text": "Senior-most Judge of Appellate Division"},
-        {"key": "D", "text": "Law Minister"},
-        {"key": "E", "text": "Speaker of Parliament"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which writ is issued to produce a person in custody before the court?",
-      "options": [
-        {"key": "A", "text": "Mandamus"},
-        {"key": "B", "text": "Certiorari"},
-        {"key": "C", "text": "Habeas Corpus"},
-        {"key": "D", "text": "Quo Warranto"},
-        {"key": "E", "text": "Prohibition"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which is NOT a case where appeal lies as of right to the Appellate Division?",
-      "options": [
-        {"key": "A", "text": "Substantial constitutional question certified by HCD"},
-        {"key": "B", "text": "Confirmation of a death sentence by HCD"},
-        {"key": "C", "text": "Life imprisonment sentence by HCD"},
-        {"key": "D", "text": "Civil case without substantial constitutional question"},
-        {"key": "E", "text": "Punishment for contempt by HCD"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "The Supreme Court is a \"court of record\" meaning:",
-      "options": [
-        {"key": "A", "text": "It records parliamentary proceedings"},
-        {"key": "B", "text": "It keeps records of all judgments and can punish for contempt"},
-        {"key": "C", "text": "It registers all subordinate court cases"},
-        {"key": "D", "text": "It records executive orders"},
-        {"key": "E", "text": "It only handles criminal appeals"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "The law declared by the Appellate Division is binding on:",
-      "options": [
-        {"key": "A", "text": "All courts in Bangladesh"},
-        {"key": "B", "text": "Only High Court Division"},
-        {"key": "C", "text": "Only subordinate courts"},
-        {"key": "D", "text": "Parliament"},
-        {"key": "E", "text": "Administrative Tribunals only"}
-      ],
-      "answer": "A"
-    },
-    {
-      "q": "Appointments to subordinate courts are made by:",
-      "options": [
-        {"key": "A", "text": "Chief Justice alone"},
-        {"key": "B", "text": "President"},
-        {"key": "C", "text": "Law Minister"},
-        {"key": "D", "text": "Judicial Service Commission"},
-        {"key": "E", "text": "Parliament"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Judicial officers must be:",
-      "options": [
-        {"key": "A", "text": "Politically neutral only"},
-        {"key": "B", "text": "Independent in judicial functions"},
-        {"key": "C", "text": "Appointed for life"},
-        {"key": "D", "text": "Elected by people"},
-        {"key": "E", "text": "Supervised by Law Ministry"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which Article empowers the High Court Division to issue writs?",
-      "options": [
-        {"key": "A", "text": "101"},
-        {"key": "B", "text": "102"},
-        {"key": "C", "text": "103"},
-        {"key": "D", "text": "106"},
-        {"key": "E", "text": "109"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "What does Article 94(4) of the Bangladesh Constitution ensure?",
-      "options": [
-        {"key": "A", "text": "Independence of the judiciary."},
-        {"key": "B", "text": "Power of the parliament."},
-        {"key": "C", "text": "Executive control."},
-        {"key": "D", "text": "Writ jurisdiction."},
-        {"key": "E", "text": "None of these."}
-      ],
-      "answer": "A"
-    },
-    {
-      "q": "Under Article 102, the High Court Division has the power to:",
-      "options": [
-        {"key": "A", "text": "Pass any law it deems necessary"},
-        {"key": "B", "text": "Issue orders for enforcement of fundamental rights"},
-        {"key": "C", "text": "Appoint Judges of subordinate courts"},
-        {"key": "D", "text": "Dissolve Parliament"},
-        {"key": "E", "text": "Conduct elections"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Removal of a Judge requires a parliamentary resolution supported by at least:",
-      "options": [
-        {"key": "A", "text": "One-half of members"},
-        {"key": "B", "text": "Two-thirds of total members"},
-        {"key": "C", "text": "Three-fourths of members"},
-        {"key": "D", "text": "Simple majority"},
-        {"key": "E", "text": "One-third of members"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "officers to be independent in the exercise of their ... functions.",
-      "options": [
-        {"key": "A", "text": "Judicial, judicial"},
-        {"key": "B", "text": "Executive, executive"},
-        {"key": "C", "text": "Legislative, judicial"},
-        {"key": "D", "text": "Administrative, executive"},
-        {"key": "E", "text": "Executive, judicial"}
-      ],
-      "answer": "A"
-    },
-    {
-      "q": "The Supreme Court's advisory jurisdiction is exercised on request of:",
-      "options": [
-        {"key": "A", "text": "Prime Minister"},
-        {"key": "B", "text": "Speaker"},
-        {"key": "C", "text": "President"},
-        {"key": "D", "text": "Law Minister"},
-        {"key": "E", "text": "Public petition"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Locus standi and PIL have been discussed in Article-",
-      "options": [
-        {"key": "A", "text": "99"},
-        {"key": "B", "text": "100"},
-        {"key": "C", "text": "101"},
-        {"key": "D", "text": "102"},
-        {"key": "E", "text": "105"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Secretary, Ministry of Finance vs. Md. Masdar Hossain and others (52 DLR 82) is a notable case regarding-",
-      "options": [
-        {"key": "A", "text": "Rule of law"},
-        {"key": "B", "text": "Enforcement of Fundamental Rights"},
-        {"key": "C", "text": "Parliamentary democracy"},
-        {"key": "D", "text": "Independence of judiciary"},
-        {"key": "E", "text": "Doctrine of pleasure"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "First challenge to the concept of 'locus standi' was thrown in the case of-",
-      "options": [
-        {"key": "A", "text": "Dr. Mohiuddin Farooque vs Bangladesh"},
-        {"key": "B", "text": "Prof. Nazrul Islam vs Bangladesh"},
-        {"key": "C", "text": "Secretary, Ministry of Finance vs. Md. Masdar Hossain"},
-        {"key": "D", "text": "Bangladesh Sangbad Patra Parishad vs Government of Bangladesh"},
-        {"key": "E", "text": "Kazi Mukhlesur Rahman vs Bangladesh"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "All authorities, ... and ... in the Republic shall act in aid of the Supreme Court.",
-      "options": [
-        {"key": "A", "text": "Executive, social"},
-        {"key": "B", "text": "Legislative, executive"},
-        {"key": "C", "text": "Executive, administrative"},
-        {"key": "D", "text": "Executive, legislative"},
-        {"key": "E", "text": "Executive, judicial"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Public Interest Litigation (PIL) primarily refers to:",
-      "options": [
-        {"key": "A", "text": "Litigation involving private disputes between individuals"},
-        {"key": "B", "text": "Legal action initiated to protect collective or public rights"},
-        {"key": "C", "text": "Proceedings instituted only by the State"},
-        {"key": "D", "text": "Appeals filed against criminal convictions"},
-        {"key": "E", "text": "Litigation concerning commercial interests"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "The primary purpose of establishing Administrative Tribunals is to:",
-      "options": [
-        {"key": "A", "text": "Replace the entire judicial system"},
-        {"key": "B", "text": "Reduce the workload of ordinary courts and ensure speedy justice"},
-        {"key": "C", "text": "Review legislative policy decisions"},
-        {"key": "D", "text": "Enforce fundamental rights directly"},
-        {"key": "E", "text": "Exercise appellate jurisdiction over High Courts"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "In terms of Article 94(3), the Chief Justice and the Judges of the Appellate Division...",
-      "options": [
-        {"key": "A", "text": "Only sit in the High Court Division"},
-        {"key": "B", "text": "Sit only in the Appellate Division"},
-        {"key": "C", "text": "Sit in both divisions"},
-        {"key": "D", "text": "Sit in the Subordinate Court"},
-        {"key": "E", "text": "Sit in the Administrative Tribunal"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Under Article 97, when the Chief Justice is unable to perform his functions, those functions are performed by-",
-      "options": [
-        {"key": "A", "text": "President"},
-        {"key": "B", "text": "Senior-most Judge of High Court Division"},
-        {"key": "C", "text": "Next most senior Judge of Appellate Division"},
-        {"key": "D", "text": "Attorney General"},
-        {"key": "E", "text": "Law Minister"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "An Additional Judge under Article 98 may be appointed for a period not exceeding-",
-      "options": [
-        {"key": "A", "text": "One year"},
-        {"key": "B", "text": "Two years"},
-        {"key": "C", "text": "Three years"},
-        {"key": "D", "text": "Four years"},
-        {"key": "E", "text": "Five years"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Under Article 99, after retirement a former Supreme Court Judge generally cannot-",
-      "options": [
-        {"key": "A", "text": "Plead before any court or authority"},
-        {"key": "B", "text": "Hold any non-judicial office of profit in the service of the Republic"},
-        {"key": "C", "text": "Do both A and B"},
-        {"key": "D", "text": "Serve in a judicial or quasi-judicial office"},
-        {"key": "E", "text": "None of the above"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "The permanent seat of the Supreme Court under Article 100 is situated in-",
-      "options": [
-        {"key": "A", "text": "Chattogram"},
-        {"key": "B", "text": "Dhaka"},
-        {"key": "C", "text": "Rajshahi"},
-        {"key": "D", "text": "Any place appointed by President"},
-        {"key": "E", "text": "Any place appointed by Parliament"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "The general jurisdiction of the High Court Division is provided under-",
-      "options": [
-        {"key": "A", "text": "Article 99"},
-        {"key": "B", "text": "Article 100"},
-        {"key": "C", "text": "Article 101"},
-        {"key": "D", "text": "Article 103"},
-        {"key": "E", "text": "Article 106"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which Article empowers the High Court Division to transfer a case from a subordinate court when the constitutional conditions are satisfied?",
-      "options": [
-        {"key": "A", "text": "Article 101"},
-        {"key": "B", "text": "Article 102"},
-        {"key": "C", "text": "Article 103"},
-        {"key": "D", "text": "Article 109"},
-        {"key": "E", "text": "Article 110"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Under Article 102(1), an application may be made by-",
-      "options": [
-        {"key": "A", "text": "Any person"},
-        {"key": "B", "text": "Any person aggrieved"},
-        {"key": "C", "text": "Only the Attorney General"},
-        {"key": "D", "text": "Only a public servant"},
-        {"key": "E", "text": "Only the President"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Which writ is primarily concerned with bringing a person in custody before the Court?",
-      "options": [
-        {"key": "A", "text": "Mandamus"},
-        {"key": "B", "text": "Certiorari"},
-        {"key": "C", "text": "Prohibition"},
-        {"key": "D", "text": "Habeas Corpus"},
-        {"key": "E", "text": "Quo Warranto"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "Which writ is used to require a person holding or purporting to hold a public office to show the authority under which he holds that office?",
-      "options": [
-        {"key": "A", "text": "Habeas Corpus"},
-        {"key": "B", "text": "Mandamus"},
-        {"key": "C", "text": "Certiorari"},
-        {"key": "D", "text": "Prohibition"},
-        {"key": "E", "text": "Quo Warranto"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Which writ is used to prevent an authority from doing something which it is not permitted by law to do?",
-      "options": [
-        {"key": "A", "text": "Mandamus"},
-        {"key": "B", "text": "Habeas Corpus"},
-        {"key": "C", "text": "Quo Warranto"},
-        {"key": "D", "text": "Certiorari"},
-        {"key": "E", "text": "Prohibition"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Which writ is concerned with declaring an act or proceeding to have been done without lawful authority and of no legal effect?",
-      "options": [
-        {"key": "A", "text": "Mandamus"},
-        {"key": "B", "text": "Certiorari"},
-        {"key": "C", "text": "Habeas Corpus"},
-        {"key": "D", "text": "Prohibition"},
-        {"key": "E", "text": "Quo Warranto"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "An appeal to the Appellate Division lies as of right when the High Court Division certifies that the case involves-",
-      "options": [
-        {"key": "A", "text": "Any question of fact"},
-        {"key": "B", "text": "Any administrative dispute"},
-        {"key": "C", "text": "A substantial question of law as to interpretation of the Constitution"},
-        {"key": "D", "text": "Any private contractual dispute"},
-        {"key": "E", "text": "Any civil dispute"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Which of the following is NOT an appeal as of right under Article 103(2)?",
-      "options": [
-        {"key": "A", "text": "Constitutional question certified by HCD"},
-        {"key": "B", "text": "Death sentence confirmed by HCD"},
-        {"key": "C", "text": "Life imprisonment imposed by HCD"},
-        {"key": "D", "text": "Punishment for contempt by HCD"},
-        {"key": "E", "text": "Ordinary civil case not falling under Article 103(2)"}
-      ],
-      "answer": "E"
-    },
-    {
-      "q": "Where Article 103(2) does not apply, an appeal to the Appellate Division shall lie only if-",
-      "options": [
-        {"key": "A", "text": "President grants permission"},
-        {"key": "B", "text": "Parliament grants permission"},
-        {"key": "C", "text": "High Court Division automatically certifies it"},
-        {"key": "D", "text": "Appellate Division grants leave to appeal"},
-        {"key": "E", "text": "Attorney General approves it"}
-      ],
-      "answer": "D"
-    },
-    {
-      "q": "The power to do \"complete justice\" is vested in-",
-      "options": [
-        {"key": "A", "text": "High Court Division under Article 102"},
-        {"key": "B", "text": "Appellate Division under Article 104"},
-        {"key": "C", "text": "Administrative Tribunal under Article 117"},
-        {"key": "D", "text": "Subordinate Court under Article 114"},
-        {"key": "E", "text": "Parliament under Article 111"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Under Article 105, the Appellate Division has power to-",
-      "options": [
-        {"key": "A", "text": "Review its own judgment or order"},
-        {"key": "B", "text": "Review every judgment of HCD automatically"},
-        {"key": "C", "text": "Amend the Constitution"},
-        {"key": "D", "text": "Establish tribunals"},
-        {"key": "E", "text": "Appoint subordinate court Judges"}
-      ],
-      "answer": "A"
-    },
-    {
-      "q": "The law declared by the Appellate Division under Article 111 is-",
-      "options": [
-        {"key": "A", "text": "Advisory only"},
-        {"key": "B", "text": "Binding upon all courts subordinate to it"},
-        {"key": "C", "text": "Binding only upon Parliament"},
-        {"key": "D", "text": "Binding only upon Administrative Tribunals"},
-        {"key": "E", "text": "Not binding upon any court"}
-      ],
-      "answer": "B"
-    },
-    {
-      "q": "Under Article 106, who may refer a question of law of public importance to the Appellate Division for its opinion?",
-      "options": [
-        {"key": "A", "text": "Prime Minister"},
-        {"key": "B", "text": "Chief Justice"},
-        {"key": "C", "text": "President"},
-        {"key": "D", "text": "Attorney General"},
-        {"key": "E", "text": "Speaker"}
-      ],
-      "answer": "C"
-    },
-    {
-      "q": "Under Article 117, Parliament may establish Administrative Tribunals mainly in respect of matters relating to-",
-      "options": [
-        {"key": "A", "text": "Only criminal offences"},
-        {"key": "B", "text": "Terms and conditions of persons in the service of the Republic and other constitutionally specified matters"},
-        {"key": "C", "text": "Election disputes only"},
-        {"key": "D", "text": "Fundamental rights only"},
-        {"key": "E", "text": "Constitutional amendment only"}
-      ],
-      "answer": "B"
-    }
+    {"q":"Which kind of writ is used to ensure personal liberty of people?","options":[{"key":"A","text":"Writ of Mandamus"},{"key":"B","text":"Writ of Prohibition"},{"key":"C","text":"Writ of Habeas Corpus"},{"key":"D","text":"Writ of Quo Warranto"},{"key":"E","text":"Writ of Certiorari"}],"answer":"C"},
+    {"q":"There shall be a Supreme Court for Bangladesh comprising the Appellate Division and the High Court Division","options":[{"key":"A","text":"Appellate Court, Appellate Division, High Court Division"},{"key":"B","text":"Supreme Court, Appellate Court, High Court"},{"key":"C","text":"Supreme Court, Appellate Division, High Court Division"},{"key":"D","text":"Apex Court, Supreme Court, Sub-ordinate Court"},{"key":"E","text":"Supreme Court, Higher Court, Lower Court"}],"answer":"C"},
+    {"q":"Which court is regarded as the 'Court of Record'?","options":[{"key":"A","text":"Appellate Division"},{"key":"B","text":"High Court Division"},{"key":"C","text":"Court of Sessions"},{"key":"D","text":"District Judge Court"},{"key":"E","text":"Supreme Court of Bangladesh"}],"answer":"E"},
+    {"q":"Which of the following writs is issued to prevent a lower court or authority from acting beyond its jurisdiction?","options":[{"key":"A","text":"Habeas Corpus"},{"key":"B","text":"Mandamus"},{"key":"C","text":"Certiorari"},{"key":"D","text":"Prohibition"},{"key":"E","text":"Quo Warranto"}],"answer":"D"},
+    {"q":"What power does Article 104 of the Bangladesh Constitution grant to the Appellate Division?","options":[{"key":"A","text":"To make laws"},{"key":"B","text":"To issue writs"},{"key":"C","text":"To amend the Constitution"},{"key":"D","text":"To issue necessary orders for complete justice"},{"key":"E","text":"To appoint judges"}],"answer":"D"},
+    {"q":"Which of the following best describes the principle established by Article 111?","options":[{"key":"A","text":"Stare decisis (binding precedent)"},{"key":"B","text":"Parliamentary supremacy"},{"key":"C","text":"Judicial activism"},{"key":"D","text":"Separation of powers"},{"key":"E","text":"Judicial review"}],"answer":"A"},
+    {"q":"What was the issue in the case of Anwar Hossain Chowdhury vs Bangladesh [41 DLR (AD) 165]?","options":[{"key":"A","text":"Citizenship"},{"key":"B","text":"Nationality"},{"key":"C","text":"Seat of Supreme Court"},{"key":"D","text":"Judicial Review"},{"key":"E","text":"Rule of Law"}],"answer":"D"},
+    {"q":"What does it mean for the Appellate Division to be a \"court of record\" under Article 108?","options":[{"key":"A","text":"It maintains permanent records of its proceedings and judgments"},{"key":"B","text":"It can dissolve Parliament if necessary"},{"key":"C","text":"It supervises financial audits of the judiciary"},{"key":"D","text":"It has the power to appoint judges for lower courts"},{"key":"E","text":"It can create new laws without parliamentary approval"}],"answer":"A"},
+    {"q":"What does Article 94(4) of the Bangladesh Constitution ensure?","options":[{"key":"A","text":"The power of Parliament to appoint judges"},{"key":"B","text":"The independence of the judiciary"},{"key":"C","text":"The role of the President in judicial decisions"},{"key":"D","text":"The financial control of the judiciary by the government"},{"key":"E","text":"The ability of the judiciary to pass laws"}],"answer":"B"},
+    {"q":"According to Article 117, which body has the power to establish Administrative Tribunals?","options":[{"key":"A","text":"Supreme Court"},{"key":"B","text":"President"},{"key":"C","text":"Attorney General"},{"key":"D","text":"Prime Minister"},{"key":"E","text":"Parliament"}],"answer":"E"},
+    {"q":"Minimum years of experience in advocacy required for appointment as a Judge of the Supreme Court is:","options":[{"key":"A","text":"7"},{"key":"B","text":"8"},{"key":"C","text":"10"},{"key":"D","text":"12"},{"key":"E","text":"15"}],"answer":"C"},
+    {"q":"If the Chief Justice's office is vacant, his functions are performed by:","options":[{"key":"A","text":"President directly"},{"key":"B","text":"Senior-most Judge of HCD"},{"key":"C","text":"Senior-most Judge of Appellate Division"},{"key":"D","text":"Law Minister"},{"key":"E","text":"Speaker of Parliament"}],"answer":"C"},
+    {"q":"Which writ is issued to produce a person in custody before the court?","options":[{"key":"A","text":"Mandamus"},{"key":"B","text":"Certiorari"},{"key":"C","text":"Habeas Corpus"},{"key":"D","text":"Quo Warranto"},{"key":"E","text":"Prohibition"}],"answer":"C"},
+    {"q":"Which is NOT a case where appeal lies as of right to the Appellate Division?","options":[{"key":"A","text":"Substantial constitutional question certified by HCD"},{"key":"B","text":"Confirmation of a death sentence by HCD"},{"key":"C","text":"Life imprisonment sentence by HCD"},{"key":"D","text":"Civil case without substantial constitutional question"},{"key":"E","text":"Punishment for contempt by HCD"}],"answer":"D"},
+    {"q":"The Supreme Court is a \"court of record\" meaning:","options":[{"key":"A","text":"It records parliamentary proceedings"},{"key":"B","text":"It keeps records of all judgments and can punish for contempt"},{"key":"C","text":"It registers all subordinate court cases"},{"key":"D","text":"It records executive orders"},{"key":"E","text":"It only handles criminal appeals"}],"answer":"B"},
+    {"q":"The law declared by the Appellate Division is binding on:","options":[{"key":"A","text":"All courts in Bangladesh"},{"key":"B","text":"Only High Court Division"},{"key":"C","text":"Only subordinate courts"},{"key":"D","text":"Parliament"},{"key":"E","text":"Administrative Tribunals only"}],"answer":"A"},
+    {"q":"Appointments to subordinate courts are made by:","options":[{"key":"A","text":"Chief Justice alone"},{"key":"B","text":"President"},{"key":"C","text":"Law Minister"},{"key":"D","text":"Judicial Service Commission"},{"key":"E","text":"Parliament"}],"answer":"B"},
+    {"q":"Judicial officers must be:","options":[{"key":"A","text":"Politically neutral only"},{"key":"B","text":"Independent in judicial functions"},{"key":"C","text":"Appointed for life"},{"key":"D","text":"Elected by people"},{"key":"E","text":"Supervised by Law Ministry"}],"answer":"B"},
+    {"q":"Which Article empowers the High Court Division to issue writs?","options":[{"key":"A","text":"101"},{"key":"B","text":"102"},{"key":"C","text":"103"},{"key":"D","text":"106"},{"key":"E","text":"109"}],"answer":"B"},
+    {"q":"What does Article 94(4) of the Bangladesh Constitution ensure?","options":[{"key":"A","text":"Independence of the judiciary."},{"key":"B","text":"Power of the parliament."},{"key":"C","text":"Executive control."},{"key":"D","text":"Writ jurisdiction."},{"key":"E","text":"None of these."}],"answer":"A"},
+    {"q":"Under Article 102, the High Court Division has the power to:","options":[{"key":"A","text":"Pass any law it deems necessary"},{"key":"B","text":"Issue orders for enforcement of fundamental rights"},{"key":"C","text":"Appoint Judges of subordinate courts"},{"key":"D","text":"Dissolve Parliament"},{"key":"E","text":"Conduct elections"}],"answer":"B"},
+    {"q":"Removal of a Judge requires a parliamentary resolution supported by at least:","options":[{"key":"A","text":"One-half of members"},{"key":"B","text":"Two-thirds of total members"},{"key":"C","text":"Three-fourths of members"},{"key":"D","text":"Simple majority"},{"key":"E","text":"One-third of members"}],"answer":"B"},
+    {"q":"officers to be independent in the exercise of their ... functions.","options":[{"key":"A","text":"Judicial, judicial"},{"key":"B","text":"Executive, executive"},{"key":"C","text":"Legislative, judicial"},{"key":"D","text":"Administrative, executive"},{"key":"E","text":"Executive, judicial"}],"answer":"A"},
+    {"q":"The Supreme Court's advisory jurisdiction is exercised on request of:","options":[{"key":"A","text":"Prime Minister"},{"key":"B","text":"Speaker"},{"key":"C","text":"President"},{"key":"D","text":"Law Minister"},{"key":"E","text":"Public petition"}],"answer":"C"},
+    {"q":"Locus standi and PIL have been discussed in Article-","options":[{"key":"A","text":"99"},{"key":"B","text":"100"},{"key":"C","text":"101"},{"key":"D","text":"102"},{"key":"E","text":"105"}],"answer":"D"},
+    {"q":"Secretary, Ministry of Finance vs. Md. Masdar Hossain and others (52 DLR 82) is a notable case regarding-","options":[{"key":"A","text":"Rule of law"},{"key":"B","text":"Enforcement of Fundamental Rights"},{"key":"C","text":"Parliamentary democracy"},{"key":"D","text":"Independence of judiciary"},{"key":"E","text":"Doctrine of pleasure"}],"answer":"D"},
+    {"q":"First challenge to the concept of 'locus standi' was thrown in the case of-","options":[{"key":"A","text":"Dr. Mohiuddin Farooque vs Bangladesh"},{"key":"B","text":"Prof. Nazrul Islam vs Bangladesh"},{"key":"C","text":"Secretary, Ministry of Finance vs. Md. Masdar Hossain"},{"key":"D","text":"Bangladesh Sangbad Patra Parishad vs Government of Bangladesh"},{"key":"E","text":"Kazi Mukhlesur Rahman vs Bangladesh"}],"answer":"E"},
+    {"q":"All authorities, ... and ... in the Republic shall act in aid of the Supreme Court.","options":[{"key":"A","text":"Executive, social"},{"key":"B","text":"Legislative, executive"},{"key":"C","text":"Executive, administrative"},{"key":"D","text":"Executive, legislative"},{"key":"E","text":"Executive, judicial"}],"answer":"D"},
+    {"q":"Public Interest Litigation (PIL) primarily refers to:","options":[{"key":"A","text":"Litigation involving private disputes between individuals"},{"key":"B","text":"Legal action initiated to protect collective or public rights"},{"key":"C","text":"Proceedings instituted only by the State"},{"key":"D","text":"Appeals filed against criminal convictions"},{"key":"E","text":"Litigation concerning commercial interests"}],"answer":"B"},
+    {"q":"The primary purpose of establishing Administrative Tribunals is to:","options":[{"key":"A","text":"Replace the entire judicial system"},{"key":"B","text":"Reduce the workload of ordinary courts and ensure speedy justice"},{"key":"C","text":"Review legislative policy decisions"},{"key":"D","text":"Enforce fundamental rights directly"},{"key":"E","text":"Exercise appellate jurisdiction over High Courts"}],"answer":"B"},
+    {"q":"In terms of Article 94(3), the Chief Justice and the Judges of the Appellate Division...","options":[{"key":"A","text":"Only sit in the High Court Division"},{"key":"B","text":"Sit only in the Appellate Division"},{"key":"C","text":"Sit in both divisions"},{"key":"D","text":"Sit in the Subordinate Court"},{"key":"E","text":"Sit in the Administrative Tribunal"}],"answer":"B"},
+    {"q":"Under Article 97, when the Chief Justice is unable to perform his functions, those functions are performed by-","options":[{"key":"A","text":"President"},{"key":"B","text":"Senior-most Judge of High Court Division"},{"key":"C","text":"Next most senior Judge of Appellate Division"},{"key":"D","text":"Attorney General"},{"key":"E","text":"Law Minister"}],"answer":"C"},
+    {"q":"An Additional Judge under Article 98 may be appointed for a period not exceeding-","options":[{"key":"A","text":"One year"},{"key":"B","text":"Two years"},{"key":"C","text":"Three years"},{"key":"D","text":"Four years"},{"key":"E","text":"Five years"}],"answer":"B"},
+    {"q":"Under Article 99, after retirement a former Supreme Court Judge generally cannot-","options":[{"key":"A","text":"Plead before any court or authority"},{"key":"B","text":"Hold any non-judicial office of profit in the service of the Republic"},{"key":"C","text":"Do both A and B"},{"key":"D","text":"Serve in a judicial or quasi-judicial office"},{"key":"E","text":"None of the above"}],"answer":"C"},
+    {"q":"The permanent seat of the Supreme Court under Article 100 is situated in-","options":[{"key":"A","text":"Chattogram"},{"key":"B","text":"Dhaka"},{"key":"C","text":"Rajshahi"},{"key":"D","text":"Any place appointed by President"},{"key":"E","text":"Any place appointed by Parliament"}],"answer":"B"},
+    {"q":"The general jurisdiction of the High Court Division is provided under-","options":[{"key":"A","text":"Article 99"},{"key":"B","text":"Article 100"},{"key":"C","text":"Article 101"},{"key":"D","text":"Article 103"},{"key":"E","text":"Article 106"}],"answer":"C"},
+    {"q":"Which Article empowers the High Court Division to transfer a case from a subordinate court when the constitutional conditions are satisfied?","options":[{"key":"A","text":"Article 101"},{"key":"B","text":"Article 102"},{"key":"C","text":"Article 103"},{"key":"D","text":"Article 109"},{"key":"E","text":"Article 110"}],"answer":"E"},
+    {"q":"Under Article 102(1), an application may be made by-","options":[{"key":"A","text":"Any person"},{"key":"B","text":"Any person aggrieved"},{"key":"C","text":"Only the Attorney General"},{"key":"D","text":"Only a public servant"},{"key":"E","text":"Only the President"}],"answer":"B"},
+    {"q":"Which writ is primarily concerned with bringing a person in custody before the Court?","options":[{"key":"A","text":"Mandamus"},{"key":"B","text":"Certiorari"},{"key":"C","text":"Prohibition"},{"key":"D","text":"Habeas Corpus"},{"key":"E","text":"Quo Warranto"}],"answer":"D"},
+    {"q":"Which writ is used to require a person holding or purporting to hold a public office to show the authority under which he holds that office?","options":[{"key":"A","text":"Habeas Corpus"},{"key":"B","text":"Mandamus"},{"key":"C","text":"Certiorari"},{"key":"D","text":"Prohibition"},{"key":"E","text":"Quo Warranto"}],"answer":"E"},
+    {"q":"Which writ is used to prevent an authority from doing something which it is not permitted by law to do?","options":[{"key":"A","text":"Mandamus"},{"key":"B","text":"Habeas Corpus"},{"key":"C","text":"Quo Warranto"},{"key":"D","text":"Certiorari"},{"key":"E","text":"Prohibition"}],"answer":"E"},
+    {"q":"Which writ is concerned with declaring an act or proceeding to have been done without lawful authority and of no legal effect?","options":[{"key":"A","text":"Mandamus"},{"key":"B","text":"Certiorari"},{"key":"C","text":"Habeas Corpus"},{"key":"D","text":"Prohibition"},{"key":"E","text":"Quo Warranto"}],"answer":"B"},
+    {"q":"An appeal to the Appellate Division lies as of right when the High Court Division certifies that the case involves-","options":[{"key":"A","text":"Any question of fact"},{"key":"B","text":"Any administrative dispute"},{"key":"C","text":"A substantial question of law as to interpretation of the Constitution"},{"key":"D","text":"Any private contractual dispute"},{"key":"E","text":"Any civil dispute"}],"answer":"C"},
+    {"q":"Which of the following is NOT an appeal as of right under Article 103(2)?","options":[{"key":"A","text":"Constitutional question certified by HCD"},{"key":"B","text":"Death sentence confirmed by HCD"},{"key":"C","text":"Life imprisonment imposed by HCD"},{"key":"D","text":"Punishment for contempt by HCD"},{"key":"E","text":"Ordinary civil case not falling under Article 103(2)"}],"answer":"E"},
+    {"q":"Where Article 103(2) does not apply, an appeal to the Appellate Division shall lie only if-","options":[{"key":"A","text":"President grants permission"},{"key":"B","text":"Parliament grants permission"},{"key":"C","text":"High Court Division automatically certifies it"},{"key":"D","text":"Appellate Division grants leave to appeal"},{"key":"E","text":"Attorney General approves it"}],"answer":"D"},
+    {"q":"The power to do \"complete justice\" is vested in-","options":[{"key":"A","text":"High Court Division under Article 102"},{"key":"B","text":"Appellate Division under Article 104"},{"key":"C","text":"Administrative Tribunal under Article 117"},{"key":"D","text":"Subordinate Court under Article 114"},{"key":"E","text":"Parliament under Article 111"}],"answer":"B"},
+    {"q":"Under Article 105, the Appellate Division has power to-","options":[{"key":"A","text":"Review its own judgment or order"},{"key":"B","text":"Review every judgment of HCD automatically"},{"key":"C","text":"Amend the Constitution"},{"key":"D","text":"Establish tribunals"},{"key":"E","text":"Appoint subordinate court Judges"}],"answer":"A"},
+    {"q":"The law declared by the Appellate Division under Article 111 is-","options":[{"key":"A","text":"Advisory only"},{"key":"B","text":"Binding upon all courts subordinate to it"},{"key":"C","text":"Binding only upon Parliament"},{"key":"D","text":"Binding only upon Administrative Tribunals"},{"key":"E","text":"Not binding upon any court"}],"answer":"B"},
+    {"q":"Under Article 106, who may refer a question of law of public importance to the Appellate Division for its opinion?","options":[{"key":"A","text":"Prime Minister"},{"key":"B","text":"Chief Justice"},{"key":"C","text":"President"},{"key":"D","text":"Attorney General"},{"key":"E","text":"Speaker"}],"answer":"C"},
+    {"q":"Under Article 117, Parliament may establish Administrative Tribunals mainly in respect of matters relating to-","options":[{"key":"A","text":"Only criminal offences"},{"key":"B","text":"Terms and conditions of persons in the service of the Republic and other constitutionally specified matters"},{"key":"C","text":"Election disputes only"},{"key":"D","text":"Fundamental rights only"},{"key":"E","text":"Constitutional amendment only"}],"answer":"B"}
   ]
 };
 
+// UPDATED SAQ DATABASE FOR LAW OF TORT
+const SAQ_DB = {
+  muslim_personal_law_i: {
+    "2marks": [
+      { q: "What is Ijab and Qabul?", a: "Ijab means proposal and Qabul means acceptance in a Muslim marriage contract." },
+      { q: "Define Dower (Mahr).", a: "Dower is a sum of money or other property which the wife is entitled to receive from the husband in consideration of the marriage." }
+    ],
+    "broad": [
+      { q: "Explain the essential conditions of a valid Muslim Marriage.", a: "The essential conditions include: 1. Proposal and Acceptance (Ijab & Qabul), 2. Competency of parties, 3. Free consent, 4. Witnesses, 5. Absence of legal prohibitions." }
+    ]
+  },
+  law_of_contract: {
+    "2marks": [
+      { q: "What is a Void Agreement?", a: "An agreement not enforceable by law is said to be void according to Section 2(g) of the Contract Act, 1872." }
+    ],
+    "broad": [
+      { q: "Discuss the essential elements of a valid contract under Section 10.", a: "Section 10 provides that all agreements are contracts if they are made by free consent of parties competent to contract, for a lawful consideration and with a lawful object." }
+    ]
+  },
+  law_of_tort_consumers: {
+    "2marks": [
+      { q: "1. What is meant by Ex Turpi Causa Non Oritur Actio? [2 Marks]", a: "Ex Turpi Causa Non Oritur Actio means \"No action arises from an illegal or immoral cause.\"\nThe principle means that a person cannot ordinarily claim a legal remedy when his claim is based upon or sufficiently connected with his own illegal or immoral conduct.\n\nExample:\nA participates in an unlawful activity and suffers loss while carrying out that illegal act. He generally cannot ask the court to compensate him for a claim arising from his own illegality.\n\nExam Point:\nPlaintiff's own illegal conduct → may bar his claim." },
+      { q: "2. What is meant by Plaintiff is the Wrongdoer? [2 Marks]", a: "The principle \"Plaintiff is the Wrongdoer\" means that a plaintiff may be denied a remedy where his claim is based upon or sufficiently connected with his own wrongful or illegal conduct.\nIt is closely associated with the maxim Ex Turpi Causa Non Oritur Actio.\nThe principle prevents a person from taking advantage of his own unlawful conduct to obtain a legal remedy." },
+      { q: "3. What is Liability? [2 Marks]", a: "Liability means the legal responsibility or obligation to answer for a wrongful act or omission.\nIn tort, liability generally arises when a person breaches a legal duty and thereby causes a legally recognized injury to another person." },
+      { q: "4. What are General Exceptions/Defences in Tort? [2 Marks]", a: "General defences are circumstances in which a defendant may escape or avoid tortious liability, although the plaintiff appears to have suffered a tortious injury.\nImportant general defences include Volenti Non Fit Injuria, Inevitable Accident, Act of God, Act of State, Judicial Acts, Statutory Authority, Self-Defence, Necessity and Plaintiff is the Wrongdoer." },
+      { q: "5. What is Nominal Damage? [2 Marks]", a: "Nominal damages are a small amount of money awarded by the court where the plaintiff's legal right has been violated, although no substantial actual loss has been proved.\nIt recognizes the infringement of the legal right rather than compensating for substantial actual loss.\n\nExam Point:\nLegal right violated + little/no actual loss → Nominal damages." },
+      { q: "6. What is Injunction? [2 Marks]", a: "An injunction is a court order which requires a person to do a particular act or to refrain from doing a particular act.\nIt is an important civil remedy and may be granted to prevent or restrain wrongful interference with a person's legal rights." },
+      { q: "7. What is a Felonious Tort? [2 Marks]", a: "A Felonious Tort is a wrongful act which constitutes both a tort and a crime.\nThus, the same act may give rise to a civil action by the injured person and criminal proceedings by the State.\nExample: An unlawful assault may give rise to both civil and criminal consequences." },
+      { q: "8. What is Pigeon-hole Theory of Tort? [2 Marks]", a: "The Pigeon-hole Theory suggests that a person is liable in tort only when the wrongful act falls within a recognized category or \"pigeon-hole\" of tort." },
+      { q: "9. What is Actionable Per Se? [2 Marks]", a: "An act is actionable per se when a person can bring an action in tort without proving actual damage.\nThe violation of the legal right itself is sufficient to maintain the action.\nExamples: False imprisonment, trespass to land, assault and battery." },
+      { q: "10. Who can file a suit under the law of Tort? [2 Marks]", a: "A person who has suffered a legal injury may generally bring an action in tort, subject to the applicable legal rules and recognized exceptions.\nThe important point is that violation of a legal right, rather than mere loss, is central to a tort action." },
+      { q: "11. What is Nonfeasance? [2 Marks]", a: "Nonfeasance means the failure to perform an act or duty which a person is legally required to perform.\nExample: A person having a legal duty to take a required safety measure fails to do so." },
+      { q: "12. What is Malfeasance? [2 Marks]", a: "Malfeasance means doing an act which is completely unlawful or illegal an act which a person has no legal right to do.\nExample: A deliberately enters B's land without any legal authority." },
+      { q: "13. What is Misfeasance? [2 Marks]", a: "Misfeasance means performing a lawful act in a wrongful, improper or negligent manner, thereby causing harm.\n\nThus:\nMalfeasance → doing an unlawful act\nMisfeasance → doing a lawful act improperly\nNonfeasance → failure to do a required act" },
+      { q: "14. What is Actionable Only on Proof of Actual Damage? [2 Marks]", a: "An act is actionable only on proof of actual damage when the plaintiff must establish that he has suffered actual damage before an action can succeed.\nFor example, in negligence, the plaintiff generally needs to establish actual damage resulting from the defendant's breach of duty." },
+      { q: "15. What is the Main Aim of Tort Law? [2 Marks]", a: "The main aim of tort law is to compensate the person who has suffered a legally recognized injury.\nUnlike criminal law, whose principal purpose is punishment, tort law primarily seeks to provide a civil remedy, particularly compensation, to the injured person." }
+    ],
+    "broad": [
+      { q: "Q1. Define Tort & Explain its principal characteristics.", a: "1(a) Define Tort. [1 Mark]\nAccording to Professor Salmond, \"The law of tort is a kind of civil wrong independent of contract that can be remedied by making monetary compensation.\"\nIn simple terms, tort is a civil wrong arising from a breach of a duty fixed by law, for which the injured person may seek a legal remedy.\n\n1(b) Explain the principal characteristics of Tort. [4 Marks]\nThe principal characteristics of tort are as follows:\n1. Civil Wrong Independent of Contract: Liability in tort does not generally depend on any prior agreement between the parties. A person may be liable because he has violated a legal duty imposed upon him by law.\n2. Duty Fixed by Law: The duty is fixed or imposed by law. The law requires every person to respect certain legal rights of others.\n3. Violation of Right in Rem: Tort generally involves the violation of a Right in Rem, available against the whole world.\n4. Unliquidated Damages: Compensation is not fixed beforehand; the court determines the appropriate amount.\n5. Common Law Action: Developed mainly through decisions of the Common Law Courts.\nConclusion: Tort is mainly concerned with protecting legal rights imposed by law and providing compensation." },
+      { q: "Q2. Differentiate between Tort and Breach of Contract (with similarities).", a: "2(a) Mention two similarities between Tort and Breach of Contract. [2 Marks]\n1. Both are civil wrongs and give rise to civil liability.\n2. In both cases, the injured party may claim compensation or damages as a legal remedy.\n\n2(b) Differentiate between Tort and Breach of Contract. [3 Marks]\n- Nature/Source of Duty: Tort duty is imposed by law | Contract duty arises from agreement.\n- Codification: Tort has no single comprehensive code | Contract is governed by Contract Act, 1872.\n- Nature of Right: Right in Rem | Right in Personam.\n- Prior Agreement: No prior agreement necessary | Valid agreement essential.\n- Damages: Unliquidated | Liquidated or unliquidated.\n\nExample of Tort: A negligently injures B while driving.\nExample of Contract: A agrees to deliver goods to B but fails to deliver." },
+      { q: "Q3. Explain why Tort lies between Criminal and Civil Wrongs & Differentiate from Crime.", a: "3(a) Explain why Tort is considered to lie between Criminal and Civil Wrongs. [2 Marks]\nTort is technically a civil wrong because the injured person brings the action for compensation in civil court. However, like criminal law, the duty is fixed by law toward society. Like a civil wrong, its remedy is compensation rather than imprisonment. Thus it lies between criminal and pure civil wrongs.\n\n3(b) Differentiate between Tort and Crime. [3 Marks]\n- Nature: Civil wrong | Criminal wrong.\n- Purpose: Compensation | Punishment of offender.\n- Person bringing case: Plaintiff/injured person | State prosecutes.\n- Court: Civil Court | Criminal Court.\n- Remedy: Damages/Injunction | Imprisonment/Fine/Death penalty.\n- Standard of Proof: Balance of probabilities | Beyond reasonable doubt." },
+      { q: "Q4. Legal Damage & Damnum Sine Injuria (Gloucester Grammar School Case)", a: "4(a) Legal Damage [1 Mark]\nDamage recognized by law, generally involving the infringement of a legal right. Mere actual or financial loss is not always sufficient.\n\n4(b) Damnum Sine Injuria [4 Marks]\nMeaning: Actual damage without legal injury. If no legal right is violated, no action in tort lies.\nRule: Actual Damage + No Legal Injury = No Tort\n\nExample: A opens a new grocery shop beside B's shop causing B financial loss. A is exercising his lawful right to business, so B cannot claim damages.\n\nCase: Gloucester Grammar School Case (1410)\nDecision: The court held that no legal right of the plaintiff had been violated. The establishment of the new school was lawful; therefore, the plaintiff could not recover damages." },
+      { q: "Q5. Injuria Sine Damno (Ashby v White)", a: "5(a) Injuria Sine Damno [1 Mark]\nLegal injury without actual damage. Violation of a legal right is actionable even without actual financial or physical loss.\n\n5(b) Injuria Sine Damno [4 Marks]\nMeaning: Legal injury + No Actual Damage = Tort.\nExample: A is unlawfully prevented from entering his own land.\n\nCase: Ashby v White (1703)\nFacts: Ashby was a qualified voter. White wrongfully prevented him from exercising his right to vote.\nDecision: The court recognized that Ashby's legal right to vote had been violated. Therefore, the absence of actual damage did not prevent him from obtaining a remedy." },
+      { q: "Q6. Distinction between Actual Damage and Legal Damage", a: "6(a) What is meant by Legal Damage? [1 Mark]\nDamage recognized by law, arising from the infringement of a legal right.\n\n6(b) Distinction between Actual Damage and Legal Damage [4 Marks]\n- Actual damage is physical, financial, or measurable loss suffered.\n- Legal damage is the infringement of a legal right recognized by law.\n- Actual loss alone is insufficient where defendant's act does not violate any legal right (Damnum Sine Injuria).\nRule Summary:\nActual Damage + No Legal Injury = No Tort\nLegal Injury + No Actual Damage = Tort" },
+      { q: "Q7. Legal Remedy & Ubi Jus Ibi Remedium", a: "7(a) What is meant by Legal Remedy? [2 Marks]\nA remedy recognized and provided by law for the violation of a legal right. Expressed by: \"Ubi Jus Ibi Remedium\".\n\n7(b) Explain Ubi Jus Ibi Remedium. [3 Marks]\n\"Where there is a right, there is a remedy.\" Where the law recognizes a legal right, its violation gives the injured person a right to seek a legal remedy.\nExample: A negligently damages B's motorcycle. B's legal right in property is infringed, so B can seek compensation." },
+      { q: "Q8. Volenti Non Fit Injuria and its limitations", a: "8(a) Meaning: [2 Marks]\n\"To a willing person, no injury is done.\" Based on voluntary assumption of risk. Conditions: Knowledge of risk, free/voluntary consent, acceptance of risk.\n\n8(b) Explanation & Limitations: [3 Marks]\nExample: A voluntarily participates in a wrestling match and gets injured within ordinary risks.\nLimitations:\n1. Mere knowledge is not consent.\n2. Consent must be free and voluntary (not forced or fraudulent).\n3. Consent must remain within the scope of accepted risk.\n4. No consent to negligence beyond accepted risk." },
+      { q: "Q9. General Defences in Tort & Immunity Grounds", a: "9(a) What are General Defences? [2 Marks]\nCircumstances under which a defendant may escape or reduce liability.\n\n9(b) Principal General Defences and Limitations: [4 Marks]\n1. Volenti Non Fit Injuria (Voluntary risk acceptance).\n2. Inevitable Accident (Unforeseeable despite reasonable care).\n3. Inevitable Mistake (Genuinely unavoidable mistake).\n4. Act of God (Extraordinary natural event).\n5. Act of State (Sovereign authority acts).\n6. Judicial Acts (Judges protected within lawful jurisdiction).\n7. Statutory Authority (Authorized by statute).\n8. Parental Authority (Reasonable discipline of child).\n9. Self-Defence (Reasonable force against unlawful force).\n10. Necessity (Lesser harm to prevent greater harm).\n11. Plaintiff is Wrongdoer (Ex Turpi Causa Non Oritur Actio)." },
+      { q: "Q12. Trespass to Person & Position of Assault/Battery in Bangladesh", a: "12(a) Trespass to Person [2 Marks]\nDirect and intentional interference with a person's body or liberty without lawful justification. Forms: Assault, Battery, False Imprisonment.\n\n12(b) Detailed Explanation & Bangladesh Position [4 Marks]\n1. Assault: Creating reasonable apprehension of immediate contact.\n2. Battery: Direct intentional physical contact.\n3. False Imprisonment: Unlawful total restraint of movement.\n\nBangladesh Position:\nIn Bangladesh, Assault and Battery are NOT maintained as separate torts in the same manner as under English law; the distinction is generally not maintained as separate tortious actions." },
+      { q: "Q13. Essential Elements of Assault & Bangladesh Position", a: "13(a) What is Assault? [2 Marks]\nIntentional act causing reasonable apprehension of immediate unlawful physical contact.\n\n13(b) Essential Elements: [4 Marks]\n1. Intention\n2. Reasonable Apprehension\n3. Immediacy\n4. Apparent Ability\n5. Mere Words Generally Not Sufficient\n\nBangladesh Position: Assault & Battery are not maintained as separate tortious actions." },
+      { q: "Q14. [Scenario] Shop owner locks suspected thief in room for 2 hours.", a: "Situation: Shop owner suspects Rahim of theft, locks him in a room for 2 hours without authority until cleared by another employee.\n\n(a) Relevant Tort: False Imprisonment. [1 Mark]\n\n(b) Reasonings: [4 Marks]\nYes, it amounts to False Imprisonment. Essential elements:\n1. Total Restraint: Rahim was completely locked in.\n2. Unlawful Restraint: Owner had no legal authority.\n3. Restraint of Personal Liberty: Could not leave for 2 hours.\n4. Absence of Lawful Justification: Mere suspicion gives no legal authority to confine." },
+      { q: "Q15. [Scenario] Rahim's illegal agreement with Karim and financial loss.", a: "Situation: Rahim makes illegal agreement with Karim, suffers loss when Karim fails to perform, files civil suit.\n\n(a) Can Rahim claim compensation? No. [1 Mark]\n\n(b) Applicable Principle: [4 Marks]\nEx Turpi Causa Non Oritur Actio (\"No action arises from an illegal cause\"). Rahim voluntarily engaged in illegal conduct, so the court will not assist him in recovering loss from his own illegality." },
+      { q: "Q16. [Scenario] A pushes B away during B's attack with a stick.", a: "Situation: B attacks A with a stick. A pushes B away to protect himself; B falls and suffers minor injury.\n\n(a) Available Defence: Self-Defence. [1 Mark]\n\n(b) Reasonings: [4 Marks]\nA faced an immediate unlawful attack. He used force to protect himself. As long as the force was reasonably necessary and proportionate, A can rely on Self-Defence." },
+      { q: "Q17. [Scenario] A takes an amusement ride and suffers expected minor injury.", a: "Situation: A is informed of normal minor injury risks on a ride, enters voluntarily, and suffers that exact injury.\n\n(a) Available Defence: Volenti Non Fit Injuria. [1 Mark]\n\n(b) Reasonings: [4 Marks]\nA had full knowledge of the risk and voluntarily accepted it. The injury fell directly within the scope of accepted risk." }
+    ]
+  },
+  history_emergence_bd: { "2marks": [], "broad": [] },
+  english_test: { "2marks": [], "broad": [] },
+  constitutional_law_ii: { "2marks": [], "broad": [] }
+};
+
 const TITLES = {
-  muslim_personal_law_i: '⚖️ Muslim Personal Law -I',
-  law_of_contract: '📜 Law of Contract',
-  law_of_tort_consumers: '💻 Law of Tort and Consumers Protection',
-  history_emergence_bd: '🏛️ The History of Emergence of BD',
-  english_test: '🗣️ Listening and Speaking English',
-  constitutional_law_ii: '📜 Constitutional Law of BD -II'
+  muslim_personal_law_i: 'Muslim Personal Law -I',
+  law_of_contract: 'Law of Contract',
+  law_of_tort_consumers: 'Law of Tort & Consumers Protection',
+  history_emergence_bd: 'The History of Emergence of BD',
+  english_test: 'Listening and Speaking English',
+  constitutional_law_ii: 'Constitutional Law of BD -II'
 };
 
 let currentSubject = null;
+let currentSaqType = null;
 let questions = [];
 let current = 0;
 let score = 0;
@@ -1689,46 +759,110 @@ let wrong = 0;
 let answered = false;
 let userAnswersState = {};
 
-// Automatically update counts and visibility on page load
-function updateUIcounts() {
-  for (let key in DB) {
-    let countSpan = document.getElementById('count-' + key);
-    let resetBtn = document.getElementById('reset-' + key);
-    if (countSpan) {
-      let len = DB[key].length;
-      if (len > 0) {
-        countSpan.innerHTML = `&#9670; ${len} Questions`;
-        if (resetBtn) resetBtn.style.display = 'inline-block';
-      } else {
-        countSpan.innerHTML = `&#9670; Coming Soon`;
-        if (resetBtn) resetBtn.style.display = 'none';
-      }
-    }
+// NAVIGATION SYSTEM
+function hideAllScreens() {
+  document.getElementById('home-screen').style.display = 'none';
+  document.getElementById('module-screen').style.display = 'none';
+  document.getElementById('saq-type-screen').style.display = 'none';
+  document.getElementById('saq-viewer-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('score-screen').classList.remove('show');
+}
+
+function goHome() {
+  hideAllScreens();
+  document.getElementById('home-screen').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+function openSubjectModules(subjectKey) {
+  currentSubject = subjectKey;
+  hideAllScreens();
+  document.getElementById('module-screen').style.display = 'block';
+  document.getElementById('module-subject-title').textContent = TITLES[subjectKey];
+
+  let mcqCount = DB[subjectKey] ? DB[subjectKey].length : 0;
+  document.getElementById('module-mcq-count').innerHTML = mcqCount > 0 ? `&#9670; ${mcqCount} Questions` : `&#9670; Coming Soon`;
+  document.getElementById('module-mcq-reset').style.display = mcqCount > 0 ? 'inline-block' : 'none';
+  
+  window.scrollTo(0,0);
+}
+
+function startMCQFromModule() {
+  if (!DB[currentSubject] || DB[currentSubject].length === 0) {
+    alert("This MCQ test is coming soon!");
+    return;
+  }
+  startQuiz(currentSubject);
+}
+
+function resetCurrentMCQ() {
+  if(confirm("Are you sure you want to reset all progress for this test?")) {
+    localStorage.removeItem('mcq_progress_' + currentSubject);
+    openSubjectModules(currentSubject);
+    alert("Progress has been reset!");
   }
 }
 
+function openSaqTypeSelection() {
+  hideAllScreens();
+  document.getElementById('saq-type-screen').style.display = 'block';
+  document.getElementById('saq-subject-title').textContent = TITLES[currentSubject];
+  
+  let saqData = SAQ_DB[currentSubject] || { "2marks": [], "broad": [] };
+  document.getElementById('count-2marks').innerHTML = `&#9670; ${saqData["2marks"].length} Questions`;
+  document.getElementById('count-broad').innerHTML = `&#9670; ${saqData["broad"].length} Questions`;
+  window.scrollTo(0,0);
+}
+
+function backToModules() {
+  openSubjectModules(currentSubject);
+}
+
+function openSaqViewer(type) {
+  currentSaqType = type;
+  hideAllScreens();
+  document.getElementById('saq-viewer-screen').style.display = 'block';
+  
+  let label = type === '2marks' ? 'Short Questions (2 Marks)' : 'Broad Questions';
+  document.getElementById('saq-view-title').textContent = `${TITLES[currentSubject]} - ${label}`;
+  
+  let listContainer = document.getElementById('saq-list-container');
+  listContainer.innerHTML = '';
+  
+  let items = SAQ_DB[currentSubject] ? SAQ_DB[currentSubject][type] : [];
+  if (!items || items.length === 0) {
+    listContainer.innerHTML = `<div style="text-align:center; padding: 40px; color:var(--text-dim);">No questions added yet for this section. Coming soon!</div>`;
+  } else {
+    items.forEach((item, index) => {
+      let div = document.createElement('div');
+      div.className = 'saq-item';
+      div.innerHTML = `
+        <div class="saq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Q${index+1}. ${escHtml(item.q)}</span>
+          <span style="font-size:0.8rem;">▼</span>
+        </div>
+        <div class="saq-a">${escHtml(item.a)}</div>
+      `;
+      listContainer.appendChild(div);
+    });
+  }
+  window.scrollTo(0,0);
+}
+
+function backToSaqType() {
+  openSaqTypeSelection();
+}
+
+// ===== MCQ QUIZ ENGINE =====
 function shuffle(arr) {
   const a = [...arr];
   for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
   return a;
 }
 
-function goHome() {
-  updateUIcounts();
-  document.getElementById('home-screen').style.display='block';
-  document.getElementById('quiz-screen').style.display='none';
-  document.getElementById('score-screen').classList.remove('show');
-  document.getElementById('wrong-review-container').classList.remove('show');
-  window.scrollTo(0,0);
-}
-
 function startQuiz(subject) {
-  if (!DB[subject] || DB[subject].length === 0) {
-    alert("This test is coming soon!");
-    return;
-  }
   currentSubject = subject;
-  
   let savedProgress = localStorage.getItem('mcq_progress_' + subject);
   if (savedProgress) {
     let data = JSON.parse(savedProgress);
@@ -1743,8 +877,7 @@ function startQuiz(subject) {
     userAnswersState = {};
   }
 
-  document.getElementById('home-screen').style.display='none';
-  document.getElementById('score-screen').classList.remove('show');
+  hideAllScreens();
   document.getElementById('quiz-screen').style.display='block';
   document.getElementById('topbar-title').textContent = TITLES[subject];
   showQuestion();
@@ -1755,12 +888,7 @@ function manualReset(subject) {
   if(!subject) return;
   if(confirm("Are you sure you want to reset all progress for this test?")) {
     localStorage.removeItem('mcq_progress_' + subject);
-    if(currentSubject === subject) {
-      startQuiz(subject);
-    } else {
-      updateUIcounts();
-      alert("Progress has been reset successfully!");
-    }
+    startQuiz(subject);
   }
 }
 
@@ -1851,6 +979,7 @@ function prevQuestion() {
 }
 
 function escHtml(t) {
+  if(!t) return '';
   return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
@@ -1859,11 +988,8 @@ function selectAnswer(selected, correct) {
   answered = true;
   userAnswersState[current] = selected;
 
-  if(selected === correct) {
-    score++;
-  } else {
-    wrong++;
-  }
+  if(selected === correct) score++;
+  else wrong++;
   
   saveCurrentProgress();
   showQuestion();
@@ -1872,9 +998,7 @@ function selectAnswer(selected, correct) {
 function nextQuestion() {
   current++;
   if(current >= questions.length) {
-    if(currentSubject) {
-      localStorage.removeItem('mcq_progress_' + currentSubject);
-    }
+    if(currentSubject) localStorage.removeItem('mcq_progress_' + currentSubject);
     showScore();
   } else {
     saveCurrentProgress();
@@ -1884,7 +1008,7 @@ function nextQuestion() {
 }
 
 function showScore() {
-  document.getElementById('quiz-screen').style.display='none';
+  hideAllScreens();
   const sc = document.getElementById('score-screen');
   sc.classList.add('show');
   const total = questions.length;
@@ -1897,9 +1021,7 @@ function showScore() {
   const icon = document.getElementById('score-icon');
   icon.textContent = pct>=80?'🏆':pct>=60?'📘':pct>=40?'📝':'💪';
   
-  // Hide wrong review by default on score screen load
   document.getElementById('wrong-review-container').classList.remove('show');
-  
   window.scrollTo(0,0);
 }
 
@@ -1907,7 +1029,6 @@ function toggleWrongReview() {
   const container = document.getElementById('wrong-review-container');
   const list = document.getElementById('wrong-review-list');
   
-  // Toggle visibility if already showing
   if (container.classList.contains('show')) {
     container.classList.remove('show');
     return;
@@ -1941,9 +1062,7 @@ function toggleWrongReview() {
 }
 
 function retestQuiz() {
-  if(currentSubject) {
-    localStorage.removeItem('mcq_progress_' + currentSubject);
-  }
+  if(currentSubject) localStorage.removeItem('mcq_progress_' + currentSubject);
   startQuiz(currentSubject);
 }
 
@@ -1964,7 +1083,6 @@ function setTheme(mode) {
 
 (function(){ 
   if(localStorage.getItem('theme')==='paper') setTheme('paper'); 
-  updateUIcounts();
 })();
 </script>
 </body>
