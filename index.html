@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Candal&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.google.com/specimen/Google+Sans" rel="stylesheet">
 
-<!-- Firebase SDK Scripts (Compat Mode for Vanilla JS) -->
+<!-- Firebase SDK Scripts (Compat Mode) -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
@@ -20,7 +20,6 @@
   --red:#e74c3c; --red-bg:rgba(231,76,60,0.12);
 }
 
-/* ===== PAPER (LIGHT) THEME ===== */
 body.paper-theme {
   --navy:#f0e8d8; --navy-mid:#ede0cc; --navy-light:#e8d8c0;
   --text:#1a1208; --text-dim:#5a4a30;
@@ -49,7 +48,6 @@ body.paper-theme .back-btn:hover { background:rgba(138,96,24,0.10); }
 body.paper-theme .next-btn { color:#fff; }
 body.paper-theme .saq-item { background:var(--navy-light); border-color:rgba(138,96,24,0.2); }
 
-/* ===== THEME TOGGLE BUTTON ===== */
 .theme-toggle {
   position:fixed; bottom:24px; right:20px; z-index:500;
   display:flex; align-items:center; gap:0;
@@ -76,15 +74,17 @@ body::before{content:'';position:fixed;inset:0;
   repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(201,168,76,0.025) 60px,rgba(201,168,76,0.025) 61px);
   pointer-events:none;z-index:0;}
 
-/* ========== COMMON CONTAINER & HEADERS ========== */
-.container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:60px 24px 80px;}
+.global-header {
+  position: relative; z-index: 10; max-width: 900px; margin: 0 auto; padding: 15px 24px 0; display: flex; justify-content: flex-end;
+}
+
+.container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:20px 24px 80px;}
 .header{text-align:center;margin-bottom:40px;animation:fadeDown 0.8s ease both;}
 .header-ornament{color:var(--gold);font-size:1.1rem;letter-spacing:6px;text-transform:uppercase;font-family:'Cinzel',serif;opacity:0.7;margin-bottom:14px;}
 .header h1{font-family:'Candal',sans-serif;font-weight:900;font-size:clamp(1.8rem,5vw,2.8rem);background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold) 40%,var(--gold-dim) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;letter-spacing:2px;margin-bottom:16px;}
 .header-line{width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 14px;}
 .header-sub{color:var(--text-dim);font-size:1rem;font-style:italic;}
 
-/* GRID & CARDS */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;animation:fadeUp 0.6s ease both;}
 .card{background:linear-gradient(145deg,var(--navy-light),var(--navy-mid));border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:32px 28px;cursor:pointer;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.3s;}
@@ -98,10 +98,8 @@ body::before{content:'';position:fixed;inset:0;
 .card-reset-btn{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:1px;color:var(--red);background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);padding:4px 10px;border-radius:2px;cursor:pointer;transition:all 0.2s;}
 .card-reset-btn:hover{background:rgba(231,76,60,0.2);border-color:var(--red);}
 
-/* NAV CONTROL */
 .nav-bar-top{display:flex;align-items:center;margin-bottom:20px;gap:12px;}
 
-/* ========== QUIZ SCREEN ========== */
 #quiz-screen{display:none;position:relative;z-index:1;}
 .topbar{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.15);padding:13px 24px;display:flex;align-items:center;gap:16px;}
 .back-btn{display:flex;align-items:center;gap:7px;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:none;border:1px solid rgba(201,168,76,0.3);padding:6px 14px;border-radius:2px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
@@ -112,8 +110,8 @@ body::before{content:'';position:fixed;inset:0;
 .prog-c{color:var(--green);}
 .prog-w{color:var(--red);}
 .progress-text{font-family:'Cinzel',serif;font-size:0.72rem;color:var(--text-dim);letter-spacing:1px;white-space:nowrap;}
-.progress-bar{width:90px;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold-light));border-radius:2px;transition:width 0.4s ease;}
+.progress-bar{width:110px;height:6px;background:rgba(255,255,255,0.15);border-radius:3px;overflow:hidden;display:block;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-dim),var(--gold-light));border-radius:3px;transition:width 0.3s ease-in-out;width:0%;}
 
 .quiz-container{max-width:740px;margin:0 auto;padding:44px 24px 80px;}
 .question-card{background:linear-gradient(145deg,var(--navy-light),var(--navy-mid));border:1px solid rgba(201,168,76,0.15);border-radius:4px;padding:36px 36px 28px;animation:fadeUp 0.4s ease both;}
@@ -145,7 +143,6 @@ body::before{content:'';position:fixed;inset:0;
 .prev-btn:hover{background:rgba(201,168,76,0.08);border-color:var(--gold);}
 .prev-btn.show{display:block;animation:fadeUp 0.3s ease both;}
 
-/* ========== SCORE SCREEN & WRONG REVIEWS ========== */
 #score-screen{display:none;max-width:600px;margin:0 auto;padding:60px 24px 80px;text-align:center;position:relative;z-index:1;}
 #score-screen.show{display:block;animation:fadeUp 0.5s ease both;}
 .score-icon{font-size:4rem;margin-bottom:20px;}
@@ -166,7 +163,6 @@ body::before{content:'';position:fixed;inset:0;
 .home-btn2{padding:12px 28px;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid rgba(201,168,76,0.4);border-radius:2px;cursor:pointer;transition:all 0.2s;}
 .home-btn2:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);}
 
-/* REVIEW CONTAINER FOR WRONG ANSWERS */
 .wrong-review-container { margin-top: 35px; text-align: left; display: none; animation: fadeUp 0.4s ease both; }
 .wrong-review-container.show { display: block; }
 .wrong-review-title { font-family: 'Cinzel', serif; font-size: 1.05rem; color: var(--red); margin-bottom: 16px; border-bottom: 1px solid rgba(231,76,60,0.3); padding-bottom: 8px; }
@@ -175,7 +171,6 @@ body::before{content:'';position:fixed;inset:0;
 .wrong-ans-text { color: var(--red); font-size: 0.95rem; margin-bottom: 4px; }
 .correct-ans-text { color: var(--green); font-size: 0.95rem; font-weight: 600; }
 
-/* ========== SAQ VIEWER SCREEN ========== */
 .saq-list { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
 .saq-item { background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.2); border-radius: 4px; padding: 20px; }
 .saq-q { font-size: 1.1rem; color: var(--gold-light); font-weight: bold; margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
@@ -198,19 +193,16 @@ body::before{content:'';position:fixed;inset:0;
 </head>
 <body>
 
-<!-- THEME TOGGLE -->
 <div class="theme-toggle">
   <button class="theme-toggle-btn active" id="btn-dark" onclick="setTheme('dark')">🌙 Dark</button>
   <button class="theme-toggle-btn" id="btn-paper" onclick="setTheme('paper')">📄 Paper</button>
 </div>
 
-<!-- ===== STEP 1: HOME SCREEN (SUBJECT SELECTION) ===== -->
-<div id="home-screen" class="container">
-  <!-- USER AUTH CONTAINER -->
-  <div id="auth-container" style="display:flex; justify-content:flex-end; margin-bottom:20px;">
-    <!-- Firebase Auth Button/User Profile loads here -->
-  </div>
+<div class="global-header">
+  <div id="auth-container"></div>
+</div>
 
+<div id="home-screen" class="container">
   <div class="header">
     <div class="header-ornament">&#9670; LLB Exam Preparation &#9670;</div>
     <h1>Masum Test Hub</h1>
@@ -246,7 +238,6 @@ body::before{content:'';position:fixed;inset:0;
   <div class="home-footer">KYAU &mdash; LLB 25th Batch &nbsp;|&nbsp; All questions compiled by Masum Bin Zafar</div>
 </div>
 
-<!-- ===== STEP 2: MODULE SELECTION (MCQ vs SAQ) ===== -->
 <div id="module-screen" class="container" style="display:none;">
   <div class="nav-bar-top">
     <button class="back-btn" onclick="goHome()">&#8592; Back to Subjects</button>
@@ -257,7 +248,6 @@ body::before{content:'';position:fixed;inset:0;
     <div class="header-sub">Choose your preparation mode</div>
   </div>
   <div class="cards-grid">
-    <!-- MCQ Card -->
     <div class="card" onclick="startMCQFromModule()">
       <div class="card-title">📝 MCQ Test</div>
       <div class="card-sub-info">Interactive Multiple Choice Questions with instant grading.</div>
@@ -266,7 +256,6 @@ body::before{content:'';position:fixed;inset:0;
         <button class="card-reset-btn" id="module-mcq-reset" onclick="event.stopPropagation(); resetCurrentMCQ()">🔄 Reset</button>
       </div>
     </div>
-    <!-- SAQ Card -->
     <div class="card" onclick="openSaqTypeSelection()">
       <div class="card-title">📖 SAQ & Broad Questions</div>
       <div class="card-sub-info">Written exam preparation including 2 marks and Broad questions.</div>
@@ -277,7 +266,6 @@ body::before{content:'';position:fixed;inset:0;
   </div>
 </div>
 
-<!-- ===== STEP 3: SAQ TYPE SELECTION (Broad vs 2 Marks) ===== -->
 <div id="saq-type-screen" class="container" style="display:none;">
   <div class="nav-bar-top">
     <button class="back-btn" onclick="backToModules()">&#8592; Back to Modules</button>
@@ -305,7 +293,6 @@ body::before{content:'';position:fixed;inset:0;
   </div>
 </div>
 
-<!-- ===== STEP 4: SAQ VIEWER SCREEN ===== -->
 <div id="saq-viewer-screen" class="container" style="display:none;">
   <div class="nav-bar-top">
     <button class="back-btn" onclick="backToSaqType()">&#8592; Back to Written Types</button>
@@ -315,12 +302,9 @@ body::before{content:'';position:fixed;inset:0;
     <div class="header-line"></div>
     <div class="header-sub">Click on any question to expand or hide the answer</div>
   </div>
-  <div class="saq-list" id="saq-list-container">
-    <!-- SAQ items inserted via JavaScript -->
-  </div>
+  <div class="saq-list" id="saq-list-container"></div>
 </div>
 
-<!-- ===== QUIZ SCREEN (MCQ) ===== -->
 <div id="quiz-screen">
   <div class="topbar">
     <button class="back-btn" onclick="backToModules()">&#8592; Back</button>
@@ -331,7 +315,7 @@ body::before{content:'';position:fixed;inset:0;
         <span class="prog-w" id="prog-wrong-count" title="Wrong">✗0</span>
       </div>
       <div class="progress-text" id="prog-text">1 / ?</div>
-      <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
     </div>
   </div>
   <div class="quiz-container">
@@ -350,7 +334,6 @@ body::before{content:'';position:fixed;inset:0;
   </div>
 </div>
 
-<!-- ===== SCORE SCREEN ===== -->
 <div id="score-screen">
   <div class="score-icon" id="score-icon">🏆</div>
   <div class="score-title">Test Complete</div>
@@ -366,7 +349,6 @@ body::before{content:'';position:fixed;inset:0;
     <button class="retest-btn" onclick="retestQuiz()">&#8635; Retest</button>
     <button class="home-btn2" onclick="backToModules()">&#8962; Subject Home</button>
   </div>
-  
   <div class="wrong-review-container" id="wrong-review-container">
     <div class="wrong-review-title">⚠️ Review Incorrect Answers</div>
     <div id="wrong-review-list"></div>
@@ -374,7 +356,7 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 
 <script>
-// ===== FIREBASE CONFIGURATION & GOOGLE AUTH =====
+// ===== FIREBASE AUTHENTICATION LOGIC =====
 const firebaseConfig = {
   apiKey: "AIzaSyAbJTecfMK_NkpRYCZK1pyTs3pAzIuM78M",
   authDomain: "masum-website-52bf0.firebaseapp.com",
@@ -385,46 +367,42 @@ const firebaseConfig = {
   measurementId: "G-6KY7D1J0EN"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-// Google Sign-In Function
 function loginWithGoogle() {
   auth.signInWithPopup(googleProvider)
     .then((result) => {
-      const user = result.user;
-      alert("Welcome, " + user.displayName + "!");
+      console.log("Logged in:", result.user);
     })
     .catch((error) => {
-      alert("Login Error: " + error.message);
+      console.error(error);
+      alert("Google Sign-In Error: " + error.message);
     });
 }
 
-// Log Out Function
 function logout() {
   auth.signOut().then(() => {
-    alert("Logged out successfully.");
+    console.log("Logged out successfully.");
   });
 }
 
-// Track User Auth State
 auth.onAuthStateChanged((user) => {
   const authContainer = document.getElementById('auth-container');
   if (!authContainer) return;
 
   if (user) {
     authContainer.innerHTML = `
-      <div style="display:flex; align-items:center; gap:10px;">
-        <img src="${user.photoURL}" alt="User" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--gold);">
-        <span style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold-light);">${user.displayName}</span>
-        <button onclick="logout()" style="background:rgba(231,76,60,0.15); color:var(--red); border:1px solid rgba(231,76,60,0.3); padding:4px 10px; border-radius:3px; cursor:pointer;">Logout</button>
+      <div style="display:flex; align-items:center; gap:10px; background:rgba(17,24,39,0.8); padding:6px 14px; border-radius:20px; border:1px solid rgba(201,168,76,0.3);">
+        <img src="${user.photoURL}" alt="User" style="width:28px; height:28px; border-radius:50%; border:1px solid var(--gold);">
+        <span style="font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold-light);">${user.displayName}</span>
+        <button onclick="logout()" style="background:rgba(231,76,60,0.15); color:var(--red); border:1px solid rgba(231,76,60,0.3); padding:3px 8px; border-radius:3px; cursor:pointer; font-size:0.7rem;">Logout</button>
       </div>
     `;
   } else {
     authContainer.innerHTML = `
-      <button onclick="loginWithGoogle()" style="background:linear-gradient(135deg,var(--gold-light),var(--gold)); color:var(--navy); border:none; padding:6px 16px; border-radius:3px; font-family:'Cinzel',serif; font-size:0.75rem; font-weight:bold; cursor:pointer;">
+      <button onclick="loginWithGoogle()" style="background:linear-gradient(135deg,var(--gold-light),var(--gold)); color:var(--navy); border:none; padding:7px 18px; border-radius:20px; font-family:'Cinzel',serif; font-size:0.75rem; font-weight:bold; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
         Sign in with Google
       </button>
     `;
@@ -475,7 +453,6 @@ const DB = {
     {"q":"Appointments to subordinate courts are made by:","options":[{"key":"A","text":"Chief Justice alone"},{"key":"B","text":"President"},{"key":"C","text":"Law Minister"},{"key":"D","text":"Judicial Service Commission"},{"key":"E","text":"Parliament"}],"answer":"B"},
     {"q":"Judicial officers must be:","options":[{"key":"A","text":"Politically neutral only"},{"key":"B","text":"Independent in judicial functions"},{"key":"C","text":"Appointed for life"},{"key":"D","text":"Elected by people"},{"key":"E","text":"Supervised by Law Ministry"}],"answer":"B"},
     {"q":"Which Article empowers the High Court Division to issue writs?","options":[{"key":"A","text":"101"},{"key":"B","text":"102"},{"key":"C","text":"103"},{"key":"D","text":"106"},{"key":"E","text":"109"}],"answer":"B"},
-    {"q":"What does Article 94(4) of the Bangladesh Constitution ensure?","options":[{"key":"A","text":"The power of Parliament to appoint judges"},{"key":"B","text":"The independence of the judiciary"},{"key":"C","text":"The role of the President in judicial decisions"},{"key":"D","text":"The financial control of the judiciary by the government"},{"key":"E","text":"The ability of the judiciary to pass laws"}],"answer":"B"},
     {"q":"Under Article 94(1), the Supreme Court consists of:","options":[{"key":"A","text":"Civil and Criminal Divisions"},{"key":"B","text":"Appellate Division and High Court Division"},{"key":"C","text":"District and Sessions Divisions"},{"key":"D","text":"Original and Appellate Divisions"},{"key":"E","text":"Constitutional and Administrative Divisions"}],"answer":"B"},
     {"q":"Under Article 94(2), the number of Judges in each Division is determined by:","options":[{"key":"A","text":"Parliament"},{"key":"B","text":"Chief Justice"},{"key":"C","text":"President"},{"key":"D","text":"Prime Minister"},{"key":"E","text":"Law Minister"}],"answer":"C"},
     {"q":"Under Article 94(3), the Chief Justice shall sit:","options":[{"key":"A","text":"Only in HCD"},{"key":"B","text":"Only in AD"},{"key":"C","text":"In both Divisions"},{"key":"D","text":"In subordinate courts"},{"key":"E","text":"In Administrative Tribunal"}],"answer":"B"},
@@ -599,7 +576,7 @@ const DB = {
   ]
 };
 
-// UPDATED SAQ DATABASE FOR LAW OF TORT & CONSTITUTIONAL LAW II
+// FULL SAQ DATABASE (INCLUDING ALL BROAD QUESTIONS)
 const SAQ_DB = {
   muslim_personal_law_i: {
     "2marks": [
@@ -660,20 +637,66 @@ const SAQ_DB = {
       { q: "30. Explain the control and discipline of the subordinate judiciary. [2]", a: "Article 116 deals with the control and discipline of persons employed in the judicial service and magistrates exercising judicial functions.\n\nThe matters include posting, promotion, grant of leave and disciplinary control, exercised according to the constitutional arrangement involving the President and the Supreme Court." }
     ],
     "broad": [
-      { q: "Question 1: Explain the establishment, composition and independence of the Supreme Court of Bangladesh under Article 94.", a: "Article 94 provides for the establishment, composition, and independence of the Supreme Court.\n\n1. Establishment: Article 94(1) establishes the Supreme Court consisting of two Divisions: the Appellate Division and the High Court Division.\n2. Composition: Under Article 94(2), it consists of the Chief Justice and such number of other Judges as the President deems necessary.\n3. Sitting Arrangement: Article 94(3) outlines that the Chief Justice and Appellate Division Judges sit only in the Appellate Division, while other Judges sit in the High Court Division.\n4. Independence: Article 94(4) expressly guarantees that the Chief Justice and other Judges shall be independent in the exercise of their judicial functions." },
-      { q: "Question 2: Explain the constitutional provisions relating to the separation and independence of the judiciary.", a: "The Constitution ensures separation and independence through three key articles:\n- Article 22: Directs the State to separate the judiciary from executive organs.\n- Article 94(4): Guarantees the independence of the Chief Justice and Supreme Court Judges.\n- Article 116A: Guarantees independence for judicial service officers and magistrates exercising judicial functions." },
-      { q: "Question 3: State and explain the qualifications required for appointment as a Judge of the Supreme Court and discuss constitutional provisions regarding appointment.", a: "Governed under Articles 95 & 98:\n1. Appointment: Made by the President (for other Judges, in consultation with the Chief Justice).\n2. Qualifications: Must be a citizen of Bangladesh and either an advocate of the Supreme Court for 10 years OR held judicial office in Bangladesh for 10 years.\n3. Additional Judges: Article 98 allows appointment of Additional Judges to HCD for up to 2 years if temporary increase in strength is needed." },
-      { q: "Question 4: Discuss the tenure of office and removal of Judges of the Supreme Court.", a: "Governed under Article 96:\n1. Tenure: Holds office until retirement age (67 years).\n2. Removal Safeguard: Judges cannot be arbitrarily removed by executive discretion. Removal procedures are strictly governed by constitutional safeguards under Article 96, guaranteeing security of tenure." },
-      { q: "Question 5: Explain the jurisdiction of the High Court Division under the Constitution.", a: "Article 101 establishes original, appellate, and other jurisdictions conferred by law. It should be read together with Article 102, which defines its constitutional remedial/writ jurisdiction." },
-      { q: "Question 6: What is the writ jurisdiction of the High Court Division? Explain its constitutional scope.", a: "Under Article 102, HCD issues directions/orders for fundamental rights enforcement (102(1)) and public-law remedies where no other equal remedy exists (102(2)). Writs include Habeas Corpus, Mandamus, Prohibition, Certiorari, and Quo Warranto." },
-      { q: "Question 7: What is meant by a 'person aggrieved'?", a: "A 'person aggrieved' is one whose direct legal or fundamental right is infringed. Required under Article 102(1), whereas Article 102(2) uses wider terminology ('any person') for specific remedies like Habeas Corpus and Quo Warranto." },
-      { q: "Question 8: Discuss the different writs available under the Constitution (Scope, Applicant, Circumstances).", a: "1. Habeas Corpus: Protects against unlawful detention. (Applicant: Any person)\n2. Mandamus: Compels legal duty performance by public authority. (Applicant: Person aggrieved)\n3. Certiorari: Quashes unlawful orders/proceedings. (Applicant: Person aggrieved)\n4. Prohibition: Prevents lower courts/authorities from exceeding jurisdiction. (Applicant: Person aggrieved)\n5. Quo Warranto: Questions legal authority of public office holder. (Applicant: Any person)" },
-      { q: "Question 9: What is locus standi? Explain when a person is regarded as aggrieved.", a: "Locus standi is legal standing to approach a court. A person is aggrieved if directly affected by legal right infringement or fundamental right violation. Traditional locus standi was relaxed in Public Interest Litigation (PIL) through benchmark cases like Kazi Mukhlesur Rahman v Bangladesh." },
-      { q: "Question 10: Explain appellate jurisdiction of Appellate Division. Distinguish between appeal as of right and appeal by leave.", a: "Under Article 103:\n- Appeal as of Right: Constitutional right under specified categories (e.g., substantial constitutional questions certified by HCD, death sentence/life imprisonment confirmation, contempt punishment).\n- Appeal by Leave: Requires prior permission (leave) from Appellate Division under Article 103(3)." },
-      { q: "Question 11: Explain the power of the Appellate Division to do complete justice.", a: "Under Article 104, AD can issue directions, orders, decrees, or writs necessary for doing complete justice in any cause/matter pending before it." },
-      { q: "Question 12: What is meant by 'Court of Record'? Explain powers.", a: "Under Article 108, Supreme Court acts as a Court of Record. Its proceedings are preserved as authoritative evidence, and it possesses inherent power to punish for contempt of itself." },
-      { q: "Question 13: Explain the power of High Court Division to transfer cases from subordinate courts.", a: "Under Article 110, if a subordinate court case involves a substantial question of constitutional interpretation, HCD can withdraw the case, determine the constitutional point, and either dispose of it or send it back for determination consistent with its judgment." },
-      { q: "Question 14: Explain constitutional provisions relating to Administrative Tribunals & duty to act in aid.", a: "- Article 117: Enables Parliament by law to establish Administrative Tribunals for service disputes or government property matters, excluding ordinary court jurisdiction.\n- Article 112: Imposes an obligation on all executive and judicial authorities to act in aid of the Supreme Court." }
+      { 
+        q: "Q1. Supreme Court and Judges [5][cite: 13]\n(a) State the qualifications required for appointment as a Judge of the Supreme Court. [2][cite: 13]\n(b) Describe the tenure of office of a Judge of the Supreme Court, including the retirement age. [3][cite: 13]", 
+        a: "(a) Qualifications\nUnder Article 95(2), a person must be a citizen of Bangladesh to be qualified for appointment as a Judge of the Supreme Court[cite: 13]. He must also satisfy the required professional or judicial experience[cite: 13]. He must have either:\n1. been an advocate of the Supreme Court for at least 10 years; or[cite: 13]\n2. held judicial office in Bangladesh for at least 10 years;[cite: 13]\nor possess such other qualifications as may be prescribed by law[cite: 13].\nThus, Bangladeshi citizenship together with the prescribed legal or judicial experience is the main constitutional qualification[cite: 13].\n\n(b) Tenure of Office\nUnder Article 96(1), a Judge of the Supreme Court shall hold office until attaining the age of 67 years[cite: 13].\nUnder Article 96(2), a Judge may resign his office by writing addressed to the President[cite: 13]. A Judge cannot be removed arbitrarily; removal must take place according to the constitutional procedure prescribed for removal[cite: 13].\nSecurity of tenure is important for judicial independence[cite: 13]. If a Judge could be removed simply because of an unpopular judgment, he might not be able to act independently[cite: 13]. Therefore, Article 96 protects the Judge from arbitrary termination and supports impartial administration of justice[cite: 13]." 
+      },
+      { 
+        q: "Q2. Establishment and Independence of Supreme Court [5][cite: 13]\n(a) Explain the establishment and composition of the Supreme Court of Bangladesh. [2][cite: 13]\n(b) Explain the constitutional provisions relating to independence of the Supreme Court. [3][cite: 13]", 
+        a: "(a) Establishment and Composition\nUnder Article 94(1), there shall be a Supreme Court of Bangladesh consisting of two Divisions:[cite: 13]\n1. Appellate Division, and[cite: 13]\n2. High Court Division[cite: 13].\nUnder Article 94(2), the Supreme Court consists of the Chief Justice and such number of other Judges as the President may deem necessary to appoint to each Division[cite: 13]. Article 94(3) also provides for the sitting arrangement of Judges in the two Divisions[cite: 13].\n\n(b) Independence\nThe Constitution expressly protects judicial independence through Article 94(4)[cite: 13]. It provides that, subject to the Constitution, the Chief Justice and other Judges shall be independent in the exercise of their judicial functions[cite: 13].\nThis means that Judges must be free to decide cases according to the Constitution and law without improper influence from the executive, legislature or other authorities[cite: 13]. Judicial independence is necessary because the Supreme Court interprets the Constitution, protects legal rights and determines disputes impartially[cite: 13].\nThe independence of Supreme Court Judges is also connected with the wider constitutional principle of separation of judiciary under Article 22[cite: 13].\nThus, Article 94 both establishes the Supreme Court and provides an express constitutional guarantee of its judicial independence[cite: 13]." 
+      },
+      { 
+        q: "Q3. Separation and Independence of Judiciary [5][cite: 13]\n(a) Describe your understanding of independence of judiciary. [2][cite: 13]\n(b) Explain the constitutional provisions relating to separation and independence of the judiciary. [3][cite: 13]", 
+        a: "(a) Meaning\nJudicial independence means that Judges must be able to perform their judicial functions independently and impartially, without improper interference or pressure from the executive, legislature or any other authority[cite: 13].\nIt is essential for fair administration of justice and the protection of constitutional rights[cite: 13].\n\n(b) Constitutional Basis\nThe Constitution protects separation and independence of judiciary mainly through Articles 22, 94(4) and 116A[cite: 13].\nArticle 22 provides that the State shall ensure the separation of the judiciary from the executive organs of the State[cite: 13]. It establishes the basic constitutional principle of judicial separation[cite: 13].\nArticle 94(4) provides that the Chief Justice and other Judges of the Supreme Court shall be independent in the exercise of their judicial functions[cite: 13].\nSimilarly, Article 116A provides that persons employed in the judicial service and magistrates exercising judicial functions shall also be independent in exercising their judicial functions[cite: 13].\n\nCase: Secretary, Ministry of Finance v. Masdar Hossain, 52 DLR (AD) 82[cite: 13].\nThe case concerned the separation and independence of the subordinate judiciary[cite: 13]. The Appellate Division emphasised that judicial independence is a basic constitutional principle and directed measures to secure the subordinate judiciary from improper executive control[cite: 13]. The case therefore gave practical institutional meaning to the constitutional requirement of separation[cite: 13].\nThus, Article 22 = separation; Article 94(4) = Supreme Court independence; Article 116A = subordinate judicial independence, while Masdar Hossain is the leading case on their practical implementation[cite: 13]." 
+      },
+      { 
+        q: "Q4. Appointment of Judges and Additional Judges [5][cite: 13]\n(a) State and explain the qualifications required for appointment as a Judge of the Supreme Court. [2][cite: 13]\n(b) Discuss the constitutional provisions regarding appointment of Judges and Additional Judges. [3][cite: 13]", 
+        a: "(a) Qualifications\nUnder Article 95(2), a person must be a citizen of Bangladesh and must have either at least 10 years' experience as an advocate of the Supreme Court or at least 10 years' experience in judicial office in Bangladesh, subject to the constitutional requirements[cite: 13].\n\n(b) Appointment\nUnder Article 95(1), the President appoints the Chief Justice of Bangladesh[cite: 13]. Other Judges of the Supreme Court are appointed by the President after consultation with the Chief Justice[cite: 13].\nThe Constitution also provides for Additional Judges under Article 98[cite: 13]. Where the President considers that the number of Judges of the High Court Division should be temporarily increased, or that it is necessary for the proper functioning of the Court, a qualified person may be appointed as an Additional Judge[cite: 13].\nAn Additional Judge may be appointed for a period not exceeding two years[cite: 13]. The Constitution also provides for appointment of such an Additional Judge as a permanent Judge of the High Court Division, subject to the constitutional conditions[cite: 13].\nTherefore, Article 95 regulates ordinary appointment and qualification, while Article 98 provides a special mechanism for dealing with the temporary need for additional Judges[cite: 13]." 
+      },
+      { 
+        q: "Q5. High Court Division [5][cite: 13]\n(a) Explain the jurisdiction of the High Court Division. [2][cite: 13]\n(b) Explain the significance of Articles 101 and 102 regarding the jurisdiction of the High Court Division. [3][cite: 13]", 
+        a: "(a) Jurisdiction\nUnder Article 101, the High Court Division has such original, appellate and other jurisdiction and powers as are conferred on it by the Constitution or any other law[cite: 13].\nThus, the HCD has jurisdiction to hear certain matters at first instance, appeals from subordinate courts or authorities where law permits, and other constitutional or statutory matters[cite: 13].\n\n(b) Articles 101 and 102\nArticle 101 provides the general jurisdictional foundation of the High Court Division[cite: 13]. It recognises three broad categories: original, appellate and other jurisdiction conferred by the Constitution or law[cite: 13].\nOn the other hand, Article 102 gives the HCD an important constitutional remedial power[cite: 13]. It may issue appropriate directions or orders for the enforcement of fundamental rights and, subject to constitutional conditions, for controlling unlawful acts or failures of public authorities[cite: 13].\nTherefore, Article 101 provides the broader jurisdictional framework, while Article 102 provides a specific and important constitutional/writ jurisdiction[cite: 13].\nThis jurisdiction is significant because it enables the High Court Division to protect constitutional rights and ensure that public authorities act within the limits of law[cite: 13]." 
+      },
+      { 
+        q: "Q6. Writ Jurisdiction [5][cite: 13]\n(a) Explain the writ jurisdiction of the High Court Division. [2][cite: 13]\n(b) Discuss the scope of the writ remedies available under the Constitution. [3][cite: 13]", 
+        a: "(a) Writ Jurisdiction\nThe writ jurisdiction of the High Court Division is mainly provided under Article 102[cite: 13].\nUnder Article 102(1), where a fundamental right guaranteed by Part III has been contravened, the HCD may, on the application of a person aggrieved, give appropriate directions or orders for enforcement of that right[cite: 13].\nUnder Article 102(2), the HCD may issue appropriate directions or orders in specified cases where no other equally efficacious remedy is provided by law[cite: 13].\n\n(b) Writ Remedies\nThe principal writ remedies are:[cite: 13]\n1. Habeas Corpus protects a person against unlawful detention[cite: 13].\n2. Mandamus compels a public authority to perform a legal duty or refrain from unlawful action[cite: 13].\n3. Certiorari challenges an unlawful act or proceeding and may declare it to be without lawful authority and of no legal effect[cite: 13].\n4. Prohibition prevents a lower court, tribunal or authority from continuing proceedings beyond its lawful jurisdiction[cite: 13].\n5. Quo Warranto questions the legal authority of a person holding a public office[cite: 13].\nThe writ jurisdiction therefore serves two major purposes: protection of fundamental rights and judicial control of unlawful public power[cite: 13]." 
+      },
+      { 
+        q: "Q7. Article 102 and Person Aggrieved [5][cite: 13]\n(a) What is meant by \"person aggrieved\"? [2][cite: 13]\n(b) Explain locus standi and the concept of \"person aggrieved\" under Article 102. [3][cite: 13]", 
+        a: "(a) Person Aggrieved\nA person aggrieved generally means a person whose own legal or fundamental right or interest has been adversely affected by the action complained of[cite: 13].\nThe expression is particularly important under Article 102(1) because the applicant seeking enforcement of a fundamental right must ordinarily be a person aggrieved[cite: 13].\n\n(b) Locus Standi\nLocus standi means the legal standing or right of a person to approach a Court[cite: 13]. Traditionally, a person had to show that he was personally affected by the impugned action[cite: 13].\nTherefore, under Article 102(1), the concept of locus standi is closely connected with \"person aggrieved.\"[cite: 13] The applicant should ordinarily have a sufficient personal legal grievance[cite: 13].\nHowever, Article 102(2) uses the wider expression \"any person\" in certain specified situations[cite: 13]. For example, habeas corpus and quo warranto may be invoked in circumstances where the applicant need not have the same personal grievance required under Article 102(1)[cite: 13].\n\nCase: Kazi Mukhlesur Rahman v. Bangladesh, 26 DLR (SC) 44[cite: 13].\nThe case is important in the development of constitutional standing and a broader approach to locus standi[cite: 13]. It demonstrates that constitutional litigation may sometimes require a more liberal approach to standing where important constitutional interests are involved[cite: 13].\nThus, \"person aggrieved\" represents the traditional personal-standing requirement, while the constitutional scheme also permits a wider approach in appropriate cases[cite: 13]." 
+      },
+      { 
+        q: "Q8. Certiorari and Other Writs [5][cite: 13]\n(a) Find out the scope of writ of certiorari. [2][cite: 13]\n(b) Distinguish between certiorari and prohibition. [3][cite: 13]", 
+        a: "(a) Certiorari\nThe writ of certiorari is used to challenge an unlawful order, decision or proceeding already taken by a public authority or other body exercising relevant jurisdiction[cite: 13].\nWhere the authority has acted without lawful authority or in excess of its jurisdiction, the High Court Division may intervene and declare the action to be without lawful authority and of no legal effect[cite: 13].\n\n(b) Certiorari vs Prohibition\nThe two writs are closely related but their main difference is the stage at which they operate[cite: 13].\nCertiorari is generally used against an unlawful decision or proceeding already made or taken[cite: 13]. Its purpose is to bring the unlawful action under judicial control and, where appropriate, quash or declare it legally ineffective[cite: 13].\nProhibition, on the other hand, is mainly a preventive writ[cite: 13]. It is issued to stop a lower court, tribunal or authority from continuing proceedings when it is acting without or in excess of lawful jurisdiction[cite: 13].\nTherefore:[cite: 13]\nCertiorari → corrective; unlawful act/decision already taken[cite: 13].\nProhibition → preventive; unlawful proceeding is sought to be stopped[cite: 13].\nBoth are important means of controlling excess or misuse of jurisdiction by subordinate authorities[cite: 13]." 
+      },
+      { 
+        q: "Q9. Appellate Division [5][cite: 13]\n(a) Describe the jurisdiction of the Appellate Division of the Supreme Court. [2][cite: 13]\n(b) Distinguish between an appeal as of right and an appeal with leave to the Appellate Division. [3][cite: 13]", 
+        a: "(a) Jurisdiction\nUnder Article 103, the Appellate Division has jurisdiction to hear and determine appeals from judgments, decrees, orders or sentences of the High Court Division, subject to the constitutional conditions[cite: 13].\nIt is the highest appellate forum in Bangladesh[cite: 13].\n\n(b) Appeal as of Right and Appeal with Leave\nAn appeal as of right is available in the cases specifically mentioned in Article 103(2)[cite: 13]. In these cases, the appellant does not need prior permission or leave of the Appellate Division[cite: 13].\nThese include specified cases involving a substantial question of law as to the interpretation of the Constitution, certain death or life-imprisonment matters, and punishment for contempt of the High Court Division[cite: 13].\nOn the other hand, under Article 103(3), an appeal in other cases may be brought only with the leave of the Appellate Division[cite: 13]. The Court grants leave where the case deserves consideration under the constitutional requirements[cite: 13].\nThus, appeal as of right = no prior leave in specified constitutional cases, whereas appeal with leave = permission of the Appellate Division is necessary[cite: 13]. This system allows important cases to reach the highest Court without making every HCD decision automatically appealable[cite: 13]." 
+      },
+      { 
+        q: "Q10. Complete Justice [5][cite: 13]\n(a) Explain the power of the Appellate Division as to doing complete justice. [2][cite: 13]\n(b) Explain the scope and significance of this power. [3][cite: 13]", 
+        a: "(a) Power to Do Complete Justice\nThe power of the Appellate Division to do complete justice is provided under Article 104[cite: 13].\nIt may issue such directions, orders, decrees or writs as may be necessary for doing complete justice in any cause or matter pending before it[cite: 13].\n\n(b) Scope and Significance\nArticle 104 gives the Appellate Division a wide remedial power[cite: 13]. It is not limited merely to affirming or reversing the judgment under appeal[cite: 13]. Where ordinary relief is insufficient to bring the dispute to an effective end, the Court may mould appropriate relief[cite: 13].\nThe power includes:[cite: 13]\n- issuing appropriate directions;[cite: 13]\n- making necessary orders or decrees;[cite: 13]\n- issuing appropriate writs; and[cite: 13]\n- securing the attendance of any person or requiring discovery or production of documents[cite: 13].\nHowever, the power is not unlimited[cite: 13]. It is exercised in relation to a cause or matter pending before the Appellate Division and for the purpose of achieving complete justice[cite: 13].\nArticle 104 should be distinguished from Article 103: Article 103 mainly deals with whether and how a case comes to the Appellate Division, whereas Article 104 concerns what relief the Court may grant to achieve complete justice[cite: 13]." 
+      },
+      { 
+        q: "Q11. Court of Record [5][cite: 13]\n(a) Explain the meaning of \"Court of Record\" in the context of the Supreme Court. [2][cite: 13]\n(b) Explain the powers and significance of the Supreme Court as a Court of Record. [3][cite: 13]", 
+        a: "(a) Meaning\nUnder Article 108, the Supreme Court of Bangladesh is a Court of Record[cite: 13].\nA Court of Record is a court whose acts and judicial proceedings are officially recorded and permanently preserved, and whose records possess authoritative and evidentiary value[cite: 13].\n\n(b) Powers and Significance\nThe status of Court of Record has several important consequences[cite: 13].\nFirst, the judicial proceedings and records of the Supreme Court are permanently preserved and have authoritative status[cite: 13].\nSecond, the Court has the constitutional power to punish for contempt of itself[cite: 13]. This is necessary because the Court cannot effectively administer justice if its authority, proceedings or judicial process can be deliberately obstructed or undermined[cite: 13].\nThird, the status strengthens the authority and dignity of the Supreme Court and supports the proper administration of justice[cite: 13].\nThere is also a relation with Article 103(2)(c)[cite: 13]. Where the High Court Division punishes a person for contempt of that Division, an appeal lies to the Appellate Division as of right[cite: 13].\nThus, Article 108 gives the Supreme Court the status of a Court of Record and provides an important constitutional basis for protecting its judicial authority[cite: 13]." 
+      },
+      { 
+        q: "Q12. Transfer of Cases [5][cite: 13]\n(a) Explain the superintendence of the High Court Division over subordinate courts. [2][cite: 13]\n(b) Explain the constitutional provision for transfer of cases from subordinate courts to the High Court Division. [3][cite: 13]", 
+        a: "(a) Superintendence\nUnder Article 109, the High Court Division has superintendence and control over all courts and tribunals subordinate to it[cite: 13].\nThis power enables the HCD to supervise subordinate judicial institutions and helps maintain the proper administration of justice[cite: 13].\n\n(b) Transfer of Cases\nUnder Article 110, where a case pending before a subordinate court involves a substantial question of law as to the interpretation of the Constitution, the High Court Division may withdraw the case[cite: 13].\nAfter withdrawing the case, the HCD may either:[cite: 13]\n1. dispose of the case itself, or[cite: 13]\n2. determine the constitutional question and return the case to the subordinate court with its judgment and appropriate directions[cite: 13].\nThe subordinate court must then proceed in accordance with the determination of the High Court Division[cite: 13].\nThe purpose of Article 110 is to ensure that an important constitutional question is determined by the constitutional superior Court and that subordinate courts follow the authoritative interpretation of the Constitution[cite: 13].\nThus, Article 109 = general superintendence, while Article 110 = transfer of cases involving substantial constitutional questions[cite: 13]." 
+      },
+      { 
+        q: "Q13. Binding Effect and Acting in Aid [5][cite: 13]\n(a) Explain the binding effect of the judgments of the Supreme Court. [2][cite: 13]\n(b) Explain the constitutional obligation of authorities to act in aid of the Supreme Court. [3][cite: 13]", 
+        a: "(a) Binding Effect\nUnder Article 111, the law declared by the Appellate Division is binding upon the High Court Division[cite: 13]. The law declared by either Division of the Supreme Court is binding upon the courts subordinate to it[cite: 13].\nThis establishes the principle of binding judicial precedent and ensures uniform application of law[cite: 13].\n\n(b) Acting in Aid\nUnder Article 112, all authorities, executive and judicial, in the Republic shall act in aid of the Supreme Court[cite: 13].\nThis means that executive and judicial authorities have a constitutional duty to assist the Supreme Court in giving effect to its lawful judgments, orders and directions[cite: 13]. They cannot simply disregard or obstruct the exercise of the Court's constitutional authority[cite: 13].\nArticle 112 therefore ensures the practical effectiveness of judicial decisions[cite: 13].\nIt is closely related to Article 111[cite: 13]. Article 111 ensures that the law declared by the Supreme Court is binding, while Article 112 ensures that State authorities assist in giving effect to the authority of the Supreme Court[cite: 13].\nTogether, these provisions strengthen the supremacy and effectiveness of the Supreme Court within the judicial system[cite: 13]." 
+      },
+      { 
+        q: "Q14. Advisory Jurisdiction and Review [5][cite: 13]\n(a) Explain the advisory jurisdiction of the Appellate Division. [2][cite: 13]\n(b) Explain the power of the Appellate Division to review its own judgment. [3][cite: 13]", 
+        a: "(a) Advisory Jurisdiction\nUnder Article 106, if the President considers that a question of law has arisen or is likely to arise and the question is of such public importance that it is expedient to obtain the opinion of the Supreme Court, he may refer the question to the Appellate Division[cite: 13].\nThe Appellate Division then considers the question and reports its opinion to the President[cite: 13].\n\n(b) Review Jurisdiction\nUnder Article 105, the Appellate Division has power to review any judgment pronounced or order made by it, subject to the Constitution, any law made by Parliament and the rules of the Court[cite: 13].\nReview is different from an ordinary appeal[cite: 13]. In an appeal, a higher Court examines a decision of a lower Court[cite: 13]. In a review, the Appellate Division itself reconsiders its own judgment or order according to the applicable legal grounds and procedure[cite: 13].\nThe purpose of review is to correct an error or injustice recognised by the law governing review, while maintaining the principle of finality of judgments[cite: 13].\nThus, Article 105 = review by the Appellate Division, while Article 106 = advisory opinion on a question of law referred by the President[cite: 13]." 
+      },
+      { 
+        q: "Q15. Administrative Tribunal [5][cite: 13]\n(a) Outline the jurisdiction of Administrative Tribunals under Article 117. [2][cite: 13]\n(b) Explain the constitutional bar on courts regarding matters under the jurisdiction of Administrative Tribunals. [3][cite: 13]", 
+        a: "(a) Jurisdiction\nUnder Article 117, Parliament may establish Administrative Tribunals to deal mainly with matters relating to or arising from the terms and conditions of service of persons in the service of the Republic[cite: 13].\nSuch matters may include appointment, promotion, transfer, dismissal, disciplinary matters and other service-related matters according to the law establishing the Tribunal[cite: 13].\n\n(b) Constitutional Bar\nArticle 117 creates a special constitutional arrangement for administrative and service-related disputes[cite: 13]. Where an Administrative Tribunal has jurisdiction over a particular matter, ordinary courts cannot simply entertain proceedings in respect of that matter contrary to the constitutional scheme[cite: 13].\nThe purpose is to provide a specialised forum for dealing with administrative and service matters[cite: 13]. This avoids unnecessary duplication of proceedings and allows such disputes to be decided by a forum having specialised jurisdiction[cite: 13].\nThe provision should also be understood in relation to Article 102[cite: 13]. The existence of a specialised Tribunal and an equally efficacious remedy may affect the exercise of the High Court Division's writ jurisdiction, particularly under Article 102(2)[cite: 13].\nThus, Article 117 seeks to balance two objectives: specialised administrative adjudication and the constitutional role of judicial review within the limits prescribed by the Constitution[cite: 13]." 
+      }
     ]
   }
 };
@@ -696,7 +719,6 @@ let wrong = 0;
 let answered = false;
 let userAnswersState = {};
 
-// NAVIGATION SYSTEM
 function hideAllScreens() {
   document.getElementById('home-screen').style.display = 'none';
   document.getElementById('module-screen').style.display = 'none';
@@ -717,11 +739,9 @@ function openSubjectModules(subjectKey) {
   hideAllScreens();
   document.getElementById('module-screen').style.display = 'block';
   document.getElementById('module-subject-title').textContent = TITLES[subjectKey];
-
   let mcqCount = DB[subjectKey] ? DB[subjectKey].length : 0;
   document.getElementById('module-mcq-count').innerHTML = mcqCount > 0 ? `&#9670; ${mcqCount} Questions` : `&#9670; Coming Soon`;
   document.getElementById('module-mcq-reset').style.display = mcqCount > 0 ? 'inline-block' : 'none';
-  
   window.scrollTo(0,0);
 }
 
@@ -745,7 +765,6 @@ function openSaqTypeSelection() {
   hideAllScreens();
   document.getElementById('saq-type-screen').style.display = 'block';
   document.getElementById('saq-subject-title').textContent = TITLES[currentSubject];
-  
   let saqData = SAQ_DB[currentSubject] || { "2marks": [], "broad": [] };
   document.getElementById('count-2marks').innerHTML = `&#9670; ${saqData["2marks"].length} Questions`;
   document.getElementById('count-broad').innerHTML = `&#9670; ${saqData["broad"].length} Questions`;
@@ -760,13 +779,10 @@ function openSaqViewer(type) {
   currentSaqType = type;
   hideAllScreens();
   document.getElementById('saq-viewer-screen').style.display = 'block';
-  
   let label = type === '2marks' ? 'Short Questions (2 Marks)' : 'Broad Questions';
   document.getElementById('saq-view-title').textContent = `${TITLES[currentSubject]} - ${label}`;
-  
   let listContainer = document.getElementById('saq-list-container');
   listContainer.innerHTML = '';
-  
   let items = SAQ_DB[currentSubject] ? SAQ_DB[currentSubject][type] : [];
   if (!items || items.length === 0) {
     listContainer.innerHTML = `<div style="text-align:center; padding: 40px; color:var(--text-dim);">No questions added yet for this section. Coming soon!</div>`;
@@ -791,7 +807,6 @@ function backToSaqType() {
   openSaqTypeSelection();
 }
 
-// ===== MCQ QUIZ ENGINE =====
 function shuffle(arr) {
   const a = [...arr];
   for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
@@ -813,7 +828,6 @@ function startQuiz(subject) {
     current = 0; score = 0; wrong = 0;
     userAnswersState = {};
   }
-
   hideAllScreens();
   document.getElementById('quiz-screen').style.display='block';
   document.getElementById('topbar-title').textContent = TITLES[subject];
@@ -821,37 +835,19 @@ function startQuiz(subject) {
   window.scrollTo(0,0);
 }
 
-function manualReset(subject) {
-  if(!subject) return;
-  if(confirm("Are you sure you want to reset all progress for this test?")) {
-    localStorage.removeItem('mcq_progress_' + subject);
-    startQuiz(subject);
-  }
-}
-
-function saveCurrentProgress() {
-  if(!currentSubject) return;
-  let data = {
-    questions: questions,
-    current: current,
-    score: score,
-    wrong: wrong,
-    userAnswersState: userAnswersState
-  };
-  localStorage.setItem('mcq_progress_' + currentSubject, JSON.stringify(data));
-}
-
 function showQuestion() {
   const q = questions[current];
   const total = questions.length;
-  
   answered = userAnswersState[current] !== undefined;
   const savedSelection = userAnswersState[current];
 
   document.getElementById('q-num').textContent = 'Question ' + (current+1);
   document.getElementById('q-text').textContent = q.q;
   document.getElementById('prog-text').textContent = (current+1) + ' / ' + total;
-  document.getElementById('prog-fill').style.width = ((current+1)/total*100) + '%';
+  
+  // Progress Bar Width Calculation
+  const progressPercent = Math.round(((current + 1) / total) * 100);
+  document.getElementById('prog-fill').style.width = progressPercent + '%';
 
   document.getElementById('prog-correct-count').textContent = '✓' + score;
   document.getElementById('prog-wrong-count').textContent = '✗' + wrong;
@@ -900,48 +896,34 @@ function showQuestion() {
 
   const nb = document.getElementById('next-btn');
   nb.textContent = current < questions.length-1 ? 'Next Question →' : 'See Results';
-
-  const card = document.getElementById('question-card');
-  card.style.animation = 'none';
-  void card.offsetWidth;
-  card.style.animation = 'fadeUp 0.4s ease both';
 }
 
-function prevQuestion() {
-  if(current <= 0) return;
-  current--;
-  saveCurrentProgress();
-  showQuestion();
-  window.scrollTo(0,0);
-}
-
-function escHtml(t) {
-  if(!t) return '';
-  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+function escHtml(t) { return !t ? '' : t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 function selectAnswer(selected, correct) {
   if(answered) return;
   answered = true;
   userAnswersState[current] = selected;
-
   if(selected === correct) score++;
   else wrong++;
-  
-  saveCurrentProgress();
   showQuestion();
 }
 
 function nextQuestion() {
   current++;
   if(current >= questions.length) {
-    if(currentSubject) localStorage.removeItem('mcq_progress_' + currentSubject);
     showScore();
   } else {
-    saveCurrentProgress();
     showQuestion();
     window.scrollTo(0,0);
   }
+}
+
+function prevQuestion() {
+  if(current <= 0) return;
+  current--;
+  showQuestion();
+  window.scrollTo(0,0);
 }
 
 function showScore() {
@@ -955,55 +937,9 @@ function showScore() {
   document.getElementById('stat-correct').textContent = score;
   document.getElementById('stat-wrong').textContent = wrong;
   document.getElementById('stat-total').textContent = total;
-  const icon = document.getElementById('score-icon');
-  icon.textContent = pct>=80?'🏆':pct>=60?'📘':pct>=40?'📝':'💪';
-  
-  document.getElementById('wrong-review-container').classList.remove('show');
   window.scrollTo(0,0);
 }
 
-function toggleWrongReview() {
-  const container = document.getElementById('wrong-review-container');
-  const list = document.getElementById('wrong-review-list');
-  
-  if (container.classList.contains('show')) {
-    container.classList.remove('show');
-    return;
-  }
-
-  if (wrong === 0) {
-    alert("🎉 Great job! You have no wrong answers to review.");
-    return;
-  }
-
-  list.innerHTML = '';
-  questions.forEach((q, idx) => {
-    const userChoice = userAnswersState[idx];
-    if (userChoice && userChoice !== q.answer) {
-      const userOptText = q.options.find(o => o.key === userChoice)?.text || '';
-      const correctOptText = q.options.find(o => o.key === q.answer)?.text || '';
-      
-      const item = document.createElement('div');
-      item.className = 'wrong-review-item';
-      item.innerHTML = `
-        <div class="wrong-review-q">Q${idx + 1}. ${escHtml(q.q)}</div>
-        <div class="wrong-ans-text">❌ Your Answer: (${userChoice}) ${escHtml(userOptText)}</div>
-        <div class="correct-ans-text">✓ Correct Answer: (${q.answer}) ${escHtml(correctOptText)}</div>
-      `;
-      list.appendChild(item);
-    }
-  });
-
-  container.classList.add('show');
-  container.scrollIntoView({ behavior: 'smooth' });
-}
-
-function retestQuiz() {
-  if(currentSubject) localStorage.removeItem('mcq_progress_' + currentSubject);
-  startQuiz(currentSubject);
-}
-
-// ===== THEME TOGGLE =====
 function setTheme(mode) {
   if(mode === 'paper') {
     document.body.classList.add('paper-theme');
@@ -1018,9 +954,7 @@ function setTheme(mode) {
   }
 }
 
-(function(){ 
-  if(localStorage.getItem('theme')==='paper') setTheme('paper'); 
-})();
+(function(){ if(localStorage.getItem('theme')==='paper') setTheme('paper'); })();
 </script>
 </body>
 </html>
