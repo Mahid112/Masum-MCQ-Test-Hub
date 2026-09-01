@@ -6,6 +6,11 @@
 <title>Masum Test Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Candal&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.google.com/specimen/Google+Sans" rel="stylesheet">
+
+<!-- Firebase SDK Scripts (Compat Mode for Vanilla JS) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
 <style>
 :root {
   --gold:#c9a84c; --gold-light:#e8c97a; --gold-dim:#8a6f30;
@@ -201,6 +206,11 @@ body::before{content:'';position:fixed;inset:0;
 
 <!-- ===== STEP 1: HOME SCREEN (SUBJECT SELECTION) ===== -->
 <div id="home-screen" class="container">
+  <!-- USER AUTH CONTAINER -->
+  <div id="auth-container" style="display:flex; justify-content:flex-end; margin-bottom:20px;">
+    <!-- Firebase Auth Button/User Profile loads here -->
+  </div>
+
   <div class="header">
     <div class="header-ornament">&#9670; LLB Exam Preparation &#9670;</div>
     <h1>Masum Test Hub</h1>
@@ -364,6 +374,63 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 
 <script>
+// ===== FIREBASE CONFIGURATION & GOOGLE AUTH =====
+const firebaseConfig = {
+  apiKey: "AIzaSyAbJTecfMK_NkpRYCZK1pyTs3pAzIuM78M",
+  authDomain: "masum-website-52bf0.firebaseapp.com",
+  projectId: "masum-website-52bf0",
+  storageBucket: "masum-website-52bf0.firebasestorage.app",
+  messagingSenderId: "458289934755",
+  appId: "1:458289934755:web:d7454436649b43d0fbaa16",
+  measurementId: "G-6KY7D1J0EN"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+// Google Sign-In Function
+function loginWithGoogle() {
+  auth.signInWithPopup(googleProvider)
+    .then((result) => {
+      const user = result.user;
+      alert("Welcome, " + user.displayName + "!");
+    })
+    .catch((error) => {
+      alert("Login Error: " + error.message);
+    });
+}
+
+// Log Out Function
+function logout() {
+  auth.signOut().then(() => {
+    alert("Logged out successfully.");
+  });
+}
+
+// Track User Auth State
+auth.onAuthStateChanged((user) => {
+  const authContainer = document.getElementById('auth-container');
+  if (!authContainer) return;
+
+  if (user) {
+    authContainer.innerHTML = `
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="${user.photoURL}" alt="User" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--gold);">
+        <span style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold-light);">${user.displayName}</span>
+        <button onclick="logout()" style="background:rgba(231,76,60,0.15); color:var(--red); border:1px solid rgba(231,76,60,0.3); padding:4px 10px; border-radius:3px; cursor:pointer;">Logout</button>
+      </div>
+    `;
+  } else {
+    authContainer.innerHTML = `
+      <button onclick="loginWithGoogle()" style="background:linear-gradient(135deg,var(--gold-light),var(--gold)); color:var(--navy); border:none; padding:6px 16px; border-radius:3px; font-family:'Cinzel',serif; font-size:0.75rem; font-weight:bold; cursor:pointer;">
+        Sign in with Google
+      </button>
+    `;
+  }
+});
+
 // FULL MCQ DATABASE
 const DB = {
   muslim_personal_law_i: [
