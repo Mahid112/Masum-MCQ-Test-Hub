@@ -89,11 +89,6 @@ body::before{content:'';position:fixed;inset:0;
 .card:hover{transform:translateY(-5px);border-color:rgba(201,168,76,0.5);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(201,168,76,0.08);}
 .card:hover::before{opacity:1;}
 
-.card.drive-card {
-  border-color: rgba(201,168,76,0.4);
-  background: linear-gradient(145deg, rgba(201,168,76,0.1), var(--navy-mid));
-}
-
 .card-title{font-family:'Google Sans',sans-serif;font-size:1.1rem;font-weight:bold;color:var(--gold-light);letter-spacing:1px;margin-bottom:14px;line-height:1.4;}
 .card-sub-info{font-size:0.9rem;color:var(--text-dim);margin-bottom:16px;}
 .card-footer-info{display:flex;justify-content:space-between;align-items:center;gap:10px;}
@@ -261,17 +256,6 @@ body::before{content:'';position:fixed;inset:0;
     <div class="header-sub">Select a subject to practice MCQs and Written SAQs</div>
   </div>
   <div class="cards-grid">
-    <!-- DRIVE SUGGESTIONS CARD -->
-    <a href="https://drive.google.com/drive/folders/15S1-b4_4oT6S6KxR3E_H-s3_m8v8Xk1-" target="_blank" style="text-decoration: none;">
-      <div class="card drive-card">
-        <div class="card-title" style="color: var(--gold-light);">📁 Download suggestions by Masum</div>
-        <div class="card-sub-info">Click to access Google Drive folder containing official suggestions, notes, and PDF resources.</div>
-        <div class="card-footer-info">
-          <span class="card-count" style="border-color: var(--gold); color: var(--gold-light);">☁️ Google Drive</span>
-        </div>
-      </div>
-    </a>
-
     <div class="card" onclick="openSubjectModules('muslim_personal_law_i')">
       <div class="card-title">Muslim Personal Law -I</div>
       <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
@@ -295,6 +279,11 @@ body::before{content:'';position:fixed;inset:0;
     <div class="card" onclick="openSubjectModules('constitutional_law_ii')">
       <div class="card-title">Constitutional Law of BD -II</div>
       <div class="card-sub-info">Click to view MCQ & SAQ Options</div>
+    </div>
+    <!-- NEW DRIVE SUGGESTIONS CARD -->
+    <div class="card" onclick="window.open('https://drive.google.com/drive/folders/1BaUyV-o-sCeHbKkr5d11qhRrcBT3UvdD', '_blank')">
+      <div class="card-title">📥 Download suggestions by Masum</div>
+      <div class="card-sub-info">Click to access Google Drive resources & notes</div>
     </div>
   </div>
   <div class="home-footer">KYAU &mdash; LLB 25th Batch &nbsp;|&nbsp; All questions compiled by Masum Bin Zafar</div>
@@ -528,196 +517,192 @@ function updateDashboardInfo(user) {
   grid.innerHTML = subjectGridHtml || `<div style="color:var(--text-dim); grid-column: 1/-1;">No quiz activity recorded yet. Take an MCQ test to see your progress!</div>`;
 }
 
-// FULL MCQ DATABASE
+// FULL MCQ DATABASE (ADDED PDF 100 MCQs for Muslim Personal Law & ALL Contract MCQs)
 const DB = {
   muslim_personal_law_i: [
-    {"q":"1. Which one is the primary source of Muslim Law?","options":[{"key":"A","text":"Sunnah"},{"key":"B","text":"Quran"},{"key":"C","text":"Ijma"},{"key":"D","text":"Qiyas"}],"answer":"B"},
-    {"q":"2. The word Islam primarily means-","options":[{"key":"A","text":"War"},{"key":"B","text":"Hardship"},{"key":"C","text":"Peace"},{"key":"D","text":"Punishment"}],"answer":"C"},
-    {"q":"3. According to the theologians, how many conditions are required to be fulfilled to become a Muslim?","options":[{"key":"A","text":"2"},{"key":"B","text":"3"},{"key":"C","text":"4"},{"key":"D","text":"5"}],"answer":"B"},
-    {"q":"4. Which one is NOT a condition according to theologians?","options":[{"key":"A","text":"Belief in Oneness of Allah"},{"key":"B","text":"Belief in Prophethood of Muhammad (PBUH)"},{"key":"C","text":"Acceptance of Islamic classification of human acts"},{"key":"D","text":"Membership of a particular Islamic school"}],"answer":"D"},
-    {"q":"5. According to the courts, a person is a Muslim if he believes in-","options":[{"key":"A","text":"Quran only"},{"key":"B","text":"Oneness of Allah and Prophethood of Muhammad (PBUH)"},{"key":"C","text":"Ijma only"},{"key":"D","text":"Qiyas only"}],"answer":"B"},
-    {"q":"6. Which of the following is an obligatory act?","options":[{"key":"A","text":"Mustahab"},{"key":"B","text":"Mubah"},{"key":"C","text":"Fard"},{"key":"D","text":"Makruh"}],"answer":"C"},
-    {"q":"7. An act which is permissible, carrying neither reward nor punishment, is-","options":[{"key":"A","text":"Fard"},{"key":"B","text":"Mubah"},{"key":"C","text":"Haram"},{"key":"D","text":"Makruh"}],"answer":"B"},
-    {"q":"8. An act which is strictly prohibited is called-","options":[{"key":"A","text":"Makruh"},{"key":"B","text":"Mustahab"},{"key":"C","text":"Mubah"},{"key":"D","text":"Haram"}],"answer":"D"},
-    {"q":"9. Which one is a characteristic of Islamic Law?","options":[{"key":"A","text":"It is made only by Parliament"},{"key":"B","text":"Allah is the legislator"},{"key":"C","text":"It applies only to Muslims in one country"},{"key":"D","text":"It covers only criminal matters"}],"answer":"B"},
-    {"q":"10. Islamic Law is consistent with-","options":[{"key":"A","text":"Human nature"},{"key":"B","text":"Political interest"},{"key":"C","text":"Local custom only"},{"key":"D","text":"State policy"}],"answer":"A"},
-    {"q":"11. Islamic Law is described as-","options":[{"key":"A","text":"Incomplete"},{"key":"B","text":"Temporary"},{"key":"C","text":"Complete and universal"},{"key":"D","text":"Territorial"}],"answer":"C"},
-    {"q":"12. Islamic Law covers-","options":[{"key":"A","text":"Only religious rituals"},{"key":"B","text":"Only family matters"},{"key":"C","text":"All aspects of human life"},{"key":"D","text":"Only criminal law"}],"answer":"C"},
-    {"q":"13. Islamic Law applies to-","options":[{"key":"A","text":"This world only"},{"key":"B","text":"The Hereafter only"},{"key":"C","text":"Both this world and the Hereafter"},{"key":"D","text":"Neither"}],"answer":"C"},
-    {"q":"14. Islamic Law gives importance to-","options":[{"key":"A","text":"Morality"},{"key":"B","text":"Politics only"},{"key":"C","text":"Economy only"},{"key":"D","text":"Custom only"}],"answer":"A"},
-    {"q":"15. Which one is NOT a characteristic of Islamic Law?","options":[{"key":"A","text":"Allah is the legislator"},{"key":"B","text":"It is universal"},{"key":"C","text":"It covers this world and the Hereafter"},{"key":"D","text":"It covers only earthly life"}],"answer":"D"},
-    {"q":"16. The main sources of Islamic Law include-","options":[{"key":"A","text":"Quran and Sunnah"},{"key":"B","text":"Statutes only"},{"key":"C","text":"Customs only"},{"key":"D","text":"Judicial precedents only"}],"answer":"A"},
-    {"q":"17. Which source represents consensus of qualified jurists?","options":[{"key":"A","text":"Quran"},{"key":"B","text":"Sunnah"},{"key":"C","text":"Ijma"},{"key":"D","text":"Qiyas"}],"answer":"C"},
-    {"q":"18. Which one is an important secondary source of Islamic Law?","options":[{"key":"A","text":"Qiyas"},{"key":"B","text":"Constitution"},{"key":"C","text":"Parliament"},{"key":"D","text":"Convention"}],"answer":"A"},
-    {"q":"19. Islamic Law is primarily-","options":[{"key":"A","text":"Man-made"},{"key":"B","text":"Divine"},{"key":"C","text":"Customary"},{"key":"D","text":"Judicial"}],"answer":"B"},
-    {"q":"20. The supreme legislator in Islamic Law is-","options":[{"key":"A","text":"Parliament"},{"key":"B","text":"Court"},{"key":"C","text":"Allah"},{"key":"D","text":"Caliph"}],"answer":"C"},
-    {"q":"21. Other modern laws are generally made by-","options":[{"key":"A","text":"Allah"},{"key":"B","text":"Parliament/Legislature"},{"key":"C","text":"Mujtahids"},{"key":"D","text":"Hadith scholars"}],"answer":"B"},
-    {"q":"22. One major objective of Islamic Law is-","options":[{"key":"A","text":"Pleasure of Allah and welfare of mankind"},{"key":"B","text":"Political power"},{"key":"C","text":"Territorial expansion"},{"key":"D","text":"Economic profit only"}],"answer":"A"},
-    {"q":"23. Islamic Law is-","options":[{"key":"A","text":"Limited to one territory"},{"key":"B","text":"Universal"},{"key":"C","text":"Limited to one State"},{"key":"D","text":"Temporary"}],"answer":"B"},
-    {"q":"24. Which is a major difference between Islamic Law and other laws?","options":[{"key":"A","text":"Islamic Law has divine origin"},{"key":"B","text":"Both are completely man-made"},{"key":"C","text":"Both have the same source"},{"key":"D","text":"Islamic Law has no moral aspect"}],"answer":"A"},
-    {"q":"25. The Quran contains-","options":[{"key":"A","text":"110 Surahs"},{"key":"B","text":"112 Surahs"},{"key":"C","text":"114 Surahs"},{"key":"D","text":"120 Surahs"}],"answer":"C"},
-    {"q":"26. The Quran was revealed over approximately-","options":[{"key":"A","text":"10 years"},{"key":"B","text":"15 years"},{"key":"C","text":"23 years"},{"key":"D","text":"40 years"}],"answer":"C"},
-    {"q":"27. Which Surah is mentioned in the class/PYQ material as the last to reveal?","options":[{"key":"A","text":"Al-Alaq"},{"key":"B","text":"Al-Maidah"},{"key":"C","text":"Al-Baqarah"},{"key":"D","text":"An-Nisa"}],"answer":"B"},
-    {"q":"28. Which Surah mainly deals with rights of Muslims according to the class question?","options":[{"key":"A","text":"Al-Alaq"},{"key":"B","text":"Al-Mulk"},{"key":"C","text":"An-Nisa"},{"key":"D","text":"Al-Fatiha"}],"answer":"C"},
-    {"q":"29. Sunnah primarily refers to-","options":[{"key":"A","text":"Practices and teachings of the Prophet (PBUH)"},{"key":"B","text":"Opinions of Parliament"},{"key":"C","text":"Local customs"},{"key":"D","text":"Judicial decisions"}],"answer":"A"},
-    {"q":"30. Hadith is the _____ of Sunnah.","options":[{"key":"A","text":"Opposite"},{"key":"B","text":"Vehicle/carrier"},{"key":"C","text":"Amendment"},{"key":"D","text":"Limitation"}],"answer":"B"},
-    {"q":"31. Which one is NOT among the six authentic Sunni books of Hadith?","options":[{"key":"A","text":"Sahih Bukhari"},{"key":"B","text":"Sahih Muslim"},{"key":"C","text":"Sunan Abu Daud"},{"key":"D","text":"Musnad Ahmad"}],"answer":"D"},
-    {"q":"32. Which one is an authentic book of Hadith?","options":[{"key":"A","text":"Sahih Bukhari"},{"key":"B","text":"Arthashastra"},{"key":"C","text":"Manusmriti"},{"key":"D","text":"Constitution"}],"answer":"A"},
-    {"q":"33. How many authentic books of Hadith are mentioned in the class notes?","options":[{"key":"A","text":"4"},{"key":"B","text":"5"},{"key":"C","text":"6"},{"key":"D","text":"7"}],"answer":"C"},
-    {"q":"34. Ijma literally means-","options":[{"key":"A","text":"Analogy"},{"key":"B","text":"Consensus/agreement"},{"key":"C","text":"Revelation"},{"key":"D","text":"Custom"}],"answer":"B"},
-    {"q":"35. Ijma is generally considered the _____ source of Islamic Law.","options":[{"key":"A","text":"First"},{"key":"B","text":"Second"},{"key":"C","text":"Third"},{"key":"D","text":"Fourth"}],"answer":"C"},
-    {"q":"36. Ijma is the agreement of-","options":[{"key":"A","text":"All Muslims"},{"key":"B","text":"Qualified Mujtahids"},{"key":"C","text":"Political leaders"},{"key":"D","text":"Judges only"}],"answer":"B"},
-    {"q":"37. Ijma became possible as a source after-","options":[{"key":"A","text":"Birth of the Prophet"},{"key":"B","text":"Death of Prophet Muhammad (PBUH)"},{"key":"C","text":"Hijrah only"},{"key":"D","text":"Revelation of first Surah"}],"answer":"B"},
-    {"q":"38. The agreement in Ijma must be-","options":[{"key":"A","text":"Majority"},{"key":"B","text":"Unanimous"},{"key":"C","text":"Political"},{"key":"D","text":"Optional"}],"answer":"B"},
-    {"q":"39. Ijma cannot contradict-","options":[{"key":"A","text":"Custom"},{"key":"B","text":"Parliament"},{"key":"C","text":"Quran and Sunnah"},{"key":"D","text":"Local practice"}],"answer":"C"},
-    {"q":"40. Ijma Sareeh means-","options":[{"key":"A","text":"Silent consensus"},{"key":"B","text":"Express/open consensus"},{"key":"C","text":"Analogy"},{"key":"D","text":"Personal opinion"}],"answer":"B"},
-    {"q":"41. Ijma Sukuti means-","options":[{"key":"A","text":"Express consensus"},{"key":"B","text":"Consensus by silence"},{"key":"C","text":"Judicial precedent"},{"key":"D","text":"Analogy"}],"answer":"B"},
-    {"q":"42. Which is NOT a condition of valid Ijma?","options":[{"key":"A","text":"Agreement of qualified jurists"},{"key":"B","text":"Unanimity"},{"key":"C","text":"It must contradict Quran"},{"key":"D","text":"It must be after the Prophet's death"}],"answer":"C"},
-    {"q":"43. The primary purpose of Ijma is to-","options":[{"key":"A","text":"Replace the Quran"},{"key":"B","text":"Reach a legal decision through consensus"},{"key":"C","text":"Abolish Sunnah"},{"key":"D","text":"Make political decisions"}],"answer":"B"},
-    {"q":"44. Who founded the Hanafi School?","options":[{"key":"A","text":"Imam Malik"},{"key":"B","text":"Imam Abu Hanifa"},{"key":"C","text":"Imam Shafei"},{"key":"D","text":"Imam Ahmad Ibn Hanbal"}],"answer":"B"},
-    {"q":"45. Hanafi School is particularly associated with-","options":[{"key":"A","text":"Rai and Qiyas"},{"key":"B","text":"Istislah only"},{"key":"C","text":"Hadith only"},{"key":"D","text":"Political law"}],"answer":"A"},
-    {"q":"46. Which doctrine is associated with Hanafi School?","options":[{"key":"A","text":"Istihsan"},{"key":"B","text":"Istislah"},{"key":"C","text":"Publicity"},{"key":"D","text":"Polyandry"}],"answer":"A"},
-    {"q":"47. Who founded the Maliki School?","options":[{"key":"A","text":"Imam Abu Hanifa"},{"key":"B","text":"Imam Malik Ibn Anas"},{"key":"C","text":"Imam Shafei"},{"key":"D","text":"Imam Ahmad"}],"answer":"B"},
-    {"q":"48. Which doctrine is particularly associated with Maliki School?","options":[{"key":"A","text":"Istihsan"},{"key":"B","text":"Istislah/Public Interest"},{"key":"C","text":"Qiyas only"},{"key":"D","text":"Muta"}],"answer":"B"},
-    {"q":"49. Who founded the Shafei School?","options":[{"key":"A","text":"Muhammad Ibn Idris al-Shafei"},{"key":"B","text":"Malik Ibn Anas"},{"key":"C","text":"Abu Hanifa"},{"key":"D","text":"Ahmad Ibn Hanbal"}],"answer":"A"},
-    {"q":"50. Imam Shafei gave particular importance to-","options":[{"key":"A","text":"Ijma"},{"key":"B","text":"Istihsan only"},{"key":"C","text":"Custom only"},{"key":"D","text":"Political authority"}],"answer":"A"},
-    {"q":"51. Who founded the Hanbali School?","options":[{"key":"A","text":"Imam Abu Hanifa"},{"key":"B","text":"Imam Malik"},{"key":"C","text":"Imam Ahmad Ibn Hanbal"},{"key":"D","text":"Imam Shafei"}],"answer":"C"},
-    {"q":"52. Which school gives the highest importance to Hadith and Sunnah?","options":[{"key":"A","text":"Hanafi"},{"key":"B","text":"Maliki"},{"key":"C","text":"Shafei"},{"key":"D","text":"Hanbali"}],"answer":"D"},
-    {"q":"53. Muslim marriage (Nikah) is primarily a-","options":[{"key":"A","text":"Sacrament"},{"key":"B","text":"Civil contract"},{"key":"C","text":"Criminal contract"},{"key":"D","text":"Political contract"}],"answer":"B"},
-    {"q":"54. Muslim marriage is NOT-","options":[{"key":"A","text":"A civil contract"},{"key":"B","text":"A legally recognized union"},{"key":"C","text":"A sacrament"},{"key":"D","text":"A relationship creating rights"}],"answer":"C"},
-    {"q":"55. One legal effect of valid Muslim marriage is-","options":[{"key":"A","text":"Legitimacy of children"},{"key":"B","text":"Loss of inheritance"},{"key":"C","text":"Abolition of dower"},{"key":"D","text":"Prohibition of maintenance"}],"answer":"A"},
-    {"q":"56. Valid marriage creates-","options":[{"key":"A","text":"Mutual rights and obligations"},{"key":"B","text":"Rights for husband only"},{"key":"C","text":"Rights for wife only"},{"key":"D","text":"No legal rights"}],"answer":"A"},
-    {"q":"57. Which is an objective of Muslim marriage?","options":[{"key":"A","text":"Procreation"},{"key":"B","text":"Protection of chastity"},{"key":"C","text":"Family formation"},{"key":"D","text":"All of the above"}],"answer":"D"},
-    {"q":"58. Which form of pre-Islamic marriage was retained with modifications by Islam?","options":[{"key":"A","text":"Istibda"},{"key":"B","text":"Permanent marriage"},{"key":"C","text":"Prostitution marriage"},{"key":"D","text":"Polyandry"}],"answer":"B"},
-    {"q":"59. In Istibda marriage, the wife was sent to-","options":[{"key":"A","text":"A judge"},{"key":"B","text":"Another man of noble lineage"},{"key":"C","text":"Her guardian"},{"key":"D","text":"Her brother"}],"answer":"B"},
-    {"q":"60. Islam-","options":[{"key":"A","text":"Accepted Istibda"},{"key":"B","text":"Abolished Istibda"},{"key":"C","text":"Made it compulsory"},{"key":"D","text":"Made it a Sunnah"}],"answer":"B"},
-    {"q":"61. Polyandrous marriage means-","options":[{"key":"A","text":"One man with several wives"},{"key":"B","text":"One woman with several men"},{"key":"C","text":"Temporary marriage"},{"key":"D","text":"Marriage without dower"}],"answer":"B"},
-    {"q":"62. Muta marriage is-","options":[{"key":"A","text":"Permanent marriage"},{"key":"B","text":"Temporary marriage for a fixed period"},{"key":"C","text":"Marriage without dower"},{"key":"D","text":"Marriage without consent"}],"answer":"B"},
-    {"q":"63. Muta marriage involves-","options":[{"key":"A","text":"Fixed duration and specified Mahr"},{"key":"B","text":"No duration"},{"key":"C","text":"No Mahr"},{"key":"D","text":"Only guardian's consent"}],"answer":"A"},
-    {"q":"64. Which school recognizes Muta according to the class notes?","options":[{"key":"A","text":"Hanafi"},{"key":"B","text":"Maliki"},{"key":"C","text":"Hanbali"},{"key":"D","text":"Ithna Ashari Shia"}],"answer":"D"},
-    {"q":"65. Sunni schools generally-","options":[{"key":"A","text":"Recognize Muta"},{"key":"B","text":"Do not recognize Muta"},{"key":"C","text":"Require Muta"},{"key":"D","text":"Make Muta compulsory"}],"answer":"B"},
-    {"q":"66. A Muslim man may have a maximum of how many wives at one time?","options":[{"key":"A","text":"2"},{"key":"B","text":"3"},{"key":"C","text":"4"},{"key":"D","text":"5"}],"answer":"C"},
-    {"q":"67. The essential condition of polygamy is-","options":[{"key":"A","text":"Wealth only"},{"key":"B","text":"Equal treatment/justice"},{"key":"C","text":"Guardian's consent"},{"key":"D","text":"Court marriage"}],"answer":"B"},
-    {"q":"68. If a man fears that he cannot maintain justice among wives, he should-","options":[{"key":"A","text":"Marry five"},{"key":"B","text":"Marry only one"},{"key":"C","text":"Marry two"},{"key":"D","text":"Marry without permission"}],"answer":"B"},
-    {"q":"69. According to the notes, polygamy is treated as-","options":[{"key":"A","text":"General rule"},{"key":"B","text":"Exception to monogamy"},{"key":"C","text":"Prohibited in all cases"},{"key":"D","text":"Batil"}],"answer":"B"},
-    {"q":"70. Ijab means-","options":[{"key":"A","text":"Acceptance"},{"key":"B","text":"Proposal/Offer"},{"key":"C","text":"Dower"},{"key":"D","text":"Witness"}],"answer":"B"},
-    {"q":"71. Qabul means-","options":[{"key":"A","text":"Proposal"},{"key":"B","text":"Acceptance"},{"key":"C","text":"Divorce"},{"key":"D","text":"Dower"}],"answer":"B"},
-    {"q":"72. Ijab and Qabul must take place-","options":[{"key":"A","text":"On different days"},{"key":"B","text":"In different Majlis"},{"key":"C","text":"In the same Majlis"},{"key":"D","text":"After consummation"}],"answer":"C"},
-    {"q":"73. If acceptance differs from the proposal, the marriage is-","options":[{"key":"A","text":"Valid"},{"key":"B","text":"Not valid"},{"key":"C","text":"Automatically Fasid"},{"key":"D","text":"Automatically Sahih"}],"answer":"B"},
-    {"q":"74. Ijab and Qabul must be expressed-","options":[{"key":"A","text":"Secretly"},{"key":"B","text":"Clearly and definitely"},{"key":"C","text":"Through a third person only"},{"key":"D","text":"In writing only"}],"answer":"B"},
-    {"q":"75. Consent to marriage must be-","options":[{"key":"A","text":"Forced"},{"key":"B","text":"Free and voluntary"},{"key":"C","text":"Presumed always"},{"key":"D","text":"Given by the father only"}],"answer":"B"},
-    {"q":"76. Marriage obtained by force, fraud or coercion is-","options":[{"key":"A","text":"Proper marriage"},{"key":"B","text":"Not regarded as proper marriage"},{"key":"C","text":"Always Sahih"},{"key":"D","text":"Always Muta"}],"answer":"B"},
-    {"q":"77. According to classical Muslim law, silence of an adult virgin may amount to-","options":[{"key":"A","text":"Rejection"},{"key":"B","text":"Consent"},{"key":"C","text":"Divorce"},{"key":"D","text":"Ijab"}],"answer":"B"},
-    {"q":"78. A widow or divorced woman must give-","options":[{"key":"A","text":"Mere silence"},{"key":"B","text":"Express consent"},{"key":"C","text":"Guardian's consent only"},{"key":"D","text":"No consent"}],"answer":"B"},
-    {"q":"79. Competency to marry mainly depends on-","options":[{"key":"A","text":"Wealth and lineage"},{"key":"B","text":"Puberty and sound mind"},{"key":"C","text":"Education only"},{"key":"D","text":"Profession only"}],"answer":"B"},
-    {"q":"80. In the absence of contrary evidence, puberty is presumed at-","options":[{"key":"A","text":"12 years"},{"key":"B","text":"13 years"},{"key":"C","text":"15 years"},{"key":"D","text":"18 years"}],"answer":"C"},
-    {"q":"81. According to Imam Abu Hanifa, puberty is presumed at-","options":[{"key":"A","text":"Boy 12, Girl 9"},{"key":"B","text":"Boy 15, Girl 12"},{"key":"C","text":"Boy 10, Girl 8"},{"key":"D","text":"Boy 18, Girl 16"}],"answer":"A"},
-    {"q":"82. According to Imam Shafei, presumed age of puberty is-","options":[{"key":"A","text":"9"},{"key":"B","text":"12"},{"key":"C","text":"15"},{"key":"D","text":"18"}],"answer":"C"},
-    {"q":"83. A person of unsound mind-","options":[{"key":"A","text":"Can always personally contract marriage"},{"key":"B","text":"Cannot personally contract marriage; guardian may act"},{"key":"C","text":"Can marry without any condition"},{"key":"D","text":"Must marry without Wali"}],"answer":"B"},
-    {"q":"84. Wali means-","options":[{"key":"A","text":"Witness"},{"key":"B","text":"Marriage guardian"},{"key":"C","text":"Husband"},{"key":"D","text":"Judge"}],"answer":"B"},
-    {"q":"85. The first person in the order of Wali is-","options":[{"key":"A","text":"Brother"},{"key":"B","text":"Father"},{"key":"C","text":"State"},{"key":"D","text":"Paternal uncle"}],"answer":"B"},
-    {"q":"86. Which comes immediately after father in the stated order of Wali?","options":[{"key":"A","text":"Brother"},{"key":"B","text":"Paternal grandfather"},{"key":"C","text":"State"},{"key":"D","text":"Maternal uncle"}],"answer":"B"},
-    {"q":"87. According to Hanafi School, an adult and sane woman may marry without-","options":[{"key":"A","text":"Ijab"},{"key":"B","text":"Qabul"},{"key":"C","text":"Wali's consent"},{"key":"D","text":"Witnesses"}],"answer":"C"},
-    {"q":"88. According to Shafei, Maliki and Hanbali schools-","options":[{"key":"A","text":"Wali is unnecessary"},{"key":"B","text":"Wali's participation/consent is essential"},{"key":"C","text":"Witnesses are unnecessary"},{"key":"D","text":"Dower is unnecessary"}],"answer":"B"},
-    {"q":"89. A valid marriage requires-","options":[{"key":"A","text":"Two adult male witnesses"},{"key":"B","text":"One adult male and two adult female witnesses"},{"key":"C","text":"Either A or B"},{"key":"D","text":"No witnesses"}],"answer":"C"},
-    {"q":"90. A witness must be-","options":[{"key":"A","text":"A child"},{"key":"B","text":"Of sound mind"},{"key":"C","text":"Unable to hear"},{"key":"D","text":"Absent from the ceremony"}],"answer":"B"},
-    {"q":"91. Witnesses must be able to-","options":[{"key":"A","text":"Read Arabic only"},{"key":"B","text":"Hear and understand Ijab and Qabul"},{"key":"C","text":"Speak English"},{"key":"D","text":"Know the dower amount only"}],"answer":"B"},
-    {"q":"92. According to the class notes, marriage without required witnesses is-","options":[{"key":"A","text":"Batil"},{"key":"B","text":"Fasid"},{"key":"C","text":"Sahih"},{"key":"D","text":"Muta"}],"answer":"B"},
-    {"q":"93. Kafa'at means-","options":[{"key":"A","text":"Dower"},{"key":"B","text":"Equality/compatibility"},{"key":"C","text":"Divorce"},{"key":"D","text":"Maintenance"}],"answer":"B"},
-    {"q":"94. Kafa'at mainly applies to-","options":[{"key":"A","text":"Wife"},{"key":"B","text":"Husband"},{"key":"C","text":"Witness"},{"key":"D","text":"Wali"}],"answer":"B"},
-    {"q":"95. Which one is a basis of Kafa'at?","options":[{"key":"A","text":"Lineage"},{"key":"B","text":"Islam"},{"key":"C","text":"Character/Piety"},{"key":"D","text":"All of the above"}],"answer":"D"},
-    {"q":"96. Which one is NOT listed as a basis of Kafa'at in the class notes?","options":[{"key":"A","text":"Profession"},{"key":"B","text":"Education"},{"key":"C","text":"Property"},{"key":"D","text":"Political party"}],"answer":"D"},
-    {"q":"97. Prohibited marriages are divided into-","options":[{"key":"A","text":"One category"},{"key":"B","text":"Two categories"},{"key":"C","text":"Three categories"},{"key":"D","text":"Four categories"}],"answer":"B"},
-    {"q":"98. The two categories are-","options":[{"key":"A","text":"Sahih and Fasid"},{"key":"B","text":"Permanent and Temporary"},{"key":"C","text":"Prompt and Deferred"},{"key":"D","text":"Sunni and Shia"}],"answer":"B"},
-    {"q":"99. Which is a permanent prohibition?","options":[{"key":"A","text":"Iddat"},{"key":"B","text":"Fifth wife"},{"key":"C","text":"Consanguinity"},{"key":"D","text":"Unlawful conjunction"}],"answer":"C"},
-    {"q":"100. Which is a temporary prohibition?","options":[{"key":"A","text":"Fosterage"},{"key":"B","text":"Affinity"},{"key":"C","text":"Consanguinity"},{"key":"D","text":"Marriage during Iddat"}],"answer":"D"}
+    {"q":"Which one is the primary source of Muslim Law?","options":[{"key":"A","text":"Sunnah"},{"key":"B","text":"Quran"},{"key":"C","text":"Ijma"},{"key":"D","text":"Qiyas"}],"answer":"B"},
+    {"q":"The word Islam primarily means-","options":[{"key":"A","text":"War"},{"key":"B","text":"Hardship"},{"key":"C","text":"Peace"},{"key":"D","text":"Punishment"}],"answer":"C"},
+    {"q":"According to the theologians, how many conditions are required to be fulfilled to become a Muslim?","options":[{"key":"A","text":"2"},{"key":"B","text":"3"},{"key":"C","text":"4"},{"key":"D","text":"5"}],"answer":"B"},
+    {"q":"Which one is NOT a condition according to theologians?","options":[{"key":"A","text":"Belief in Oneness of Allah"},{"key":"B","text":"Belief in Prophethood of Muhammad (PBUH)"},{"key":"C","text":"Acceptance of Islamic classification of human acts"},{"key":"D","text":"Membership of a particular Islamic school"}],"answer":"D"},
+    {"q":"According to the courts, a person is a Muslim if he believes in-","options":[{"key":"A","text":"Quran only"},{"key":"B","text":"Oneness of Allah and Prophethood of Muhammad (PBUH)"},{"key":"C","text":"Ijma only"},{"key":"D","text":"Qiyas only"}],"answer":"B"},
+    {"q":"Which of the following is an obligatory act?","options":[{"key":"A","text":"Mustahab"},{"key":"B","text":"Mubah"},{"key":"C","text":"Fard"},{"key":"D","text":"Makruh"}],"answer":"C"},
+    {"q":"An act which is permissible, carrying neither reward nor punishment, is-","options":[{"key":"A","text":"Fard"},{"key":"B","text":"Mubah"},{"key":"C","text":"Haram"},{"key":"D","text":"Makruh"}],"answer":"B"},
+    {"q":"An act which is strictly prohibited is called-","options":[{"key":"A","text":"Makruh"},{"key":"B","text":"Mustahab"},{"key":"C","text":"Mubah"},{"key":"D","text":"Haram"}],"answer":"D"},
+    {"q":"Which one is a characteristic of Islamic Law?","options":[{"key":"A","text":"It is made only by Parliament"},{"key":"B","text":"Allah is the legislator"},{"key":"C","text":"It applies only to Muslims in one country"},{"key":"D","text":"It covers only criminal matters"}],"answer":"B"},
+    {"q":"Islamic Law is consistent with-","options":[{"key":"A","text":"Human nature"},{"key":"B","text":"Political interest"},{"key":"C","text":"Local custom only"},{"key":"D","text":"State policy"}],"answer":"A"},
+    {"q":"Islamic Law is described as-","options":[{"key":"A","text":"Incomplete"},{"key":"B","text":"Temporary"},{"key":"C","text":"Complete and universal"},{"key":"D","text":"Territorial"}],"answer":"C"},
+    {"q":"Islamic Law covers-","options":[{"key":"A","text":"Only religious rituals"},{"key":"B","text":"Only family matters"},{"key":"C","text":"All aspects of human life"},{"key":"D","text":"Only criminal law"}],"answer":"C"},
+    {"q":"Islamic Law applies to-","options":[{"key":"A","text":"This world only"},{"key":"B","text":"The Hereafter only"},{"key":"C","text":"Both this world and the Hereafter"},{"key":"D","text":"Neither"}],"answer":"C"},
+    {"q":"Islamic Law gives importance to-","options":[{"key":"A","text":"Morality"},{"key":"B","text":"Politics only"},{"key":"C","text":"Economy only"},{"key":"D","text":"Custom only"}],"answer":"A"},
+    {"q":"Which one is NOT a characteristic of Islamic Law?","options":[{"key":"A","text":"Allah is the legislator"},{"key":"B","text":"It is universal"},{"key":"C","text":"It covers this world and the Hereafter"},{"key":"D","text":"It covers only earthly life"}],"answer":"D"},
+    {"q":"The main sources of Islamic Law include-","options":[{"key":"A","text":"Quran and Sunnah"},{"key":"B","text":"Statutes only"},{"key":"C","text":"Customs only"},{"key":"D","text":"Judicial precedents only"}],"answer":"A"},
+    {"q":"Which source represents consensus of qualified jurists?","options":[{"key":"A","text":"Quran"},{"key":"B","text":"Sunnah"},{"key":"C","text":"Ijma"},{"key":"D","text":"Qiyas"}],"answer":"C"},
+    {"q":"Which one is an important secondary source of Islamic Law?","options":[{"key":"A","text":"Qiyas"},{"key":"B","text":"Constitution"},{"key":"C","text":"Parliament"},{"key":"D","text":"Convention"}],"answer":"A"},
+    {"q":"Islamic Law is primarily-","options":[{"key":"A","text":"Man-made"},{"key":"B","text":"Divine"},{"key":"C","text":"Customary"},{"key":"D","text":"Judicial"}],"answer":"B"},
+    {"q":"The supreme legislator in Islamic Law is-","options":[{"key":"A","text":"Parliament"},{"key":"B","text":"Court"},{"key":"C","text":"Allah"},{"key":"D","text":"Caliph"}],"answer":"C"},
+    {"q":"Other modern laws are generally made by-","options":[{"key":"A","text":"Allah"},{"key":"B","text":"Parliament/Legislature"},{"key":"C","text":"Mujtahids"},{"key":"D","text":"Hadith scholars"}],"answer":"B"},
+    {"q":"One major objective of Islamic Law is-","options":[{"key":"A","text":"Pleasure of Allah and welfare of mankind"},{"key":"B","text":"Political power"},{"key":"C","text":"Territorial expansion"},{"key":"D","text":"Economic profit only"}],"answer":"A"},
+    {"q":"Islamic Law is-","options":[{"key":"A","text":"Limited to one territory"},{"key":"B","text":"Universal"},{"key":"C","text":"Limited to one State"},{"key":"D","text":"Temporary"}],"answer":"B"},
+    {"q":"Which is a major difference between Islamic Law and other laws?","options":[{"key":"A","text":"Islamic Law has divine origin"},{"key":"B","text":"Both are completely man-made"},{"key":"C","text":"Both have the same source"},{"key":"D","text":"Islamic Law has no moral aspect"}],"answer":"A"},
+    {"q":"The Quran contains-","options":[{"key":"A","text":"110 Surahs"},{"key":"B","text":"112 Surahs"},{"key":"C","text":"114 Surahs"},{"key":"D","text":"120 Surahs"}],"answer":"C"},
+    {"q":"The Quran was revealed over approximately-","options":[{"key":"A","text":"10 years"},{"key":"B","text":"15 years"},{"key":"C","text":"23 years"},{"key":"D","text":"40 years"}],"answer":"C"},
+    {"q":"Which Surah is mentioned in the class/PYQ material as the last to reveal?","options":[{"key":"A","text":"Al-Alaq"},{"key":"B","text":"Al-Maidah"},{"key":"C","text":"Al-Baqarah"},{"key":"D","text":"An-Nisa"}],"answer":"B"},
+    {"q":"Which Surah mainly deals with rights of Muslims according to the class question?","options":[{"key":"A","text":"Al-Alaq"},{"key":"B","text":"Al-Mulk"},{"key":"C","text":"An-Nisa"},{"key":"D","text":"Al-Fatiha"}],"answer":"C"},
+    {"q":"Sunnah primarily refers to-","options":[{"key":"A","text":"Practices and teachings of the Prophet (PBUH)"},{"key":"B","text":"Opinions of Parliament"},{"key":"C","text":"Local customs"},{"key":"D","text":"Judicial decisions"}],"answer":"A"},
+    {"q":"Hadith is the carrier of Sunnah.","options":[{"key":"A","text":"Opposite"},{"key":"B","text":"Vehicle/carrier"},{"key":"C","text":"Amendment"},{"key":"D","text":"Limitation"}],"answer":"B"},
+    {"q":"Which one is NOT among the six authentic Sunni books of Hadith?","options":[{"key":"A","text":"Sahih Bukhari"},{"key":"B","text":"Sahih Muslim"},{"key":"C","text":"Sunan Abu Daud"},{"key":"D","text":"Musnad Ahmad"}],"answer":"D"},
+    {"q":"Which one is an authentic book of Hadith?","options":[{"key":"A","text":"Sahih Bukhari"},{"key":"B","text":"Arthashastra"},{"key":"C","text":"Manusmriti"},{"key":"D","text":"Constitution"}],"answer":"A"},
+    {"q":"How many authentic books of Hadith are mentioned in the class notes?","options":[{"key":"A","text":"4"},{"key":"B","text":"5"},{"key":"C","text":"6"},{"key":"D","text":"7"}],"answer":"C"},
+    {"q":"Ijma literally means-","options":[{"key":"A","text":"Analogy"},{"key":"B","text":"Consensus/agreement"},{"key":"C","text":"Revelation"},{"key":"D","text":"Custom"}],"answer":"B"},
+    {"q":"Ijma is generally considered the third source of Islamic Law.","options":[{"key":"A","text":"First"},{"key":"B","text":"Second"},{"key":"C","text":"Third"},{"key":"D","text":"Fourth"}],"answer":"C"},
+    {"q":"Ijma is the agreement of-","options":[{"key":"A","text":"All Muslims"},{"key":"B","text":"Qualified Mujtahids"},{"key":"C","text":"Political leaders"},{"key":"D","text":"Judges only"}],"answer":"B"},
+    {"q":"Ijma became possible as a source after-","options":[{"key":"A","text":"Birth of the Prophet"},{"key":"B","text":"Death of Prophet Muhammad (PBUH)"},{"key":"C","text":"Hijrah only"},{"key":"D","text":"Revelation of first Surah"}],"answer":"B"},
+    {"q":"The agreement in Ijma must be-","options":[{"key":"A","text":"Majority"},{"key":"B","text":"Unanimous"},{"key":"C","text":"Political"},{"key":"D","text":"Optional"}],"answer":"B"},
+    {"q":"Ijma cannot contradict-","options":[{"key":"A","text":"Custom"},{"key":"B","text":"Parliament"},{"key":"C","text":"Quran and Sunnah"},{"key":"D","text":"Local practice"}],"answer":"C"},
+    {"q":"Ijma Sareeh means-","options":[{"key":"A","text":"Silent consensus"},{"key":"B","text":"Express/open consensus"},{"key":"C","text":"Analogy"},{"key":"D","text":"Personal opinion"}],"answer":"B"},
+    {"q":"Ijma Sukuti means-","options":[{"key":"A","text":"Express consensus"},{"key":"B","text":"Consensus by silence"},{"key":"C","text":"Judicial precedent"},{"key":"D","text":"Analogy"}],"answer":"B"},
+    {"q":"Which is NOT a condition of valid Ijma?","options":[{"key":"A","text":"Agreement of qualified jurists"},{"key":"B","text":"Unanimity"},{"key":"C","text":"It must contradict Quran"},{"key":"D","text":"It must be after the Prophet's death"}],"answer":"C"},
+    {"q":"The primary purpose of Ijma is to","options":[{"key":"A","text":"Replace the Quran"},{"key":"B","text":"Reach a legal decision through consensus"},{"key":"C","text":"Abolish Sunnah"},{"key":"D","text":"Make political decisions"}],"answer":"B"},
+    {"q":"Who founded the Hanafi School?","options":[{"key":"A","text":"Imam Malik"},{"key":"B","text":"Imam Abu Hanifa"},{"key":"C","text":"Imam Shafei"},{"key":"D","text":"Imam Ahmad Ibn Hanbal"}],"answer":"B"},
+    {"q":"Hanafi School is particularly associated with-","options":[{"key":"A","text":"Rai and Qiyas"},{"key":"B","text":"Istislah only"},{"key":"C","text":"Hadith only"},{"key":"D","text":"Political law"}],"answer":"A"},
+    {"q":"Which doctrine is associated with Hanafi School?","options":[{"key":"A","text":"Istihsan"},{"key":"B","text":"Istislah"},{"key":"C","text":"Publicity"},{"key":"D","text":"Polyandry"}],"answer":"A"},
+    {"q":"Who founded the Maliki School?","options":[{"key":"A","text":"Imam Abu Hanifa"},{"key":"B","text":"Imam Malik Ibn Anas"},{"key":"C","text":"Imam Shafei"},{"key":"D","text":"Imam Ahmad"}],"answer":"B"},
+    {"q":"Which doctrine is particularly associated with Maliki School?","options":[{"key":"A","text":"Istihsan"},{"key":"B","text":"Istislah/Public Interest"},{"key":"C","text":"Qiyas only"},{"key":"D","text":"Muta"}],"answer":"B"},
+    {"q":"Who founded the Shafei School?","options":[{"key":"A","text":"Muhammad Ibn Idris al-Shafei"},{"key":"B","text":"Malik Ibn Anas"},{"key":"C","text":"Abu Hanifa"},{"key":"D","text":"Ahmad Ibn Hanbal"}],"answer":"A"},
+    {"q":"Imam Shafei gave particular importance to-","options":[{"key":"A","text":"Ijma"},{"key":"B","text":"Istihsan only"},{"key":"C","text":"Custom only"},{"key":"D","text":"Political authority"}],"answer":"A"},
+    {"q":"Who founded the Hanbali School?","options":[{"key":"A","text":"Imam Abu Hanifa"},{"key":"B","text":"Imam Malik"},{"key":"C","text":"Imam Ahmad Ibn Hanbal"},{"key":"D","text":"Imam Shafei"}],"answer":"C"},
+    {"q":"Which school gives the highest importance to Hadith and Sunnah?","options":[{"key":"A","text":"Hanafi"},{"key":"B","text":"Maliki"},{"key":"C","text":"Shafei"},{"key":"D","text":"Hanbali"}],"answer":"D"},
+    {"q":"Muslim marriage (Nikah) is primarily a-","options":[{"key":"A","text":"Sacrament"},{"key":"B","text":"Civil contract"},{"key":"C","text":"Criminal contract"},{"key":"D","text":"Political contract"}],"answer":"B"},
+    {"q":"Muslim marriage is NOT-","options":[{"key":"A","text":"A civil contract"},{"key":"B","text":"A legally recognized union"},{"key":"C","text":"A sacrament"},{"key":"D","text":"A relationship creating rights"}],"answer":"C"},
+    {"q":"One legal effect of valid Muslim marriage is-","options":[{"key":"A","text":"Legitimacy of children"},{"key":"B","text":"Loss of inheritance"},{"key":"C","text":"Abolition of dower"},{"key":"D","text":"Prohibition of maintenance"}],"answer":"A"},
+    {"q":"Valid marriage creates-","options":[{"key":"A","text":"Mutual rights and obligations"},{"key":"B","text":"Rights for husband only"},{"key":"C","text":"Rights for wife only"},{"key":"D","text":"No legal rights"}],"answer":"A"},
+    {"q":"Which is an objective of Muslim marriage?","options":[{"key":"A","text":"Procreation"},{"key":"B","text":"Protection of chastity"},{"key":"C","text":"Family formation"},{"key":"D","text":"All of the above"}],"answer":"D"},
+    {"q":"Which form of pre-Islamic marriage was retained with modifications by Islam?","options":[{"key":"A","text":"Istibda"},{"key":"B","text":"Permanent marriage"},{"key":"C","text":"Prostitution marriage"},{"key":"D","text":"Polyandry"}],"answer":"B"},
+    {"q":"In Istibda marriage, the wife was sent to-","options":[{"key":"A","text":"A judge"},{"key":"B","text":"Another man of noble lineage"},{"key":"C","text":"Her guardian"},{"key":"D","text":"Her brother"}],"answer":"B"},
+    {"q":"Islam abolished Istibda marriage.","options":[{"key":"A","text":"Accepted Istibda"},{"key":"B","text":"Abolished Istibda"},{"key":"C","text":"Made it compulsory"},{"key":"D","text":"Made it a Sunnah"}],"answer":"B"},
+    {"q":"Polyandrous marriage means-","options":[{"key":"A","text":"One man with several wives"},{"key":"B","text":"One woman with several men"},{"key":"C","text":"Temporary marriage"},{"key":"D","text":"Marriage without dower"}],"answer":"B"},
+    {"q":"Muta marriage is-","options":[{"key":"A","text":"Permanent marriage"},{"key":"B","text":"Temporary marriage for a fixed period"},{"key":"C","text":"Marriage without dower"},{"key":"D","text":"Marriage without consent"}],"answer":"B"},
+    {"q":"Muta marriage involves-","options":[{"key":"A","text":"Fixed duration and specified Mahr"},{"key":"B","text":"No duration"},{"key":"C","text":"No Mahr"},{"key":"D","text":"Only guardian's consent"}],"answer":"A"},
+    {"q":"Which school recognizes Muta according to the class notes?","options":[{"key":"A","text":"Hanafi"},{"key":"B","text":"Maliki"},{"key":"C","text":"Hanbali"},{"key":"D","text":"Ithna Ashari Shia"}],"answer":"D"},
+    {"q":"Sunni schools generally do not recognize Muta.","options":[{"key":"A","text":"Recognize Muta"},{"key":"B","text":"Do not recognize Muta"},{"key":"C","text":"Require Muta"},{"key":"D","text":"Make Muta compulsory"}],"answer":"B"},
+    {"q":"A Muslim man may have a maximum of how many wives at one time?","options":[{"key":"A","text":"2"},{"key":"B","text":"3"},{"key":"C","text":"4"},{"key":"D","text":"5"}],"answer":"C"},
+    {"q":"The essential condition of polygamy is-","options":[{"key":"A","text":"Wealth only"},{"key":"B","text":"Equal treatment/justice"},{"key":"C","text":"Guardian's consent"},{"key":"D","text":"Court marriage"}],"answer":"B"},
+    {"q":"If a man fears that he cannot maintain justice among wives, he should-","options":[{"key":"A","text":"Marry five"},{"key":"B","text":"Marry only one"},{"key":"C","text":"Marry two"},{"key":"D","text":"Marry without permission"}],"answer":"B"},
+    {"q":"According to the notes, polygamy is treated as-","options":[{"key":"A","text":"General rule"},{"key":"B","text":"Exception to monogamy"},{"key":"C","text":"Prohibited in all cases"},{"key":"D","text":"Batil"}],"answer":"B"},
+    {"q":"Ijab means-","options":[{"key":"A","text":"Acceptance"},{"key":"B","text":"Proposal/Offer"},{"key":"C","text":"Dower"},{"key":"D","text":"Witness"}],"answer":"B"},
+    {"q":"Qabul means-","options":[{"key":"A","text":"Proposal"},{"key":"B","text":"Acceptance"},{"key":"C","text":"Divorce"},{"key":"D","text":"Dower"}],"answer":"B"},
+    {"q":"Ijab and Qabul must take place-","options":[{"key":"A","text":"On different days"},{"key":"B","text":"In different Majlis"},{"key":"C","text":"In the same Majlis"},{"key":"D","text":"After consummation"}],"answer":"C"},
+    {"q":"If acceptance differs from the proposal, the marriage is-","options":[{"key":"A","text":"Valid"},{"key":"B","text":"Not valid"},{"key":"C","text":"Automatically Fasid"},{"key":"D","text":"Automatically Sahih"}],"answer":"B"},
+    {"q":"Ijab and Qabul must be expressed-","options":[{"key":"A","text":"Secretly"},{"key":"B","text":"Clearly and definitely"},{"key":"C","text":"Through a third person only"},{"key":"D","text":"In writing only"}],"answer":"B"},
+    {"q":"Consent to marriage must be-","options":[{"key":"A","text":"Forced"},{"key":"B","text":"Free and voluntary"},{"key":"C","text":"Presumed always"},{"key":"D","text":"Given by the father only"}],"answer":"B"},
+    {"q":"Marriage obtained by force, fraud or coercion is-","options":[{"key":"A","text":"Proper marriage"},{"key":"B","text":"Not regarded as proper marriage"},{"key":"C","text":"Always Sahih"},{"key":"D","text":"Always Muta"}],"answer":"B"},
+    {"q":"According to classical Muslim law, silence of an adult virgin may amount to-","options":[{"key":"A","text":"Rejection"},{"key":"B","text":"Consent"},{"key":"C","text":"Divorce"},{"key":"D","text":"Ijab"}],"answer":"B"},
+    {"q":"A widow or divorced woman must give-","options":[{"key":"A","text":"Mere silence"},{"key":"B","text":"Express consent"},{"key":"C","text":"Guardian's consent only"},{"key":"D","text":"No consent"}],"answer":"B"},
+    {"q":"Competency to marry mainly depends on-","options":[{"key":"A","text":"Wealth and lineage"},{"key":"B","text":"Puberty and sound mind"},{"key":"C","text":"Education only"},{"key":"D","text":"Profession only"}],"answer":"B"},
+    {"q":"In the absence of contrary evidence, puberty is presumed at-","options":[{"key":"A","text":"12 years"},{"key":"B","text":"13 years"},{"key":"C","text":"15 years"},{"key":"D","text":"18 years"}],"answer":"C"},
+    {"q":"According to Imam Abu Hanifa, puberty is presumed at-","options":[{"key":"A","text":"Boy 12, Girl 9"},{"key":"B","text":"Boy 15, Girl 12"},{"key":"C","text":"Boy 10, Girl 8"},{"key":"D","text":"Boy 18, Girl 16"}],"answer":"A"},
+    {"q":"According to Imam Shafei, presumed age of puberty is-","options":[{"key":"A","text":"9"},{"key":"B","text":"12"},{"key":"C","text":"15"},{"key":"D","text":"18"}],"answer":"C"},
+    {"q":"A person of unsound mind-","options":[{"key":"A","text":"Can always personally contract marriage"},{"key":"B","text":"Cannot personally contract marriage; guardian may act"},{"key":"C","text":"Can marry without any condition"},{"key":"D","text":"Must marry without Wali"}],"answer":"B"},
+    {"q":"Wali means-","options":[{"key":"A","text":"Witness"},{"key":"B","text":"Marriage guardian"},{"key":"C","text":"Husband"},{"key":"D","text":"Judge"}],"answer":"B"},
+    {"q":"The first person in the order of Wali is-","options":[{"key":"A","text":"Brother"},{"key":"B","text":"Father"},{"key":"C","text":"State"},{"key":"D","text":"Paternal uncle"}],"answer":"B"},
+    {"q":"Which comes immediately after father in the stated order of Wali?","options":[{"key":"A","text":"Brother"},{"key":"B","text":"Paternal grandfather"},{"key":"C","text":"State"},{"key":"D","text":"Maternal uncle"}],"answer":"B"},
+    {"q":"According to Hanafi School, an adult and sane woman may marry without-","options":[{"key":"A","text":"Ijab"},{"key":"B","text":"Qabul"},{"key":"C","text":"Wali's consent"},{"key":"D","text":"Witnesses"}],"answer":"C"},
+    {"q":"According to Shafei, Maliki and Hanbali schools-","options":[{"key":"A","text":"Wali is unnecessary"},{"key":"B","text":"Wali's participation/consent is essential"},{"key":"C","text":"Witnesses are unnecessary"},{"key":"D","text":"Dower is unnecessary"}],"answer":"B"},
+    {"q":"A valid marriage requires-","options":[{"key":"A","text":"Two adult male witnesses"},{"key":"B","text":"One adult male and two adult female witnesses"},{"key":"C","text":"Either A or B"},{"key":"D","text":"No witnesses"}],"answer":"C"},
+    {"q":"A witness must be-","options":[{"key":"A","text":"A child"},{"key":"B","text":"Of sound mind"},{"key":"C","text":"Unable to hear"},{"key":"D","text":"Absent from the ceremony"}],"answer":"B"},
+    {"q":"Witnesses must be able to-","options":[{"key":"A","text":"Read Arabic only"},{"key":"B","text":"Hear and understand Ijab and Qabul"},{"key":"C","text":"Speak English"},{"key":"D","text":"Know the dower amount only"}],"answer":"B"},
+    {"q":"According to the class notes, marriage without required witnesses is-","options":[{"key":"A","text":"Batil"},{"key":"B","text":"Fasid"},{"key":"C","text":"Sahih"},{"key":"D","text":"Muta"}],"answer":"B"},
+    {"q":"Kafa'at means-","options":[{"key":"A","text":"Dower"},{"key":"B","text":"Equality/compatibility"},{"key":"C","text":"Divorce"},{"key":"D","text":"Maintenance"}],"answer":"B"},
+    {"q":"Kafa'at mainly applies to-","options":[{"key":"A","text":"Wife"},{"key":"B","text":"Husband"},{"key":"C","text":"Witness"},{"key":"D","text":"Wali"}],"answer":"B"},
+    {"q":"Which one is a basis of Kafa'at?","options":[{"key":"A","text":"Lineage"},{"key":"B","text":"Islam"},{"key":"C","text":"Character/Piety"},{"key":"D","text":"All of the above"}],"answer":"D"},
+    {"q":"Which one is NOT listed as a basis of Kafa'at in the class notes?","options":[{"key":"A","text":"Profession"},{"key":"B","text":"Education"},{"key":"C","text":"Property"},{"key":"D","text":"Political party"}],"answer":"D"},
+    {"q":"Prohibited marriages are divided into-","options":[{"key":"A","text":"One category"},{"key":"B","text":"Two categories"},{"key":"C","text":"Three categories"},{"key":"D","text":"Four categories"}],"answer":"B"},
+    {"q":"The two categories are-","options":[{"key":"A","text":"Sahih and Fasid"},{"key":"B","text":"Permanent and Temporary"},{"key":"C","text":"Prompt and Deferred"},{"key":"D","text":"Sunni and Shia"}],"answer":"B"},
+    {"q":"Which is a permanent prohibition?","options":[{"key":"A","text":"Iddat"},{"key":"B","text":"Fifth wife"},{"key":"C","text":"Consanguinity"},{"key":"D","text":"Unlawful conjunction"}],"answer":"C"},
+    {"q":"Which is a temporary prohibition?","options":[{"key":"A","text":"Fosterage"},{"key":"B","text":"Affinity"},{"key":"C","text":"Consanguinity"},{"key":"D","text":"Marriage during Iddat"}],"answer":"D"}
   ],
   law_of_contract: [
-    {"q":"1. Which is not similar to the word 'contract'?","options":[{"key":"A","text":"jointly"},{"key":"B","text":"separated"},{"key":"C","text":"uniting"},{"key":"D","text":"together"},{"key":"E","text":"contractum"}],"answer":"B"},
-    {"q":"2. Which contract is formed based on good faith?","options":[{"key":"A","text":"contingent"},{"key":"B","text":"indemnity"},{"key":"C","text":"uberrimae fidei"},{"key":"D","text":"agency"},{"key":"E","text":"bailment"}],"answer":"C"},
-    {"q":"3. 'Fire Insurance' is a contract of...........","options":[{"key":"A","text":"bailment"},{"key":"B","text":"wagering"},{"key":"C","text":"indemnity"},{"key":"D","text":"contingent"},{"key":"E","text":"guarantee"}],"answer":"C"},
-    {"q":"4. Agreement of a minor is generally","options":[{"key":"A","text":"voidable"},{"key":"B","text":"void"},{"key":"C","text":"illegal"},{"key":"D","text":"unenforceable"},{"key":"E","text":"valid"}],"answer":"B"},
-    {"q":"5. A and B both have made a contract on the happening of an accident of B's car. This is","options":[{"key":"A","text":"quasi contract"},{"key":"B","text":"contingent contract"},{"key":"C","text":"contract of indemnity"},{"key":"D","text":"executed contract"},{"key":"E","text":"void contract"}],"answer":"B"},
-    {"q":"6. An agreement by way of wager is .............in accordance with section 30 of the contract act.","options":[{"key":"A","text":"partly unlawful"},{"key":"B","text":"illegal"},{"key":"C","text":"void"},{"key":"D","text":"opposed to morality"},{"key":"E","text":"valid"}],"answer":"C"},
-    {"q":"7. Which of the following can be an offer?","options":[{"key":"A","text":"publishing of price list"},{"key":"B","text":"auction sale"},{"key":"C","text":"quotation or tender"},{"key":"D","text":"proposal to sell a car at TK. 2 lac"},{"key":"E","text":"sale of share"}],"answer":"D"},
-    {"q":"8. Which cannot be a way of executing a consideration of an agreement?","options":[{"key":"A","text":"by performing an act"},{"key":"B","text":"by abstinence"},{"key":"C","text":"by promise of an action"},{"key":"D","text":"by declaring void"},{"key":"E","text":"promise of abstinence"}],"answer":"D"},
-    {"q":"9. Which cannot be a characteristic of an offer?","options":[{"key":"A","text":"clear and express intention"},{"key":"B","text":"willingness to do or abstain"},{"key":"C","text":"obtaining the assent"},{"key":"D","text":"accepted by promisee"},{"key":"E","text":"intention to make a contractual relation"}],"answer":"D"},
-    {"q":"10. In which case the view 'additional statement may be offer' was established?","options":[{"key":"A","text":"Jaye Babu V. Regional Manager. APSRTC, AIR 1996 A.P.30"},{"key":"B","text":"Harris V. Nickersion (1873) L.R. 8 Q.B.286"},{"key":"C","text":"Carlill Vs carbolic Smoke Ball Co. [(1882) 2QB484]."},{"key":"D","text":"Richardson V. Rowntry [(1894) AC 217]"},{"key":"E","text":"Lal Mohon Sukla V. Gouri Dutta (1930) All."}],"answer":"C"},
-    {"q":"11. Who among the following is competent to contract under the Contract Act, 1872?","options":[{"key":"A","text":"minor"},{"key":"B","text":"person of unsound mind"},{"key":"C","text":"bankrupt person"},{"key":"D","text":"idiotic person"},{"key":"E","text":"70 years old person"}],"answer":"E"},
-    {"q":"12. Which of the following is NOT an essential element for a valid contract?","options":[{"key":"A","text":"offer and Acceptance"},{"key":"B","text":"consideration"},{"key":"C","text":"written Agreement"},{"key":"D","text":"legal Capacity of Parties"},{"key":"E","text":"physical strength of the parties"}],"answer":"E"},
-    {"q":"13. What is the consequence of a contract for sale of a house not registered?","options":[{"key":"A","text":"valid"},{"key":"B","text":"void"},{"key":"C","text":"voidable"},{"key":"D","text":"executed"},{"key":"E","text":"unenforceable"}],"answer":"E"},
-    {"q":"14. An agreement not enforceable by law is defined as:","options":[{"key":"A","text":"voidable Contract"},{"key":"B","text":"void Agreement"},{"key":"C","text":"unenforceable Contract"},{"key":"D","text":"valid Contract"},{"key":"E","text":"quasi contract"}],"answer":"C"},
-    {"q":"15. A and B both have made a contract on the happening of an accident of B's car. This is","options":[{"key":"A","text":"quasi contract"},{"key":"B","text":"contingent contract"},{"key":"C","text":"contract of indemnity"},{"key":"D","text":"executed contract"},{"key":"E","text":"void contract"}],"answer":"B"},
-    {"q":"16. A contract is voidable at the option of the aggrieved party if consent was caused by:","options":[{"key":"A","text":"mistake of law"},{"key":"B","text":"unsoundness of mind"},{"key":"C","text":"coercion, undue influence, or fraud"},{"key":"D","text":"lapse of time"},{"key":"E","text":"contract with minor"}],"answer":"C"},
-    {"q":"17. Which can be an offer?","options":[{"key":"A","text":"publishing of price list"},{"key":"B","text":"auction sale"},{"key":"C","text":"quotation or tender"},{"key":"D","text":"proposal to sell a car at TK. 2 lac"},{"key":"E","text":"sale of share"}],"answer":"D"},
-    {"q":"18. Agreement of a minor is generally","options":[{"key":"A","text":"voidable"},{"key":"B","text":"void"},{"key":"C","text":"illegal"},{"key":"D","text":"unenforceable"},{"key":"E","text":"valid"}],"answer":"B"},
-    {"q":"19. Which cannot be a characteristic of offer?","options":[{"key":"A","text":"clear and express intention"},{"key":"B","text":"willingness to do or abstain"},{"key":"C","text":"obtaining the assent"},{"key":"D","text":"accepted by promise"},{"key":"E","text":"intention to make a contractual relation"}],"answer":"D"},
-    {"q":"20. Considerations & objects are unlawful in the following cases except:","options":[{"key":"A","text":"forbidden by law"},{"key":"B","text":"which is fraudulent"},{"key":"C","text":"which is immoral"},{"key":"D","text":"permitted by law"},{"key":"E","text":"against the public policy"}],"answer":"D"},
-    {"q":"21. Under Section 2(h) of the Contract Act, 1872, a contract means:","options":[{"key":"A","text":"Every promise"},{"key":"B","text":"Every proposal"},{"key":"C","text":"Any agreement enforceable by law"},{"key":"D","text":"Every consideration"},{"key":"E","text":"Every acceptance"}],"answer":"C"},
-    {"q":"22. \"Every promise and every set of promises, forming the consideration for each other\" is the definition of:","options":[{"key":"A","text":"Contract"},{"key":"B","text":"Agreement"},{"key":"C","text":"Offer"},{"key":"D","text":"Acceptance"},{"key":"E","text":"Consideration"}],"answer":"B"},
-    {"q":"23. Section 2(a) of the Contract Act, 1872 deals with:","options":[{"key":"A","text":"Acceptance"},{"key":"B","text":"Agreement"},{"key":"C","text":"Proposal"},{"key":"D","text":"Consideration"},{"key":"E","text":"Contract"}],"answer":"C"},
-    {"q":"24. When a proposal is accepted, it becomes a:","options":[{"key":"A","text":"Contract"},{"key":"B","text":"Consideration"},{"key":"C","text":"Promise"},{"key":"D","text":"Void agreement"},{"key":"E","text":"Counter offer"}],"answer":"C"},
-    {"q":"25. The person making a proposal is called the:","options":[{"key":"A","text":"Promisee"},{"key":"B","text":"Promisor"},{"key":"C","text":"Acceptor"},{"key":"D","text":"Agent"},{"key":"E","text":"Principal"}],"answer":"B"},
-    {"q":"26. The person to whom a proposal is made and who accepts it is called:","options":[{"key":"A","text":"Promisor"},{"key":"B","text":"Offeror"},{"key":"C","text":"Promisee"},{"key":"D","text":"Principal"},{"key":"E","text":"Agent"}],"answer":"C"},
-    {"q":"27. According to Section 10, an agreement becomes a contract when it is made by:","options":[{"key":"A","text":"incompetent parties"},{"key":"B","text":"free consent and competent parties"},{"key":"C","text":"unlawful consideration"},{"key":"D","text":"unlawful object"},{"key":"E","text":"coercion"}],"answer":"B"},
-    {"q":"28. Under Section 11, a person must generally have attained:","options":[{"key":"A","text":"16 years"},{"key":"B","text":"17 years"},{"key":"C","text":"18 years"},{"key":"D","text":"20 years"},{"key":"E","text":"21 years"}],"answer":"C"},
-    {"q":"29. Which section deals with soundness of mind?","options":[{"key":"A","text":"Section 10"},{"key":"B","text":"Section 11"},{"key":"C","text":"Section 12"},{"key":"D","text":"Section 14"},{"key":"E","text":"Section 15"}],"answer":"C"},
-    {"q":"30. A person is competent to contract if he is:","options":[{"key":"A","text":"a minor"},{"key":"B","text":"of unsound mind at the time of contract"},{"key":"C","text":"disqualified by law"},{"key":"D","text":"of majority age, sound mind and not disqualified by law"},{"key":"E","text":"physically strong"}],"answer":"D"},
-    {"q":"31. Which of the following may make a person disqualified from contracting according to the notes?","options":[{"key":"A","text":"Being 70 years old"},{"key":"B","text":"Being an undischarged bankrupt"},{"key":"C","text":"Being educated"},{"key":"D","text":"Being physically weak"},{"key":"E","text":"Being unemployed"}],"answer":"B"},
-    {"q":"32. Free Consent is dealt with under:","options":[{"key":"A","text":"Section 11"},{"key":"B","text":"Section 12"},{"key":"C","text":"Section 14"},{"key":"D","text":"Section 16"},{"key":"E","text":"Section 23"}],"answer":"C"},
-    {"q":"33. Which of the following is NOT a factor affecting free consent?","options":[{"key":"A","text":"Coercion"},{"key":"B","text":"Undue influence"},{"key":"C","text":"Fraud"},{"key":"D","text":"Misrepresentation"},{"key":"E","text":"Physical strength"}],"answer":"E"},
-    {"q":"34. Coercion is dealt with under:","options":[{"key":"A","text":"Section 14"},{"key":"B","text":"Section 15"},{"key":"C","text":"Section 16"},{"key":"D","text":"Section 17"},{"key":"E","text":"Section 18"}],"answer":"B"},
-    {"q":"35. Undue Influence is dealt with under:","options":[{"key":"A","text":"Section 15"},{"key":"B","text":"Section 16"},{"key":"C","text":"Section 17"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 20"}],"answer":"B"},
-    {"q":"36. Fraud is dealt with under:","options":[{"key":"A","text":"Section 15"},{"key":"B","text":"Section 16"},{"key":"C","text":"Section 17"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 23"}],"answer":"C"},
-    {"q":"37. Misrepresentation is dealt with under:","options":[{"key":"A","text":"Section 14"},{"key":"B","text":"Section 15"},{"key":"C","text":"Section 16"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 20"}],"answer":"D"},
-    {"q":"38. Which involves an intention to deceive?","options":[{"key":"A","text":"Misrepresentation"},{"key":"B","text":"Fraud"},{"key":"C","text":"Mistake"},{"key":"D","text":"Silence"},{"key":"E","text":"Consideration"}],"answer":"B"},
-    {"q":"39. A false statement made without an intention to deceive is generally:","options":[{"key":"A","text":"Fraud"},{"key":"B","text":"Coercion"},{"key":"C","text":"Misrepresentation"},{"key":"D","text":"Undue influence"},{"key":"E","text":"Wager"}],"answer":"C"},
-    {"q":"40. Where both parties are under a mistake as to an essential matter of fact, the agreement is:","options":[{"key":"A","text":"valid"},{"key":"B","text":"voidable"},{"key":"C","text":"void"},{"key":"D","text":"illegal"},{"key":"E","text":"executed"}],"answer":"C"},
-    {"q":"41. Consideration is defined under:","options":[{"key":"A","text":"Section 2(a)"},{"key":"B","text":"Section 2(b)"},{"key":"C","text":"Section 2(c)"},{"key":"D","text":"Section 2(d)"},{"key":"E","text":"Section 2(e)"}],"answer":"D"},
-    {"q":"42. Consideration may consist of:","options":[{"key":"A","text":"only an act"},{"key":"B","text":"only abstinence"},{"key":"C","text":"only a promise"},{"key":"D","text":"an act, abstinence or promise"},{"key":"E","text":"only money"}],"answer":"D"},
-    {"q":"43. Consideration must be made at the desire of the:","options":[{"key":"A","text":"promisee"},{"key":"B","text":"promisor"},{"key":"C","text":"third person"},{"key":"D","text":"court"},{"key":"E","text":"agent"}],"answer":"B"},
-    {"q":"44. Which of the following cannot constitute consideration according to the notes?","options":[{"key":"A","text":"Performing an act"},{"key":"B","text":"Abstinence"},{"key":"C","text":"Promise to perform an action"},{"key":"D","text":"Promise of abstinence"},{"key":"E","text":"Declaring an agreement void"}],"answer":"E"},
-    {"q":"45. The general rule \"No consideration, no contract\" relates to:","options":[{"key":"A","text":"Offer"},{"key":"B","text":"Acceptance"},{"key":"C","text":"Consideration"},{"key":"D","text":"Capacity"},{"key":"E","text":"Free consent"}],"answer":"C"},
-    {"q":"46. Section 23 primarily deals with:","options":[{"key":"A","text":"Capacity"},{"key":"B","text":"Acceptance"},{"key":"C","text":"Lawful consideration and object"},{"key":"D","text":"Revocation"},{"key":"E","text":"Agency"}],"answer":"C"},
-    {"q":"47. Consideration or object is unlawful when it is:","options":[{"key":"A","text":"permitted by law"},{"key":"B","text":"lawful"},{"key":"C","text":"forbidden by law"},{"key":"D","text":"reasonable"},{"key":"E","text":"voluntary"}],"answer":"C"},
-    {"q":"48. Which is NOT a ground making consideration or object unlawful?","options":[{"key":"A","text":"Forbidden by law"},{"key":"B","text":"Fraudulent"},{"key":"C","text":"Immoral"},{"key":"D","text":"Opposed to public policy"},{"key":"E","text":"Permitted by law"}],"answer":"E"},
-    {"q":"49. An agreement involving injury to the person or property of another is:","options":[{"key":"A","text":"lawful"},{"key":"B","text":"unlawful"},{"key":"C","text":"executed"},{"key":"D","text":"contingent"},{"key":"E","text":"implied"}],"answer":"B"},
-    {"q":"50. An agreement opposed to public policy is:","options":[{"key":"A","text":"lawful"},{"key":"B","text":"enforceable"},{"key":"C","text":"unlawful"},{"key":"D","text":"executed"},{"key":"E","text":"implied"}],"answer":"C"},
-    {"q":"51. An agreement in restraint of marriage is generally:","options":[{"key":"A","text":"valid"},{"key":"B","text":"void"},{"key":"C","text":"voidable"},{"key":"D","text":"executed"},{"key":"E","text":"contingent"}],"answer":"B"},
-    {"q":"52. Agreements in restraint of marriage are dealt with under:","options":[{"key":"A","text":"Section 23"},{"key":"B","text":"Section 26"},{"key":"C","text":"Section 27"},{"key":"D","text":"Section 28"},{"key":"E","text":"Section 30"}],"answer":"B"},
-    {"q":"53. Agreements in restraint of trade are dealt with under:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"B"},
-    {"q":"54. Agreements in restraint of legal proceedings are dealt with under:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"C"},
-    {"q":"55. An agreement by way of wager is dealt with under:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"E"},
-    {"q":"56. A mere statement of the price of an article is:","options":[{"key":"A","text":"always an offer"},{"key":"B","text":"acceptance"},{"key":"C","text":"not necessarily an offer"},{"key":"D","text":"a contract"},{"key":"E","text":"consideration"}],"answer":"C"},
-    {"q":"57. In Harvey v. Facey, the statement of price was treated as:","options":[{"key":"A","text":"an acceptance"},{"key":"B","text":"an offer"},{"key":"C","text":"not an offer"},{"key":"D","text":"a contract"},{"key":"E","text":"consideration"}],"answer":"C"},
-    {"q":"58. A person who performs an act without knowing about an offer:","options":[{"key":"A","text":"can always claim the reward"},{"key":"B","text":"becomes an acceptor"},{"key":"C","text":"cannot claim the reward on that basis"},{"key":"D","text":"automatically makes a contract"},{"key":"E","text":"becomes a promisor"}],"answer":"C"},
-    {"q":"59. The principle that ignorance of an offer gives no right to accept it was established in:","options":[{"key":"A","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"B","text":"Harvey v Facey"},{"key":"C","text":"Lalman Shukla v Gauri Dutt"},{"key":"D","text":"Felthouse v Bindley"},{"key":"E","text":"Harris v Nickerson"}],"answer":"C"},
-    {"q":"60. An advertisement announcing an auction at a particular time and place was held not to bind the advertiser in:","options":[{"key":"A","text":"Harvey v Facey"},{"key":"B","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"C","text":"Harris v Nickerson"},{"key":"D","text":"Lalman Shukla v Gauri Dutt"},{"key":"E","text":"Felthouse v Bindley"}],"answer":"C"},
-    {"q":"61. Display of goods with price tags in a shop is generally:","options":[{"key":"A","text":"an offer"},{"key":"B","text":"an invitation to offer"},{"key":"C","text":"an acceptance"},{"key":"D","text":"a promise"},{"key":"E","text":"a consideration"}],"answer":"B"},
-    {"q":"62. The case relating to display of goods in a self-service shop is:","options":[{"key":"A","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"B","text":"Pharmaceutical Society of Great Britain v Boots Cash Chemists Ltd"},{"key":"C","text":"Harvey v Facey"},{"key":"D","text":"Lalman Shukla v Gauri Dutt"},{"key":"E","text":"Harris v Nickerson"}],"answer":"B"},
-    {"q":"63. An invitation for tender generally amounts to:","options":[{"key":"A","text":"an offer"},{"key":"B","text":"acceptance"},{"key":"C","text":"invitation to offer"},{"key":"D","text":"consideration"},{"key":"E","text":"promise"}],"answer":"C"},
-    {"q":"64. A quotation or tender submitted in response to an invitation is generally:","options":[{"key":"A","text":"an invitation to offer"},{"key":"B","text":"an offer"},{"key":"C","text":"an acceptance"},{"key":"D","text":"a void agreement"},{"key":"E","text":"a wager"}],"answer":"B"},
-    {"q":"65. In Carlill v. Carbolic Smoke Ball Co., the advertisement was held to be:","options":[{"key":"A","text":"merely an invitation to offer"},{"key":"B","text":"a binding offer"},{"key":"C","text":"a counter offer"},{"key":"D","text":"a void agreement"},{"key":"E","text":"an acceptance"}],"answer":"B"},
-    {"q":"66. Acceptance under Section 2(b) means:","options":[{"key":"A","text":"willingness of the offeror"},{"key":"B","text":"assent of the person to whom the proposal is made"},{"key":"C","text":"consideration by a third person"},{"key":"D","text":"revocation of offer"},{"key":"E","text":"rejection of proposal"}],"answer":"B"},
-    {"q":"67. Acceptance must be:","options":[{"key":"A","text":"conditional"},{"key":"B","text":"absolute and unconditional"},{"key":"C","text":"silent"},{"key":"D","text":"uncertain"},{"key":"E","text":"partial"}],"answer":"B"},
-    {"q":"68. A changes the terms of B's offer while accepting it. This is:","options":[{"key":"A","text":"absolute acceptance"},{"key":"B","text":"valid acceptance"},{"key":"C","text":"counter offer"},{"key":"D","text":"tacit acceptance"},{"key":"E","text":"consideration"}],"answer":"C"},
-    {"q":"69. Mere mental acceptance of an offer is:","options":[{"key":"A","text":"valid acceptance"},{"key":"B","text":"invalid acceptance"},{"key":"C","text":"counter offer"},{"key":"D","text":"consideration"},{"key":"E","text":"proposal"}],"answer":"B"},
-    {"q":"70. According to the notes, which statement is correct regarding acceptance?","options":[{"key":"A","text":"Silence always amounts to acceptance"},{"key":"B","text":"Acceptance need not be communicated"},{"key":"C","text":"Acceptance must be communicated to the offeror"},{"key":"D","text":"Acceptance can only be made by a stranger"},{"key":"E","text":"Acceptance must always be oral"}],"answer":"C"},
-    {"q":"71. A proposal must be accepted:","options":[{"key":"A","text":"after it has expired"},{"key":"B","text":"within the time specified in the proposal"},{"key":"C","text":"whenever the promisee wishes"},{"key":"D","text":"only after one year"},{"key":"E","text":"after revocation"}],"answer":"B"},
-    {"q":"72. If no time is specified in an offer, acceptance must be made:","options":[{"key":"A","text":"immediately"},{"key":"B","text":"within one year"},{"key":"C","text":"within a reasonable time"},{"key":"D","text":"after revocation"},{"key":"E","text":"at any time"}],"answer":"C"},
-    {"q":"73. If an offeror prescribes a particular mode of acceptance, the offeree should:","options":[{"key":"A","text":"ignore it"},{"key":"B","text":"follow the prescribed mode"},{"key":"C","text":"remain silent"},{"key":"D","text":"make a counter-offer"},{"key":"E","text":"reject the offer"}],"answer":"B"},
-    {"q":"74. A proposal made to a person can generally be accepted only by:","options":[{"key":"A","text":"any stranger"},{"key":"B","text":"the promisee/offeree"},{"key":"C","text":"the offeror"},{"key":"D","text":"the court"},{"key":"E","text":"a third party"}],"answer":"B"},
-    {"q":"75. If a reward is offered to the public, where many persons provide information, who is treated as having accepted the proposal according to the notes?","options":[{"key":"A","text":"Everyone"},{"key":"B","text":"Last informer"},{"key":"C","text":"First informer"},{"key":"D","text":"Offeror"},{"key":"E","text":"Auctioneer"}],"answer":"C"},
-    {"q":"76. Which case established that acceptance must be communicated?","options":[{"key":"A","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"B","text":"Brogden v Metropolitan Railway Co."},{"key":"C","text":"Harvey v Facey"},{"key":"D","text":"Harris v Nickerson"},{"key":"E","text":"Lalman Shukla v Gauri Dutt"}],"answer":"B"},
-    {"q":"77. In Felthouse v. Bindley, the court held that:","options":[{"key":"A","text":"silence is acceptance"},{"key":"B","text":"mental acceptance is sufficient"},{"key":"C","text":"acceptance must be communicated"},{"key":"D","text":"counter-offer is acceptance"},{"key":"E","text":"performance is impossible"}],"answer":"C"},
-    {"q":"78. According to the notes, acceptance by performance is recognized under:","options":[{"key":"A","text":"Section 5"},{"key":"B","text":"Section 7"},{"key":"C","text":"Section 8"},{"key":"D","text":"Section 10"},{"key":"E","text":"Section 23"}],"answer":"C"},
-    {"q":"79. A Quasi Contract is:","options":[{"key":"A","text":"formed by voluntary agreement only"},{"key":"B","text":"not formed by voluntary agreement but creates legal obligations"},{"key":"C","text":"always illegal"},{"key":"D","text":"always voidable"},{"key":"E","text":"a wager"}],"answer":"B"},
-    {"q":"80. A contract to pay money if B's car meets with an accident is:","options":[{"key":"A","text":"Quasi Contract"},{"key":"B","text":"Contingent Contract"},{"key":"C","text":"Agency Contract"},{"key":"D","text":"Executed Contract"},{"key":"E","text":"Standard Form Contract"}],"answer":"B"},
-    {"q":"81. Fire Insurance is an example of:","options":[{"key":"A","text":"Guarantee"},{"key":"B","text":"Bailment"},{"key":"C","text":"Indemnity"},{"key":"D","text":"Agency"},{"key":"E","text":"Wager"}],"answer":"C"},
-    {"q":"82. Which section deals with Contract of Guarantee according to the classification notes?","options":[{"key":"A","text":"Section 124"},{"key":"B","text":"Section 126"},{"key":"C","text":"Section 148"},{"key":"D","text":"Section 182"},{"key":"E","text":"Section 30"}],"answer":"B"},
-    {"q":"83. Which of the following is an example of an Implied Contract?","options":[{"key":"A","text":"Written agreement to sell land"},{"key":"B","text":"Taking a CNG and paying the fare"},{"key":"C","text":"Written insurance policy"},{"key":"D","text":"Written loan agreement"},{"key":"E","text":"Written sale deed"}],"answer":"B"},
-    {"q":"84. A contract in which both parties have completely performed their obligations is called:","options":[{"key":"A","text":"Executory Contract"},{"key":"B","text":"Contingent Contract"},{"key":"C","text":"Executed Contract"},{"key":"D","text":"Voidable Contract"},{"key":"E","text":"Standing Contract"}],"answer":"C"},
-    {"q":"85. Which of the following correctly describes a Standard Form Contract?","options":[{"key":"A","text":"Terms are negotiated equally by both parties"},{"key":"B","text":"Terms are prepared by one party and accepted by the other without negotiation"},{"key":"C","text":"It is always an illegal contract"},{"key":"D","text":"It is always an oral contract"},{"key":"E","text":"It is always a wager"}],"answer":"B"}
+    {"q":"Which is not similar to the word 'contract'?","options":[{"key":"A","text":"jointly"},{"key":"B","text":"separated"},{"key":"C","text":"uniting"},{"key":"D","text":"together"},{"key":"E","text":"contractum"}],"answer":"B"},
+    {"q":"Which contract is formed based on good faith?","options":[{"key":"A","text":"contingent"},{"key":"B","text":"indemnity"},{"key":"C","text":"uberrimae fidei"},{"key":"D","text":"agency"},{"key":"E","text":"bailment"}],"answer":"C"},
+    {"q":"'Fire Insurance' is a contract of...........","options":[{"key":"A","text":"bailment"},{"key":"B","text":"wagering"},{"key":"C","text":"indemnity"},{"key":"D","text":"contingent"},{"key":"E","text":"guarantee"}],"answer":"C"},
+    {"q":"Agreement of a minor is generally","options":[{"key":"A","text":"voidable"},{"key":"B","text":"void"},{"key":"C","text":"illegal"},{"key":"D","text":"unenforceable"},{"key":"E","text":"valid"}],"answer":"B"},
+    {"q":"A and B both have made a contract on the happening of an accident of B's car. This is","options":[{"key":"A","text":"quasi contract"},{"key":"B","text":"contingent contract"},{"key":"C","text":"contract of indemnity"},{"key":"D","text":"executed contract"},{"key":"E","text":"void contract"}],"answer":"B"},
+    {"q":"An agreement by way of wager is .............in accordance with section 30 of the contract act.","options":[{"key":"A","text":"partly unlawful"},{"key":"B","text":"illegal"},{"key":"C","text":"void"},{"key":"D","text":"opposed to morality"},{"key":"E","text":"valid"}],"answer":"C"},
+    {"q":"Which of the following can be an offer?","options":[{"key":"A","text":"publishing of price list"},{"key":"B","text":"auction sale"},{"key":"C","text":"quotation or tender"},{"key":"D","text":"proposal to sell a car at TK. 2 lac"},{"key":"E","text":"sale of share"}],"answer":"D"},
+    {"q":"Which cannot be a way of executing a consideration of an agreement?","options":[{"key":"A","text":"by performing an act"},{"key":"B","text":"by abstinence"},{"key":"C","text":"by promise of an action"},{"key":"D","text":"by declaring void"},{"key":"E","text":"promise of abstinence"}],"answer":"D"},
+    {"q":"Which cannot be a characteristic of an offer?","options":[{"key":"A","text":"clear and express intention"},{"key":"B","text":"willingness to do or abstain"},{"key":"C","text":"obtaining the assent"},{"key":"D","text":"accepted by promisee"},{"key":"E","text":"intention to make a contractual relation"}],"answer":"D"},
+    {"q":"In which case the view 'additional statement may be offer' was established?","options":[{"key":"A","text":"Jaye Babu V. Regional Manager. APSRTC, AIR 1996 A.P.30"},{"key":"B","text":"Harris V. Nickersion (1873) L.R. 8 Q.B.286"},{"key":"C","text":"Carlill Vs carbolic Smoke Ball Co. [(1882) 2QB484]."},{"key":"D","text":"Richardson V. Rowntry [(1894) AC 217]"},{"key":"E","text":"Lal Mohon Sukla V. Gouri Dutta (1930) All."}],"answer":"C"},
+    {"q":"Who among the following is competent to contract under the Contract Act, 1872?","options":[{"key":"A","text":"minor"},{"key":"B","text":"person of unsound mind"},{"key":"C","text":"bankrupt person"},{"key":"D","text":"idiotic person"},{"key":"E","text":"70 years old person"}],"answer":"E"},
+    {"q":"Which of the following is NOT an essential element for a valid contract?","options":[{"key":"A","text":"offer and Acceptance"},{"key":"B","text":"consideration"},{"key":"C","text":"written Agreement"},{"key":"D","text":"legal Capacity of Parties"},{"key":"E","text":"physical strength of the parties"}],"answer":"E"},
+    {"q":"What is the consequence of a contract for sale of a house not registered?","options":[{"key":"A","text":"valid"},{"key":"B","text":"void"},{"key":"C","text":"voidable"},{"key":"D","text":"executed"},{"key":"E","text":"unenforceable"}],"answer":"E"},
+    {"q":"An agreement not enforceable by law is defined as:","options":[{"key":"A","text":"voidable Contract"},{"key":"B","text":"void Agreement"},{"key":"C","text":"unenforceable Contract"},{"key":"D","text":"valid Contract"},{"key":"E","text":"quasi contract"}],"answer":"C"},
+    {"q":"A contract is voidable at the option of the aggrieved party if consent was caused by:","options":[{"key":"A","text":"mistake of law"},{"key":"B","text":"unsoundness of mind"},{"key":"C","text":"coercion, undue influence, or fraud"},{"key":"D","text":"lapse of time"},{"key":"E","text":"contract with minor"}],"answer":"C"},
+    {"q":"Considerations & objects are unlawful in the following cases except:","options":[{"key":"A","text":"forbidden by law"},{"key":"B","text":"which is fraudulent"},{"key":"C","text":"which is immoral"},{"key":"D","text":"permitted by law"},{"key":"E","text":"against the public policy"}],"answer":"D"},
+    {"q":"Under Section 2(h) of the Contract Act, 1872, a contract means:","options":[{"key":"A","text":"Every promise"},{"key":"B","text":"Every proposal"},{"key":"C","text":"Any agreement enforceable by law"},{"key":"D","text":"Every consideration"},{"key":"E","text":"Every acceptance"}],"answer":"C"},
+    {"q":"\"Every promise and every set of promises, forming the consideration for each other\" is the definition of:","options":[{"key":"A","text":"Contract"},{"key":"B","text":"Agreement"},{"key":"C","text":"Offer"},{"key":"D","text":"Acceptance"},{"key":"E","text":"Consideration"}],"answer":"B"},
+    {"q":"Section 2(a) of the Contract Act, 1872 deals with:","options":[{"key":"A","text":"Acceptance"},{"key":"B","text":"Agreement"},{"key":"C","text":"Proposal"},{"key":"D","text":"Consideration"},{"key":"E","text":"Contract"}],"answer":"C"},
+    {"q":"When a proposal is accepted, it becomes a:","options":[{"key":"A","text":"Contract"},{"key":"B","text":"Consideration"},{"key":"C","text":"Promise"},{"key":"D","text":"Void agreement"},{"key":"E","text":"Counter offer"}],"answer":"C"},
+    {"q":"The person making a proposal is called the:","options":[{"key":"A","text":"Promisee"},{"key":"B","text":"Promisor"},{"key":"C","text":"Acceptor"},{"key":"D","text":"Agent"},{"key":"E","text":"Principal"}],"answer":"B"},
+    {"q":"The person to whom a proposal is made and who accepts it is called:","options":[{"key":"A","text":"Promisor"},{"key":"B","text":"Offeror"},{"key":"C","text":"Promisee"},{"key":"D","text":"Principal"},{"key":"E","text":"Agent"}],"answer":"C"},
+    {"q":"According to Section 10, an agreement becomes a contract when it is made by:","options":[{"key":"A","text":"incompetent parties"},{"key":"B","text":"free consent and competent parties"},{"key":"C","text":"unlawful consideration"},{"key":"D","text":"unlawful object"},{"key":"E","text":"coercion"}],"answer":"B"},
+    {"q":"Under Section 11, a person must generally have attained:","options":[{"key":"A","text":"16 years"},{"key":"B","text":"17 years"},{"key":"C","text":"18 years"},{"key":"D","text":"20 years"},{"key":"E","text":"21 years"}],"answer":"C"},
+    {"q":"Which section deals with soundness of mind?","options":[{"key":"A","text":"Section 10"},{"key":"B","text":"Section 11"},{"key":"C","text":"Section 12"},{"key":"D","text":"Section 14"},{"key":"E","text":"Section 15"}],"answer":"C"},
+    {"q":"A person is competent to contract if he is:","options":[{"key":"A","text":"a minor"},{"key":"B","text":"of unsound mind at the time of contract"},{"key":"C","text":"disqualified by law"},{"key":"D","text":"of majority age, sound mind and not disqualified by law"},{"key":"E","text":"physically strong"}],"answer":"D"},
+    {"q":"Which of the following may make a person disqualified from contracting according to the notes?","options":[{"key":"A","text":"Being 70 years old"},{"key":"B","text":"Being an undischarged bankrupt"},{"key":"C","text":"Being educated"},{"key":"D","text":"Being physically weak"},{"key":"E","text":"Being unemployed"}],"answer":"B"},
+    {"q":"Free Consent is dealt with under:","options":[{"key":"A","text":"Section 11"},{"key":"B","text":"Section 12"},{"key":"C","text":"Section 14"},{"key":"D","text":"Section 16"},{"key":"E","text":"Section 23"}],"answer":"C"},
+    {"q":"Which of the following is NOT a factor affecting free consent?","options":[{"key":"A","text":"Coercion"},{"key":"B","text":"Undue influence"},{"key":"C","text":"Fraud"},{"key":"D","text":"Misrepresentation"},{"key":"E","text":"Physical strength"}],"answer":"E"},
+    {"q":"Coercion is dealt with under:","options":[{"key":"A","text":"Section 14"},{"key":"B","text":"Section 15"},{"key":"C","text":"Section 16"},{"key":"D","text":"Section 17"},{"key":"E","text":"Section 18"}],"answer":"B"},
+    {"q":"Undue Influence is dealt with under:","options":[{"key":"A","text":"Section 15"},{"key":"B","text":"Section 16"},{"key":"C","text":"Section 17"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 20"}],"answer":"B"},
+    {"q":"Fraud is dealt with under:","options":[{"key":"A","text":"Section 15"},{"key":"B","text":"Section 16"},{"key":"C","text":"Section 17"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 23"}],"answer":"C"},
+    {"q":"Misrepresentation is dealt with under:","options":[{"key":"A","text":"Section 14"},{"key":"B","text":"Section 15"},{"key":"C","text":"Section 16"},{"key":"D","text":"Section 18"},{"key":"E","text":"Section 20"}],"answer":"D"},
+    {"q":"Which involves an intention to deceive?","options":[{"key":"A","text":"Misrepresentation"},{"key":"B","text":"Fraud"},{"key":"C","text":"Mistake"},{"key":"D","text":"Silence"},{"key":"E","text":"Consideration"}],"answer":"B"},
+    {"q":"A false statement made without an intention to deceive is generally:","options":[{"key":"A","text":"Fraud"},{"key":"B","text":"Coercion"},{"key":"C","text":"Misrepresentation"},{"key":"D","text":"Undue influence"},{"key":"E","text":"Wager"}],"answer":"C"},
+    {"q":"Where both parties are under a mistake as to an essential matter of fact, the agreement is:","options":[{"key":"A","text":"valid"},{"key":"B","text":"voidable"},{"key":"C","text":"void"},{"key":"D","text":"illegal"},{"key":"E","text":"executed"}],"answer":"C"},
+    {"q":"Consideration is defined under:","options":[{"key":"A","text":"Section 2(a)"},{"key":"B","text":"Section 2(b)"},{"key":"C","text":"Section 2(c)"},{"key":"D","text":"Section 2(d)"},{"key":"E","text":"Section 2(e)"}],"answer":"D"},
+    {"q":"Consideration may consist of:","options":[{"key":"A","text":"only an act"},{"key":"B","text":"only abstinence"},{"key":"C","text":"only a promise"},{"key":"D","text":"an act, abstinence or promise"},{"key":"E","text":"only money"}],"answer":"D"},
+    {"q":"Consideration must be made at the desire of the:","options":[{"key":"A","text":"promisee"},{"key":"B","text":"promisor"},{"key":"C","text":"third person"},{"key":"D","text":"court"},{"key":"E","text":"agent"}],"answer":"B"},
+    {"q":"Which of the following cannot constitute consideration according to the notes?","options":[{"key":"A","text":"Performing an act"},{"key":"B","text":"Abstinence"},{"key":"C","text":"Promise to perform an action"},{"key":"D","text":"Promise of abstinence"},{"key":"E","text":"Declaring an agreement void"}],"answer":"E"},
+    {"q":"The general rule \"No consideration, no contract\" relates to:","options":[{"key":"A","text":"Offer"},{"key":"B","text":"Acceptance"},{"key":"C","text":"Consideration"},{"key":"D","text":"Capacity"},{"key":"E","text":"Free consent"}],"answer":"C"},
+    {"q":"Section 23 primarily deals with:","options":[{"key":"A","text":"Capacity"},{"key":"B","text":"Acceptance"},{"key":"C","text":"Lawful consideration and object"},{"key":"D","text":"Revocation"},{"key":"E","text":"Agency"}],"answer":"C"},
+    {"q":"Consideration or object is unlawful when it is:","options":[{"key":"A","text":"permitted by law"},{"key":"B","text":"lawful"},{"key":"C","text":"forbidden by law"},{"key":"D","text":"reasonable"},{"key":"E","text":"voluntary"}],"answer":"C"},
+    {"q":"Which is NOT a ground making consideration or object unlawful?","options":[{"key":"A","text":"Forbidden by law"},{"key":"B","text":"Fraudulent"},{"key":"C","text":"Immoral"},{"key":"D","text":"Opposed to public policy"},{"key":"E","text":"Permitted by law"}],"answer":"E"},
+    {"q":"An agreement involving injury to the person or property of another is:","options":[{"key":"A","text":"lawful"},{"key":"B","text":"unlawful"},{"key":"C","text":"executed"},{"key":"D","text":"contingent"},{"key":"E","text":"implied"}],"answer":"B"},
+    {"q":"An agreement opposed to public policy is:","options":[{"key":"A","text":"lawful"},{"key":"B","text":"enforceable"},{"key":"C","text":"unlawful"},{"key":"D","text":"executed"},{"key":"E","text":"implied"}],"answer":"C"},
+    {"q":"An agreement in restraint of marriage is generally:","options":[{"key":"A","text":"valid"},{"key":"B","text":"void"},{"key":"C","text":"voidable"},{"key":"D","text":"executed"},{"key":"E","text":"contingent"}],"answer":"B"},
+    {"q":"Agreements in restraint of marriage are dealt with under:","options":[{"key":"A","text":"Section 23"},{"key":"B","text":"Section 26"},{"key":"C","text":"Section 27"},{"key":"D","text":"Section 28"},{"key":"E","text":"Section 30"}],"answer":"B"},
+    {"q":"Agreements in restraint of trade are dealt with under:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"B"},
+    {"q":"Agreements in restraint of legal proceedings are dealt with under:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"C"},
+    {"q":"An agreement by way of wager is dealt with under:","options":[{"key":"A","text":"Section 26"},{"key":"B","text":"Section 27"},{"key":"C","text":"Section 28"},{"key":"D","text":"Section 29"},{"key":"E","text":"Section 30"}],"answer":"E"},
+    {"q":"A mere statement of the price of an article is:","options":[{"key":"A","text":"always an offer"},{"key":"B","text":"acceptance"},{"key":"C","text":"not necessarily an offer"},{"key":"D","text":"a contract"},{"key":"E","text":"consideration"}],"answer":"C"},
+    {"q":"In Harvey v. Facey, the statement of price was treated as:","options":[{"key":"A","text":"an acceptance"},{"key":"B","text":"an offer"},{"key":"C","text":"not an offer"},{"key":"D","text":"a contract"},{"key":"E","text":"consideration"}],"answer":"C"},
+    {"q":"A person who performs an act without knowing about an offer:","options":[{"key":"A","text":"can always claim the reward"},{"key":"B","text":"becomes an acceptor"},{"key":"C","text":"cannot claim the reward on that basis"},{"key":"D","text":"automatically makes a contract"},{"key":"E","text":"becomes a promisor"}],"answer":"C"},
+    {"q":"The principle that ignorance of an offer gives no right to accept it was established in:","options":[{"key":"A","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"B","text":"Harvey v Facey"},{"key":"C","text":"Lalman Shukla v Gauri Dutt"},{"key":"D","text":"Felthouse v Bindley"},{"key":"E","text":"Harris v Nickerson"}],"answer":"C"},
+    {"q":"An advertisement announcing an auction at a particular time and place was held not to bind the advertiser in:","options":[{"key":"A","text":"Harvey v Facey"},{"key":"B","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"C","text":"Harris v Nickerson"},{"key":"D","text":"Lalman Shukla v Gauri Dutt"},{"key":"E","text":"Felthouse v Bindley"}],"answer":"C"},
+    {"q":"Display of goods with price tags in a shop is generally:","options":[{"key":"A","text":"an offer"},{"key":"B","text":"an invitation to offer"},{"key":"C","text":"an acceptance"},{"key":"D","text":"a promise"},{"key":"E","text":"a consideration"}],"answer":"B"},
+    {"q":"The case relating to display of goods in a self-service shop is:","options":[{"key":"A","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"B","text":"Pharmaceutical Society of Great Britain v Boots Cash Chemists Ltd"},{"key":"C","text":"Harvey v Facey"},{"key":"D","text":"Lalman Shukla v Gauri Dutt"},{"key":"E","text":"Harris v Nickerson"}],"answer":"B"},
+    {"q":"An invitation for tender generally amounts to:","options":[{"key":"A","text":"an offer"},{"key":"B","text":"acceptance"},{"key":"C","text":"invitation to offer"},{"key":"D","text":"consideration"},{"key":"E","text":"promise"}],"answer":"C"},
+    {"q":"A quotation or tender submitted in response to an invitation is generally:","options":[{"key":"A","text":"an invitation to offer"},{"key":"B","text":"an offer"},{"key":"C","text":"an acceptance"},{"key":"D","text":"a void agreement"},{"key":"E","text":"a wager"}],"answer":"B"},
+    {"q":"In Carlill v. Carbolic Smoke Ball Co., the advertisement was held to be:","options":[{"key":"A","text":"merely an invitation to offer"},{"key":"B","text":"a binding offer"},{"key":"C","text":"a counter offer"},{"key":"D","text":"a void agreement"},{"key":"E","text":"an acceptance"}],"answer":"B"},
+    {"q":"Acceptance under Section 2(b) means:","options":[{"key":"A","text":"willingness of the offeror"},{"key":"B","text":"assent of the person to whom the proposal is made"},{"key":"C","text":"consideration by a third person"},{"key":"D","text":"revocation of offer"},{"key":"E","text":"rejection of proposal"}],"answer":"B"},
+    {"q":"Acceptance must be:","options":[{"key":"A","text":"conditional"},{"key":"B","text":"absolute and unconditional"},{"key":"C","text":"silent"},{"key":"D","text":"uncertain"},{"key":"E","text":"partial"}],"answer":"B"},
+    {"q":"A changes the terms of B's offer while accepting it. This is:","options":[{"key":"A","text":"absolute acceptance"},{"key":"B","text":"valid acceptance"},{"key":"C","text":"counter offer"},{"key":"D","text":"tacit acceptance"},{"key":"E","text":"consideration"}],"answer":"C"},
+    {"q":"Mere mental acceptance of an offer is:","options":[{"key":"A","text":"valid acceptance"},{"key":"B","text":"invalid acceptance"},{"key":"C","text":"counter offer"},{"key":"D","text":"consideration"},{"key":"E","text":"proposal"}],"answer":"B"},
+    {"q":"According to the notes, which statement is correct regarding acceptance?","options":[{"key":"A","text":"Silence always amounts to acceptance"},{"key":"B","text":"Acceptance need not be communicated"},{"key":"C","text":"Acceptance must be communicated to the offeror"},{"key":"D","text":"Acceptance can only be made by a stranger"},{"key":"E","text":"Acceptance must always be oral"}],"answer":"C"},
+    {"q":"A proposal must be accepted:","options":[{"key":"A","text":"after it has expired"},{"key":"B","text":"within the time specified in the proposal"},{"key":"C","text":"whenever the promisee wishes"},{"key":"D","text":"only after one year"},{"key":"E","text":"after revocation"}],"answer":"B"},
+    {"q":"If no time is specified in an offer, acceptance must be made:","options":[{"key":"A","text":"immediately"},{"key":"B","text":"within one year"},{"key":"C","text":"within a reasonable time"},{"key":"D","text":"after revocation"},{"key":"E","text":"at any time"}],"answer":"C"},
+    {"q":"If an offeror prescribes a particular mode of acceptance, the offeree should:","options":[{"key":"A","text":"ignore it"},{"key":"B","text":"follow the prescribed mode"},{"key":"C","text":"remain silent"},{"key":"D","text":"make a counter-offer"},{"key":"E","text":"reject the offer"}],"answer":"B"},
+    {"q":"A proposal made to a person can generally be accepted only by:","options":[{"key":"A","text":"any stranger"},{"key":"B","text":"the promisee/offeree"},{"key":"C","text":"the offeror"},{"key":"D","text":"the court"},{"key":"E","text":"a third party"}],"answer":"B"},
+    {"q":"If a reward is offered to the public, where many persons provide information, who is treated as having accepted the proposal according to the notes?","options":[{"key":"A","text":"Everyone"},{"key":"B","text":"Last informer"},{"key":"C","text":"First informer"},{"key":"D","text":"Offeror"},{"key":"E","text":"Auctioneer"}],"answer":"C"},
+    {"q":"Which case established that acceptance must be communicated?","options":[{"key":"A","text":"Carlill v Carbolic Smoke Ball Co."},{"key":"B","text":"Brogden v Metropolitan Railway Co."},{"key":"C","text":"Harvey v Facey"},{"key":"D","text":"Harris v Nickerson"},{"key":"E","text":"Lalman Shukla v Gauri Dutt"}],"answer":"B"},
+    {"q":"In Felthouse v. Bindley, the court held that:","options":[{"key":"A","text":"silence is acceptance"},{"key":"B","text":"mental acceptance is sufficient"},{"key":"C","text":"acceptance must be communicated"},{"key":"D","text":"counter-offer is acceptance"},{"key":"E","text":"performance is impossible"}],"answer":"C"},
+    {"q":"According to the notes, acceptance by performance is recognized under:","options":[{"key":"A","text":"Section 5"},{"key":"B","text":"Section 7"},{"key":"C","text":"Section 8"},{"key":"D","text":"Section 10"},{"key":"E","text":"Section 23"}],"answer":"C"},
+    {"q":"A Quasi Contract is:","options":[{"key":"A","text":"formed by voluntary agreement only"},{"key":"B","text":"not formed by voluntary agreement but creates legal obligations"},{"key":"C","text":"always illegal"},{"key":"D","text":"always voidable"},{"key":"E","text":"a wager"}],"answer":"B"},
+    {"q":"A contract to pay money if B's car meets with an accident is:","options":[{"key":"A","text":"Quasi Contract"},{"key":"B","text":"Contingent Contract"},{"key":"C","text":"Agency Contract"},{"key":"D","text":"Executed Contract"},{"key":"E","text":"Standard Form Contract"}],"answer":"B"},
+    {"q":"Fire Insurance is an example of:","options":[{"key":"A","text":"Guarantee"},{"key":"B","text":"Bailment"},{"key":"C","text":"Indemnity"},{"key":"D","text":"Agency"},{"key":"E","text":"Wager"}],"answer":"C"},
+    {"q":"Which section deals with Contract of Guarantee according to the classification notes?","options":[{"key":"A","text":"Section 124"},{"key":"B","text":"Section 126"},{"key":"C","text":"Section 148"},{"key":"D","text":"Section 182"},{"key":"E","text":"Section 30"}],"answer":"B"},
+    {"q":"Which of the following is an example of an Implied Contract?","options":[{"key":"A","text":"Written agreement to sell land"},{"key":"B","text":"Taking a CNG and paying the fare"},{"key":"C","text":"Written insurance policy"},{"key":"D","text":"Written loan agreement"},{"key":"E","text":"Written sale deed"}],"answer":"B"},
+    {"q":"A contract in which both parties have completely performed their obligations is called:","options":[{"key":"A","text":"Executory Contract"},{"key":"B","text":"Contingent Contract"},{"key":"C","text":"Executed Contract"},{"key":"D","text":"Voidable Contract"},{"key":"E","text":"Standing Contract"}],"answer":"C"},
+    {"q":"Which of the following correctly describes a Standard Form Contract?","options":[{"key":"A","text":"Terms are negotiated equally by both parties"},{"key":"B","text":"Terms are prepared by one party and accepted by the other without negotiation"},{"key":"C","text":"It is always an illegal contract"},{"key":"D","text":"It is always an oral contract"},{"key":"E","text":"It is always a wager"}],"answer":"B"}
   ],
   law_of_tort_consumers: [
     {"q":"Which of the following is NOT a valid defence in tort?","options":[{"key":"A","text":"Volenti non fit injuria"},{"key":"B","text":"Act of God"},{"key":"C","text":"Consent"},{"key":"D","text":"Ignorance of law"},{"key":"E","text":"Necessity"}],"answer":"D"}
@@ -726,34 +711,428 @@ const DB = {
   english_test: [],
   constitutional_law_ii: [
     {"q":"Which kind of writ is used to ensure personal liberty of people?","options":[{"key":"A","text":"Writ of Mandamus"},{"key":"B","text":"Writ of prohibition"},{"key":"C","text":"Writ of habeas corpus"},{"key":"D","text":"Writ of quo warranto"},{"key":"E","text":"Writ of certiorari"}],"answer":"C"},
-    {"q":"There shall be a Supreme Court for Bangladesh comprising the Appellate Division and the High Court Division","options":[{"key":"A","text":"Appellate Court, Appellate Division, High Court Division"},{"key":"B","text":"Supreme Court, Appellate Court, High Court"},{"key":"C","text":"Supreme Court, Appellate Division, High Court Division"},{"key":"D","text":"Apex Court, Supreme Court, Sub-ordinate Court"},{"key":"E","text":"Supreme Court, Higher Court, Lower Court"}],"answer":"C"},
-    {"q":"Which court is regarded as the 'Court of Record'?","options":[{"key":"A","text":"Appellate Division"},{"key":"B","text":"High Court Division"},{"key":"C","text":"Court of Sessions"},{"key":"D","text":"District Judge Court"},{"key":"E","text":"Supreme Court of Bangladesh"}],"answer":"E"},
-    {"q":"Which of the following writs is issued to prevent a lower court or authority from acting beyond its jurisdiction?","options":[{"key":"A","text":"Habeas Corpus"},{"key":"B","text":"Mandamus"},{"key":"C","text":"Certiorari"},{"key":"D","text":"Prohibition"},{"key":"E","text":"Quo Warranto"}],"answer":"D"},
-    {"q":"What power does Article 104 of the Bangladesh Constitution grant to the Appellate Division?","options":[{"key":"A","text":"To make laws"},{"key":"B","text":"To issue writs"},{"key":"C","text":"To amend the Constitution"},{"key":"D","text":"To issue necessary orders for complete justice"},{"key":"E","text":"To appoint judges"}],"answer":"D"},
-    {"q":"Which of the following best describes the principle established by Article 111?","options":[{"key":"A","text":"Stare decisis (binding precedent)"},{"key":"B","text":"Parliamentary supremacy"},{"key":"C","text":"Judicial activism"},{"key":"D","text":"Separation of powers"},{"key":"E","text":"Judicial review"}],"answer":"A"},
-    {"q":"What was the issue in the case of Anwar Hossain Chowdhury vs Bangladesh [41 DLR (AD) 165]?","options":[{"key":"A","text":"Citizenship"},{"key":"B","text":"Nationality"},{"key":"C","text":"Seat of Supreme Court"},{"key":"D","text":"Judicial Review"},{"key":"E","text":"Rule of Law"}],"answer":"D"},
-    {"q":"What does it mean for the Appellate Division to be a \"court of record\" under Article 108?","options":[{"key":"A","text":"It maintains permanent records of its proceedings and judgments"},{"key":"B","text":"It can dissolve Parliament if necessary"},{"key":"C","text":"It supervises financial audits of the judiciary"},{"key":"D","text":"It has the power to appoint judges for lower courts"},{"key":"E","text":"It can create new laws without parliamentary approval"}],"answer":"A"},
-    {"q":"What does Article 94(4) of the Bangladesh Constitution ensure?","options":[{"key":"A","text":"The power of Parliament to appoint judges"},{"key":"B","text":"The independence of the judiciary"},{"key":"C","text":"The role of the President in judicial decisions"},{"key":"D","text":"The financial control of the judiciary by the government"},{"key":"E","text":"The ability of the judiciary to pass laws"}],"answer":"B"},
-    {"q":"According to Article 117, Which body has the power to establish Administrative Tribunals?","options":[{"key":"A","text":"The Supreme Court"},{"key":"B","text":"The President"},{"key":"C","text":"The Attorney General"},{"key":"D","text":"The Prime Minister"},{"key":"E","text":"The Parliament"}],"answer":"E"},
-    {"q":"Minimum years of experience in advocacy required for appointment as a Judge of the Supreme Court is:","options":[{"key":"A","text":"7"},{"key":"B","text":"8"},{"key":"C","text":"10"},{"key":"D","text":"12"},{"key":"E","text":"15"}],"answer":"C"},
-    {"q":"If the Chief Justice's office is vacant, his functions are performed by:","options":[{"key":"A","text":"The President directly"},{"key":"B","text":"The senior-most Judge of the High Court Division"},{"key":"C","text":"The senior-most Judge of the Appellate Division"},{"key":"D","text":"The Law Minister"},{"key":"E","text":"The Speaker of Parliament"}],"answer":"C"},
-    {"q":"Which writ is issued to produce a person in custody before the court?","options":[{"key":"A","text":"Mandamus"},{"key":"B","text":"Certiorari"},{"key":"C","text":"Habeas Corpus"},{"key":"D","text":"Quo Warranto"},{"key":"E","text":"Prohibition"}],"answer":"C"},
-    {"q":"Which is NOT a case where appeal lies as of right to the Appellate Division?","options":[{"key":"A","text":"Substantial constitutional question certified by HCD"},{"key":"B","text":"Confirmation of a death sentence by HCD"},{"key":"C","text":"Life imprisonment sentence by HCD"},{"key":"D","text":"Civil case without substantial constitutional question"},{"key":"E","text":"Punishment for contempt by HCD"}],"answer":"D"},
-    {"q":"The Supreme Court is a \"court of record\" meaning:","options":[{"key":"A","text":"It records parliamentary proceedings"},{"key":"B","text":"It keeps records of all judgments and can punish for contempt"},{"key":"C","text":"It registers all subordinate court cases"},{"key":"D","text":"It records executive orders"},{"key":"E","text":"It only handles criminal appeals"}],"answer":"B"},
-    {"q":"The law declared by the Appellate Division is binding on:","options":[{"key":"A","text":"All courts in Bangladesh"},{"key":"B","text":"Only High Court Division"},{"key":"C","text":"Only subordinate courts"},{"key":"D","text":"Parliament"},{"key":"E","text":"Administrative Tribunals only"}],"answer":"A"},
-    {"q":"Appointments to subordinate courts are made by:","options":[{"key":"A","text":"Chief Justice alone"},{"key":"B","text":"President"},{"key":"C","text":"Law Minister"},{"key":"D","text":"Judicial Service Commission"},{"key":"E","text":"Parliament"}],"answer":"B"},
-    {"q":"Judicial officers must be:","options":[{"key":"A","text":"Politically neutral only"},{"key":"B","text":"Independent in judicial functions"},{"key":"C","text":"Appointed for life"},{"key":"D","text":"Elected by people"},{"key":"E","text":"Supervised by Law Ministry"}],"answer":"B"},
-    {"q":"Which Article empowers the High Court Division to issue writs?","options":[{"key":"A","text":"101"},{"key":"B","text":"102"},{"key":"C","text":"103"},{"key":"D","text":"106"},{"key":"E","text":"109"}],"answer":"B"},
-    {"q":"Under Article 94(1), the Supreme Court consists of:","options":[{"key":"A","text":"Civil and Criminal Divisions"},{"key":"B","text":"Appellate Division and High Court Division"},{"key":"C","text":"District and Sessions Divisions"},{"key":"D","text":"Original and Appellate Divisions"},{"key":"E","text":"Constitutional and Administrative Divisions"}],"answer":"B"},
-    {"q":"Under Article 94(2), the number of Judges in each Division is determined by:","options":[{"key":"A","text":"Parliament"},{"key":"B","text":"Chief Justice"},{"key":"C","text":"President"},{"key":"D","text":"Prime Minister"},{"key":"E","text":"Law Minister"}],"answer":"C"},
-    {"q":"Under Article 94(3), the Chief Justice shall sit:","options":[{"key":"A","text":"Only in HCD"},{"key":"B","text":"Only in AD"},{"key":"C","text":"In both Divisions"},{"key":"D","text":"In subordinate courts"},{"key":"E","text":"In Administrative Tribunal"}],"answer":"B"},
-    {"q":"Judges appointed to the```html
-<div class="card my-4 text-center">
-  <div class="card-body py-4">
-    <h5 class="card-title fw-bold mb-3">Download Suggestions by Masum</h5>
-    <p class="card-text text-muted mb-3">সবগুলো বিষয়ের সাজেশন্স একসাথে পিডিএফ ফাইলেই পেতে নিচের বাটনে ক্লিক করুন।</p>
-    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" class="btn btn-primary btn-lg px-4" target="_blank" rel="noopener noreferrer">
-      <i class="bi bi-google-drive me-2"></i>গুগল ড্রাইভ থেকে ডাউনলোড করুন
-    </a>
-  </div>
-</div>
+    {"q":"There shall be a Supreme Court for Bangladesh comprising the Appellate Division and the High Court Division","options":[{"key":"A","text":"Appellate Court, Appellate Division, High Court Division"},{"key":"B","text":"Supreme Court, Appellate Court, High Court"},{"key":"C","text":"Supreme Court, Appellate Division, High Court Division"},{"key":"D","text":"Apex Court, Supreme Court, Sub-ordinate Court"},{"key":"E","text":"Supreme Court, Higher Court, Lower Court"}],"answer":"C"}
+  ]
+};
+
+// FULL SAQ DATABASE (UPDATED WITH ALL SAQs FROM MUSLIM LAW & CONTRACT LAW PDFs)
+const SAQ_DB = {
+  muslim_personal_law_i: {
+    "2marks": [
+      { q: "Q.1 (a) Define Muslim law.", a: "Muslim law means the body of rules and principles governing the personal and family matters of Muslims, derived primarily from Islamic sources. It regulates matters such as marriage, divorce, dower, inheritance and other personal relations." },
+      { q: "Q.2 (a) What are the sources of Muslim Law?", a: "The principal sources of Muslim law are:\n1. Al-Quran\n2. Sunnah/Hadith\n3. Ijma\n4. Qiyas\nBesides these, different schools recognize other supplementary methods such as Istihsan and Istislah." },
+      { q: "Q.3 (a) Mention six authentic books on Hadith.", a: "The six authentic books of Hadith are:\n1. Sahih Bukhari\n2. Sahih Muslim\n3. Sunan Abu Dawud\n4. Jami' al-Tirmidhi\n5. Sunan al-Nasa'i\n6. Sunan Ibn Majah" },
+      { q: "Q.4 (a) Why Muslim marriage is considered as a civil contract?", a: "Muslim marriage (Nikah) is considered a civil contract because it is formed through Ijab (proposal) and Qabul (acceptance), requires competent parties and witnesses, and creates mutual legal rights and obligations between husband and wife." },
+      { q: "Q.5 (a) What are Ijab and Qabul?", a: "Ijab means the proposal of marriage made by one party, while Qabul means acceptance of that proposal by the other party. For a valid marriage, the proposal and acceptance must correspond to each other and take place in the same Majlis." },
+      { q: "Q.6 (a) Who is a Wali?", a: "A Wali is the guardian or person having authority in matters of marriage. The order of guardianship generally begins with the father, followed by the paternal grandfather and other paternal relatives." },
+      { q: "Q.7 (a) What is prohibition on the ground of consanguinity?", a: "Prohibition on the ground of consanguinity means prohibition of marriage between persons related by blood. A Muslim cannot marry certain close blood relatives, such as mother, daughter, sister, aunt, niece, etc." },
+      { q: "Q.8 (a) Distinguish between Fasid and Batil marriage.", a: "Fasid Marriage: Irregular marriage; defect is temporary/removable.\nBatil Marriage: Void marriage; defect is fundamental and permanent." },
+      { q: "Q.9 Cases of Marriage (Quick Analysis)", a: "(a) Muslim male + Hindu female = Fasid under Hanafi law.\n(b) Muslim male + step-daughter = Batil.\n(c) Muslim male + foster sister = Batil.\n(d) Hanafi Muslim + Shia female = Valid.\n(e) Muslim male + widow observing Iddat = Fasid." },
+      { q: "Q.10 (a) Which marriage is Batil: Muslim male with Christian female or Muslim female with Christian male?", a: "Muslim male + Christian female = Sahih.\nMuslim female + Christian male = Batil.\nTherefore, marriage of a Muslim female with a Christian male is Batil." },
+      { q: "Q.11 (a) What is polygamy?", a: "Polygamy means a marriage relationship in which a man has more than one wife at the same time. Under Islamic law, a Muslim man may have up to four wives simultaneously, subject to justice." },
+      { q: "Q.12 (a) What are the objectives of dower?", a: "1. To provide financial security to the wife.\n2. To recognize the wife's legal right.\n3. To act as a check against unrestricted divorce." },
+      { q: "Q.13 (a) State the mode of payment of dower.", a: "Dower may be Prompt dower (payable immediately on demand) or Deferred dower (payable on death or dissolution of marriage)." },
+      { q: "Q.14 (a) What is the lowest amount of dower according to Hanafi school?", a: "According to the Hanafi school, the minimum amount of dower is 10 dirhams." },
+      { q: "Q.15 (a) What is Iddat?", a: "Iddat is the prescribed period during which a Muslim woman must wait after dissolution of marriage or death of husband before contracting another marriage." },
+      { q: "Q.16 (a) What is the Muslim Family Laws Ordinance, 1961?", a: "It is Ordinance VIII of 1961 (dated 2 March 1961) governing key aspects of Muslim family law in Bangladesh." },
+      { q: "Q.17 (a) What is the effect of Section 3 of MFLO, 1961?", a: "Section 3 gives the Ordinance overriding effect over any other law, custom or usage." },
+      { q: "Q.18 (a) What is the requirement of Section 6 regarding a subsequent marriage?", a: "A man cannot contract another marriage without previous written permission of the Arbitration Council." },
+      { q: "Q.19 (a) What is the punishment for polygamy without permission under MFLO, 1961?", a: "Simple imprisonment up to 1 year, or fine up to Tk. 10,000, or both, plus immediate payment of entire dower." },
+      { q: "Q.20 (a) What is the notice requirement under Section 7 of MFLO, 1961?", a: "Husband must give written notice of Talaq to Chairman as soon as possible and supply a copy to the wife." },
+      { q: "Q.21 (a) What is meant by dissolution of marriage otherwise than by talaq under Section 8?", a: "Applies where delegated right of divorce is exercised by the wife, or where either party seeks dissolution otherwise than by talaq." },
+      { q: "Q.22 (a) What remedy is available to a wife when husband fails to maintain her adequately?", a: "Apply to Chairman under Section 9 for Arbitration Council certificate specifying maintenance amount." },
+      { q: "Q.23 (a) What is the effect of Section 10 of MFLO, 1961?", a: "Where Nikah Nama does not specify prompt or deferred dower, the entire dower is treated as payable on demand." },
+      { q: "Q.24 (a) What is the power of Government under Section 11 of MFLO?", a: "Government may make rules published in official Gazette to carry out the purposes of the Ordinance." }
+    ],
+    "broad": [
+      { q: "Q.1 (b) What are the characteristics of Muslim law? [3 Marks]", a: "1. Divine origin: Derived from revelation.\n2. Comprehensive: Covers religious, moral, social and legal matters.\n3. Consistency with human nature: Framed according to practical needs.\n4. Moral character: Legal rules connected with ethics.\n5. Allah is the ultimate legislator." },
+      { q: "Q.2 (b) Give a short description of Al-Quran as a source of Muslim Law. [3 Marks]", a: "Primary and most authoritative source. Contains 114 Surahs revealed over 23 years. Provides rules on marriage, divorce, inheritance, family relations, and morality. All other sources must conform to it." },
+      { q: "Q.3 (b) State the conditions of Ijma as a source of Muslim law. [3 Marks]", a: "1. Must be agreement of qualified Mujtahids.\n2. Must relate to a legal question.\n3. Occur after the death of Prophet Muhammad (PBUH).\n4. Unanimous agreement among qualified jurists.\n5. Cannot contradict Quran or Sunnah." },
+      { q: "Q.4 (b) State the legal incidents of a valid Muslim marriage. [3 Marks]", a: "1. Matrimonial cohabitation becomes lawful.\n2. Wife becomes entitled to dower (Mahr).\n3. Mutual rights of inheritance arise.\n4. Children born are legitimate.\n5. Husband liable for maintenance.\n6. Creates prohibited degrees of affinity." },
+      { q: "Q.5 (b) State the essential conditions for a valid Muslim marriage. [3 Marks]", a: "1. Proposal (Ijab) and Acceptance (Qabul) in same meeting (Majlis).\n2. Legal capacity of parties.\n3. Free consent.\n4. Presence of required witnesses.\n5. Absence of legal prohibitions." },
+      { q: "Q.6 (b) What are the requirements of witnesses in a Muslim marriage? [3 Marks]", a: "1. Two adult male witnesses, OR one adult male and two adult female witnesses.\n2. Witnesses must be sane and understand Ijab & Qabul.\n3. Absence of witnesses renders marriage Fasid under Hanafi law." },
+      { q: "Q.7 (b) Make a list of women falling under prohibited degrees in case of Muslim marriage. [3 Marks]", a: "Consanguinity: Mother, daughter, sister, paternal aunt, maternal aunt, niece.\nAffinity: Mother-in-law, wife's daughter, step-mother.\nFosterage: Foster mother, foster sister." },
+      { q: "Q.8 (b) State the legal incidents of irregular (Fasid) marriage. [3 Marks]", a: "Unconsummated: Wife gets no dower.\nConsummated:\n1. Wife gets proper or specified dower (whichever is less).\n2. Iddat becomes necessary.\n3. Children are legitimate.\n4. No mutual inheritance rights." },
+      { q: "Q.10 (b) Explain the religious classification of Muslim marriages according to the notes. [3 Marks]", a: "1. Muslim male + Muslim female = Sahih\n2. Muslim male + Kitabia female = Sahih\n3. Muslim male + idol worshipper = Fasid (Hanafi)\n4. Muslim female + non-Muslim male = Batil" },
+      { q: "Q.11 (b) Explain the Islamic position regarding polygamy. [3 Marks]", a: "Permitted in restricted manner up to 4 wives simultaneously. Requires strict equality and justice between wives. If a man fears he cannot maintain justice, he must marry only one." },
+      { q: "Q.12 (b) State the factors to be considered for the determination of proper dower. [3 Marks]", a: "Determining Mahr-ul-Mithl:\n1. Personal qualifications of wife.\n2. Family status of wife.\n3. Dower of female paternal relatives.\n4. Financial capacity of husband." },
+      { q: "Q.13 (b) Distinguish between Prompt and Deferred dower. [3 Marks]", a: "Prompt Dower: Payable immediately on demand; wife can enforce during marriage or refuse cohabitation.\nDeferred Dower: Payable upon death or divorce; acts as financial security." },
+      { q: "Q.14 (b) Explain Mahr-ul-Musamma and Mahr-ul-Mithl. [3 Marks]", a: "Mahr-ul-Musamma: Specified dower agreed upon by parties at/before marriage.\nMahr-ul-Mithl: Proper/customary dower fixed by law based on social status when no dower was specified." },
+      { q: "Q.15 (b) Illustrate the objectives and duration of Iddat. [3 Marks]", a: "Objectives: Determination of paternity, preventing confusion of lineage, respect for marriage.\nDuration: Divorce (3 cycles/months), Death (4 months 10 days), Pregnant (until delivery)." },
+      { q: "Q.16 (b) Mention the important provisions of the Muslim Family Laws Ordinance, 1961. [3 Marks]", a: "Sec 3 (Overriding effect), Sec 4 (Succession of predeceased child's issues), Sec 6 (Polygamy permission), Sec 7 (Talaq notice & Arbitration Council), Sec 8 (Dissolution otherwise), Sec 9 (Maintenance), Sec 10 (Dower)." },
+      { q: "Q.17 (b) Explain the rule of succession under Section 4 of MFLO, 1961. [3 Marks]", a: "Where a son/daughter dies before opening of succession, their surviving children receive per stirpes the exact share their parent would have received if alive." },
+      { q: "Q.18 (b) Explain the procedure for obtaining permission for polygamy under Section 6. [3 Marks]", a: "1. Submit application to Chairman with fee & reasons.\n2. State whether existing wife consented.\n3. Nominate representatives to form Arbitration Council.\n4. Council decides if proposed marriage is necessary & just." },
+      { q: "Q.19 (b) What are the legal consequences of contracting another marriage without permission under Section 6? [3 Marks]", a: "1. Immediate payment of entire dower.\n2. Unpaid dower recoverable as land revenue arrears.\n3. Fine up to 10,000 Tk / Imprisonment up to 1 year.\n4. Non-registration of subsequent marriage." },
+      { q: "Q.20 (b) Explain the procedure and effect of talaq under Section 7. [3 Marks]", a: "1. Written notice to Chairman + copy to wife.\n2. Arbitration Council formed within 30 days for reconciliation.\n3. Talaq effective after 90 days of notice delivery (or after pregnancy ends)." },
+      { q: "Q.22 (b) Explain the provisions relating to maintenance under Section 9. [3 Marks]", a: "1. Wife applies to Chairman if husband fails to maintain.\n2. Arbitration Council issues certificate specifying maintenance.\n3. Revision lies to Assistant Judge; unpaid amount recoverable as land revenue." },
+      { q: "Q.24 (b) What is the significance of Section 12 of MFLO, 1961? [3 Marks]", a: "Amends Child Marriage Restraint Act 1929, setting child definition age (male under 21, female under 18 in context of ordinance)." }
+    ]
+  },
+  law_of_contract: {
+    "2marks": [
+      { q: "1. What is 'Contract'? [2 Marks]", a: "According to Section 2(h) of Contract Act 1872: 'An agreement enforceable by law is a contract.'" },
+      { q: "2. What is 'Agreement'? [2 Marks]", a: "Section 2(e): 'Every promise and every set of promises, forming the consideration for each other, is an agreement.'\nFormula: Proposal + Acceptance = Promise; Promise + Consideration = Agreement." },
+      { q: "4. What is 'Offer' or 'Proposal'? [2 Marks]", a: "Section 2(a): When one person signifies to another willingness to do/abstain with a view to obtaining assent." },
+      { q: "5. What is 'Invitation to Offer'? [2 Marks]", a: "An invitation to others to make an offer (e.g. price tags on displayed goods, catalogue, auction ad)." },
+      { q: "6. What is 'Counter Offer'? [2 Marks]", a: "When offeree accepts conditionally or alters terms. It terminates original offer." },
+      { q: "7. What is 'Acceptance of Offer'? [2 Marks]", a: "Section 2(b): When offeree signifies assent to the proposal." },
+      { q: "9. What is 'Consideration'? [2 Marks]", a: "Section 2(d): Act, abstinence, or promise at the desire of promisor." },
+      { q: "10. Who is competent to contract? [2 Marks]", a: "Section 11: Majority age, Sound mind, Not disqualified by law." },
+      { q: "11. What is 'Free Consent'? [2 Marks]", a: "Section 13 & 14: Consent not caused by coercion, undue influence, fraud, misrepresentation, or mistake." },
+      { q: "12. What is lawful consideration and lawful object? [2 Marks]", a: "Section 23: Consideration/object not forbidden by law, not fraudulent, not immoral or opposed to public policy." },
+      { q: "13. What is 'Void Contract'? [2 Marks]", a: "Section 2(j): A contract which ceases to be enforceable by law becomes void." },
+      { q: "18. What are Executed and Executory Contracts? [2 Marks]", a: "Executed: Obligations completely performed.\nExecutory: Obligations remain to be performed in future." },
+      { q: "19. What is a Contingent Contract? [2 Marks]", a: "Section 31: Contract to do/not do if collateral future uncertain event happens/does not happen." },
+      { q: "20. What is Express Contract and Implied Contract? [2 Marks]", a: "Express: Stated in words (oral/written).\nImplied: Inferred from conduct/circumstances." }
+    ],
+    "broad": [
+      { q: "1. Why is 'intention to create legal relations' crucial in contract law? [3 Marks]", a: "Distinguishes social/domestic promises from binding legal contracts. Social arrangements generally lack intent to enforce in court." },
+      { q: "2. 'All contracts are agreements, but all agreements are not contracts.' Explain. [3 Marks]", a: "Every contract requires an agreement, but only agreements fulfilling legal enforceability under Sec 10 become contracts." },
+      { q: "3. What are the essential elements of a valid contract? [3 Marks]", a: "1. Offer & Acceptance\n2. Intention to create legal relation\n3. Lawful Consideration\n4. Competency\n5. Free Consent\n6. Lawful Object\n7. Not declared void" },
+      { q: "4. What are the essentials/characteristics of a valid offer? [3 Marks]", a: "Clear willingness, intention to obtain assent, terms certain & communicated, distinguished from invitation to offer." },
+      { q: "5. Distinguish between Offer and Invitation to Offer. [3 Marks]", a: "Offer: Definite proposal ready to be bound.\nInvitation to offer: Invites other party to make an offer (e.g. Boots Cash Chemists case)." },
+      { q: "6. Explain the effect of a Counter Offer. [3 Marks]", a: "1. Rejects original offer.\n2. Creates new offer.\n3. Original offer cannot be accepted unless renewed." },
+      { q: "7. 'An acceptance is to offer what a lighted match is to a train of gunpowder.' Analyse. [3 Marks]", a: "Converts proposal into irrevocable promise and contract once accepted according to terms." },
+      { q: "8. What are the rules of valid Acceptance? [3 Marks]", a: "Absolute & unconditional, communicated, in prescribed mode, within reasonable time." },
+      { q: "9. 'No consideration, no contract.' What are the exceptions? [3 Marks]", a: "Sec 25: Natural love & affection (written & registered), Past voluntary service compensation, Time-barred debt promise, Completed gift." },
+      { q: "10. Discuss the capacity of parties to contract. [3 Marks]", a: "Majority age (18+), Sound mind, No legal disqualification (e.g. bankrupt)." },
+      { q: "11. When is consent not free? Discuss. [3 Marks]", a: "When caused by Coercion (Sec 15), Undue Influence (Sec 16), Fraud (Sec 17), Misrepresentation (Sec 18), or Mistake (Sec 20)." },
+      { q: "12. When are consideration and object unlawful under Section 23? [3 Marks]", a: "Forbidden by law, defeats law provisions, fraudulent, causes injury, immoral or opposed to public policy." },
+      { q: "13. Which agreements are void under the law of Bangladesh? [3 Marks]", a: "Restraint of marriage (26), Restraint of trade (27), Legal proceedings restraint (28), Uncertain (29), Wager (30), Impossible act (56)." },
+      { q: "14. Distinguish between Void and Illegal Contract. [3 Marks]", a: "Void: Not enforceable.\nIllegal: Forbidden by law; collateral transactions also void." },
+      { q: "15. Distinguish between Void and Voidable Contract. [3 Marks]", a: "Void: No legal effect from start/cessation.\nVoidable: Valid until rescinded by aggrieved party." },
+      { q: "16. Distinguish between Void and Unenforceable Contract. [3 Marks]", a: "Unenforceable lacks procedural/formal requirement (e.g. registration); Void lacks legal substance." },
+      { q: "19. Distinguish between Contingent Contract and Wagering Agreement. [3 Marks]", a: "Contingent: Valid legal contract on collateral event.\nWager: Void agreement based purely on win/loss chance." }
+    ]
+  },
+  law_of_tort_consumers: {
+    "2marks": [
+      { q: "1. What is meant by Ex Turpi Causa Non Oritur Actio? [2 Marks]", a: "Ex Turpi Causa Non Oritur Actio means \"No action arises from an illegal or immoral cause.\"\nThe principle means that a person cannot ordinarily claim a legal remedy when his claim is based upon or sufficiently connected with his own illegal or immoral conduct." }
+    ],
+    "broad": []
+  },
+  history_emergence_bd: { "2marks": [], "broad": [] },
+  english_test: { "2marks": [], "broad": [] },
+  constitutional_law_ii: {
+    "2marks": [
+      { q: "1. Mention different types of writs under the constitutional mechanism of Bangladesh. [2]", a: "The Constitution provides five principal writ remedies under Article 102: Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto." },
+      { q: "2. Explain power of the Appellate Division as to doing complete justice. [2]", a: "Article 104 empowers Appellate Division to issue directions/orders/decrees/writs necessary for doing complete justice." }
+    ],
+    "broad": [
+      { q: "Q1. Supreme Court and Judges - Qualifications & Tenure", a: "Article 95(2): Citizen of Bangladesh + 10 years SC advocate OR 10 years judicial office.\nArticle 96: Tenure until 67 years age." }
+    ]
+  }
+};
+
+const TITLES = {
+  muslim_personal_law_i: 'Muslim Personal Law -I',
+  law_of_contract: 'Law of Contract',
+  law_of_tort_consumers: 'Law of Tort & Consumers Protection',
+  history_emergence_bd: 'The History of Emergence of BD',
+  english_test: 'Listening and Speaking English',
+  constitutional_law_ii: 'Constitutional Law of BD -II'
+};
+
+let currentSubject = null;
+let currentSaqType = null;
+let questions = [];
+let current = 0;
+let score = 0;
+let wrong = 0;
+let answered = false;
+let userAnswersState = {};
+
+function hideAllScreens() {
+  document.getElementById('home-screen').style.display = 'none';
+  document.getElementById('dashboard-screen').style.display = 'none';
+  document.getElementById('module-screen').style.display = 'none';
+  document.getElementById('saq-type-screen').style.display = 'none';
+  document.getElementById('saq-viewer-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'none';
+  document.getElementById('score-screen').classList.remove('show');
+}
+
+function goHome() {
+  hideAllScreens();
+  document.getElementById('home-screen').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+function openSubjectModules(subjectKey) {
+  currentSubject = subjectKey;
+  hideAllScreens();
+  document.getElementById('module-screen').style.display = 'block';
+  document.getElementById('module-subject-title').textContent = TITLES[subjectKey];
+  let mcqCount = DB[subjectKey] ? DB[subjectKey].length : 0;
+  document.getElementById('module-mcq-count').innerHTML = mcqCount > 0 ? `&#9670; ${mcqCount} Questions` : `&#9670; Coming Soon`;
+  document.getElementById('module-mcq-reset').style.display = mcqCount > 0 ? 'inline-block' : 'none';
+  window.scrollTo(0,0);
+}
+
+function startMCQFromModule() {
+  if (!DB[currentSubject] || DB[currentSubject].length === 0) {
+    alert("This MCQ test is coming soon!");
+    return;
+  }
+  startQuiz(currentSubject);
+}
+
+function resetCurrentMCQ() {
+  if(confirm("Are you sure you want to reset all progress for this test?")) {
+    localStorage.removeItem('mcq_progress_' + currentSubject);
+    openSubjectModules(currentSubject);
+    alert("Progress has been reset!");
+  }
+}
+
+function openSaqTypeSelection() {
+  hideAllScreens();
+  document.getElementById('saq-type-screen').style.display = 'block';
+  document.getElementById('saq-subject-title').textContent = TITLES[currentSubject];
+  let saqData = SAQ_DB[currentSubject] || { "2marks": [], "broad": [] };
+  document.getElementById('count-2marks').innerHTML = `&#9670; ${saqData["2marks"].length} Questions`;
+  document.getElementById('count-broad').innerHTML = `&#9670; ${saqData["broad"].length} Questions`;
+  window.scrollTo(0,0);
+}
+
+function backToModules() {
+  openSubjectModules(currentSubject);
+}
+
+function openSaqViewer(type) {
+  currentSaqType = type;
+  hideAllScreens();
+  document.getElementById('saq-viewer-screen').style.display = 'block';
+  let label = type === '2marks' ? 'Short Questions (2 Marks)' : 'Broad Questions';
+  document.getElementById('saq-view-title').textContent = `${TITLES[currentSubject]} - ${label}`;
+  let listContainer = document.getElementById('saq-list-container');
+  listContainer.innerHTML = '';
+  let items = SAQ_DB[currentSubject] ? SAQ_DB[currentSubject][type] : [];
+  if (!items || items.length === 0) {
+    listContainer.innerHTML = `<div style="text-align:center; padding: 40px; color:var(--text-dim);">No questions added yet for this section. Coming soon!</div>`;
+  } else {
+    items.forEach((item, index) => {
+      let div = document.createElement('div');
+      div.className = 'saq-item';
+      div.innerHTML = `
+        <div class="saq-q" onclick="this.parentElement.classList.toggle('open')">
+          <span>Q${index+1}. ${escHtml(item.q)}</span>
+          <span style="font-size:0.8rem;">▼</span>
+        </div>
+        <div class="saq-a">${escHtml(item.a)}</div>
+      `;
+      listContainer.appendChild(div);
+    });
+  }
+  window.scrollTo(0,0);
+}
+
+function backToSaqType() {
+  openSaqTypeSelection();
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+function startQuiz(subject) {
+  currentSubject = subject;
+  let savedProgress = localStorage.getItem('mcq_progress_' + subject);
+  if (savedProgress) {
+    let data = JSON.parse(savedProgress);
+    questions = data.questions;
+    current = data.current;
+    score = data.score;
+    wrong = data.wrong;
+    userAnswersState = data.userAnswersState || {};
+  } else {
+    questions = shuffle(DB[subject]);
+    current = 0; score = 0; wrong = 0;
+    userAnswersState = {};
+  }
+  hideAllScreens();
+  document.getElementById('quiz-screen').style.display='block';
+  document.getElementById('topbar-title').textContent = TITLES[subject];
+  showQuestion();
+  window.scrollTo(0,0);
+}
+
+function showQuestion() {
+  const q = questions[current];
+  const total = questions.length;
+  answered = userAnswersState[current] !== undefined;
+  const savedSelection = userAnswersState[current];
+
+  document.getElementById('q-num').textContent = 'Question ' + (current+1);
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('prog-text').textContent = (current+1) + ' / ' + total;
+  
+  const progressPercent = Math.round(((current + 1) / total) * 100);
+  document.getElementById('prog-fill').style.width = progressPercent + '%';
+
+  document.getElementById('prog-correct-count').textContent = '✓' + score;
+  document.getElementById('prog-wrong-count').textContent = '✗' + wrong;
+
+  const fb = document.getElementById('feedback');
+  if(answered) {
+    if(savedSelection === q.answer) {
+      fb.className = 'feedback correct-fb show';
+      fb.textContent = '✓ Correct!';
+    } else {
+      fb.className = 'feedback wrong-fb show';
+      fb.textContent = '✗ Wrong. Correct answer: ' + q.answer;
+    }
+    document.getElementById('next-btn').classList.add('show');
+  } else {
+    fb.className = 'feedback';
+    fb.textContent = '';
+    document.getElementById('next-btn').className = 'next-btn';
+  }
+
+  const pb = document.getElementById('prev-btn');
+  pb.className = current > 0 ? 'prev-btn show' : 'prev-btn';
+
+  const ol = document.getElementById('options-list');
+  ol.innerHTML = '';
+  q.options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerHTML = '<span class="opt-key">'+opt.key+'</span><span class="opt-text">'+escHtml(opt.text)+'</span><span class="opt-badge"></span>';
+    
+    if(answered) {
+      btn.disabled = true;
+      const badge = btn.querySelector('.opt-badge');
+      if(opt.key === q.answer && opt.key === savedSelection) {
+        btn.classList.add('correct'); badge.textContent = '✓';
+      } else if(opt.key === savedSelection && opt.key !== q.answer) {
+        btn.classList.add('wrong'); badge.textContent = '✗';
+      } else if(opt.key === q.answer) {
+        btn.classList.add('reveal-correct'); badge.textContent = '✓';
+      }
+    } else {
+      btn.onclick = () => selectAnswer(opt.key, q.answer);
+    }
+    ol.appendChild(btn);
+  });
+
+  const nb = document.getElementById('next-btn');
+  nb.textContent = current < questions.length-1 ? 'Next Question →' : 'See Results';
+}
+
+function saveCurrentProgress() {
+  if(!currentSubject) return;
+  let data = {
+    questions: questions,
+    current: current,
+    score: score,
+    wrong: wrong,
+    userAnswersState: userAnswersState
+  };
+  localStorage.setItem('mcq_progress_' + currentSubject, JSON.stringify(data));
+}
+
+function escHtml(t) { return !t ? '' : t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function selectAnswer(selected, correct) {
+  if(answered) return;
+  answered = true;
+  userAnswersState[current] = selected;
+  if(selected === correct) score++;
+  else wrong++;
+  saveCurrentProgress();
+  showQuestion();
+}
+
+function nextQuestion() {
+  current++;
+  if(current >= questions.length) {
+    showScore();
+  } else {
+    saveCurrentProgress();
+    showQuestion();
+    window.scrollTo(0,0);
+  }
+}
+
+function prevQuestion() {
+  if(current <= 0) return;
+  current--;
+  saveCurrentProgress();
+  showQuestion();
+  window.scrollTo(0,0);
+}
+
+function showScore() {
+  hideAllScreens();
+  const sc = document.getElementById('score-screen');
+  sc.classList.add('show');
+  const total = questions.length;
+  const pct = total > 0 ? Math.round(score/total*100) : 0;
+  document.getElementById('score-pct').textContent = pct+'%';
+  document.getElementById('score-detail').textContent = 'You answered '+score+' out of '+total+' correctly.';
+  document.getElementById('stat-correct').textContent = score;
+  document.getElementById('stat-wrong').textContent = wrong;
+  document.getElementById('stat-total').textContent = total;
+  window.scrollTo(0,0);
+}
+
+function retestQuiz() {
+  localStorage.removeItem('mcq_progress_' + currentSubject);
+  startQuiz(currentSubject);
+}
+
+function manualReset(subject) {
+  if(confirm("Reset progress for this test?")) {
+    localStorage.removeItem('mcq_progress_' + subject);
+    startQuiz(subject);
+  }
+}
+
+function toggleWrongReview() {
+  const container = document.getElementById('wrong-review-container');
+  const list = document.getElementById('wrong-review-list');
+  if(container.classList.contains('show')) {
+    container.classList.remove('show');
+  } else {
+    list.innerHTML = '';
+    questions.forEach((q, idx) => {
+      let userAns = userAnswersState[idx];
+      if(userAns && userAns !== q.answer) {
+        let userOptText = q.options.find(o => o.key === userAns)?.text || userAns;
+        let correctOptText = q.options.find(o => o.key === q.answer)?.text || q.answer;
+        list.innerHTML += `
+          <div class="wrong-review-item">
+            <div class="wrong-review-q">Q${idx+1}: ${escHtml(q.q)}</div>
+            <div class="wrong-ans-text">Your Answer: (${userAns}) ${escHtml(userOptText)}</div>
+            <div class="correct-ans-text">Correct Answer: (${q.answer}) ${escHtml(correctOptText)}</div>
+          </div>
+        `;
+      }
+    });
+    if(list.innerHTML === '') {
+      list.innerHTML = '<div style="color:var(--green)">No incorrect answers in this test! Great job!</div>';
+    }
+    container.classList.add('show');
+  }
+}
+
+function setTheme(mode) {
+  if(mode === 'paper') {
+    document.body.classList.add('paper-theme');
+    document.getElementById('btn-dark').classList.remove('active');
+    document.getElementById('btn-paper').classList.add('active');
+    localStorage.setItem('theme','paper');
+  } else {
+    document.body.classList.remove('paper-theme');
+    document.getElementById('btn-dark').classList.add('active');
+    document.getElementById('btn-paper').classList.remove('active');
+    localStorage.setItem('theme','dark');
+  }
+}
+
+(function(){ if(localStorage.getItem('theme')==='paper') setTheme('paper'); })();
+</script>
+</body>
+</html>
